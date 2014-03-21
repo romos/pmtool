@@ -1,0 +1,10 @@
+Policy Management Tool [pmtool]
+
+Initially created as diploma project of Roman Oderov.
+A GUI-tool for efficient and easy management of RBAC-based access control policies within an organisation.
+
+Functionality:
+* Create a policy based on RBAC-model. Add data about your users, roles, privileges, etc.
+* Visualize a policy with different diagrams (e.g. User-Role mapping, etc.)
+* Manage policies by means of visual modeling tools
+
