@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 19.625" name="rbacLINQ2SQL">
+  <DataContextMoniker Name="/rbacLINQ2SQLDataContext" />
+  <nestedChildShapes>
+    <classShape Id="50b83c45-3a3e-4358-8188-c6eac9ffda2f" absoluteBounds="3.5, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Action" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fac30688-8306-4c9d-8491-8bdb05316703" absoluteBounds="3.515, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="639eca72-e13f-428e-88b9-6c445ee7e75f" absoluteBounds="9, 13.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/ActiveRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4d43b59-0c38-4bb6-b0d5-5b2e115dbbd6" absoluteBounds="9.015, 14.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6a378cc6-5692-4e7c-9fc9-c2dc923d12a3" absoluteBounds="9.25, 11.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/AuthUserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cba002e3-dc89-41c1-8c87-cb2ae5912b53" absoluteBounds="9.265, 12.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="289515c5-4276-4e4e-9076-4de4314c5042" absoluteBounds="6.25, 11.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/DynamicSOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1340666-60fc-4e93-ae5f-3316e31bf21e" absoluteBounds="6.265, 12.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8d13918-2a10-4b2b-952f-25faeb7b3390" absoluteBounds="3.5, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Object" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35666f48-ebd9-4f1e-9fbb-417788fbb97d" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a440ac21-4267-44b2-986d-f787d899137c" absoluteBounds="3.5, 5.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Permission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f9c1588-ff3b-4e22-b2c1-6c6de16646ed" absoluteBounds="3.515, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51e75488-9c7b-4058-9673-780612ac6717" absoluteBounds="6.25, 5.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/PermissionPerObject" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1ba9a04-8697-49a2-9308-d87271798236" absoluteBounds="6.265, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8975218-5695-4e0a-a482-2f72f859d379" absoluteBounds="0.75, 10, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Policy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35eabe83-9a72-4185-a77f-8d83713398f2" absoluteBounds="0.765, 10.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" absoluteBounds="3.5, 9.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7df629e5-2bf8-4a6e-9512-26bc3e11e92c" absoluteBounds="3.515, 10.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7dd56ee8-9c5e-4aff-96b7-53760bac942f" absoluteBounds="6.25, 13.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/RoleHierarchy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a882e160-45a3-4f5a-af84-6d5537a901f3" absoluteBounds="6.265, 14.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a714d61f-0afd-4080-9ede-d2b99c1ae674" absoluteBounds="6.25, 7.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/RolePermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="758b5b07-7581-4352-b26a-88925cc039ab" absoluteBounds="6.265, 8.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bff5613a-0a4b-4c04-a3c5-014695d9f554" absoluteBounds="6.25, 17.625, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/Session" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df6259ef-60d5-4195-b53b-9b40d9e29395" absoluteBounds="6.265, 18.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81278eda-8009-4289-8ea3-78638c33fe5e" absoluteBounds="6.25, 15.625, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/StaticSOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9675a26-f7e0-4aa2-b03f-153f4767ee0c" absoluteBounds="6.265, 16.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="08eb3bc5-b6fb-43fe-8b32-ca3848aa1719" absoluteBounds="3.5, 17.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/rbacLINQ2SQLDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec17530c-ee75-404f-aa56-4038acc43ae4" absoluteBounds="3.515, 18.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 3.34699625651042); (6.63541416666667 : 3.34699625651042 : JumpStart); (6.80208083333333 : 3.34699625651042 : JumpEnd); (7.25 : 3.34699625651042); (7.25 : 5.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Action/Action_PermissionPerObject" />
+      <nodes>
+        <classShapeMoniker Id="50b83c45-3a3e-4358-8188-c6eac9ffda2f" />
+        <classShapeMoniker Id="51e75488-9c7b-4058-9673-780612ac6717" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.34699625651042); (6.7187475 : 1.34699625651042); (6.7187475 : 5.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Object/Object_PermissionPerObject" />
+      <nodes>
+        <classShapeMoniker Id="f8d13918-2a10-4b2b-952f-25faeb7b3390" />
+        <classShapeMoniker Id="51e75488-9c7b-4058-9673-780612ac6717" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.31814697265625); (6.25 : 6.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Permission/Permission_PermissionPerObject" />
+      <nodes>
+        <classShapeMoniker Id="a440ac21-4267-44b2-986d-f787d899137c" />
+        <classShapeMoniker Id="51e75488-9c7b-4058-9673-780612ac6717" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 10); (1.75 : 6.31814697265625); (3.5 : 6.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Policy/Policy_Permission" />
+      <nodes>
+        <classShapeMoniker Id="f8975218-5695-4e0a-a482-2f72f859d379" />
+        <classShapeMoniker Id="a440ac21-4267-44b2-986d-f787d899137c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 11.2035953776042); (4.5 : 14.9752425130208); (4.68229291666667 : 14.9752425130208 : JumpStart); (4.84895958333333 : 14.9752425130208 : JumpEnd); (5.21354541666667 : 14.9752425130208 : JumpStart); (5.38021208333333 : 14.9752425130208 : JumpEnd); (9 : 14.9752425130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_ActiveRole" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="639eca72-e13f-428e-88b9-6c445ee7e75f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.4142976888021); (6.63541416666667 : 10.4142976888021 : JumpStart); (6.80208083333333 : 10.4142976888021 : JumpEnd); (10.25 : 10.4142976888021); (10.25 : 11.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_AuthUserRole" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="6a378cc6-5692-4e7c-9fc9-c2dc923d12a3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.8401990332031); (6.63541416666667 : 10.8401990332031 : JumpStart); (6.80208083333333 : 10.8401990332031 : JumpEnd); (7.25 : 10.8401990332031); (7.25 : 11.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_DynamicSOD" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="289515c5-4276-4e4e-9076-4de4314c5042" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.98839634440104); (6.7187475 : 9.98839634440104); (6.7187475 : 11.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_DynamicSOD1" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="289515c5-4276-4e4e-9076-4de4314c5042" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.5969962565104); (3.5 : 10.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Policy/Policy_Role" />
+      <nodes>
+        <classShapeMoniker Id="f8975218-5695-4e0a-a482-2f72f859d379" />
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0312525 : 11.2035953776042); (5.0312525 : 14.2219962565104); (5.21354541666667 : 14.2219962565104 : JumpStart); (5.38021208333333 : 14.2219962565104 : JumpEnd); (6.25 : 14.2219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_RoleHierarchy" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="7dd56ee8-9c5e-4aff-96b7-53760bac942f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.9687475 : 11.2035953776042); (3.9687475 : 13.8922456282552); (4.15104041666667 : 13.8922456282552 : JumpStart); (4.31770708333333 : 13.8922456282552 : JumpEnd); (4.41666666666667 : 13.8922456282552 : JumpStart); (4.58333333333333 : 13.8922456282552 : JumpEnd); (4.68229291666667 : 13.8922456282552 : JumpStart); (4.84895958333333 : 13.8922456282552 : JumpEnd); (4.94791916666667 : 13.8922456282552 : JumpStart); (5.11458583333333 : 13.8922456282552 : JumpEnd); (5.21354541666667 : 13.8922456282552 : JumpStart); (5.38021208333333 : 13.8922456282552 : JumpEnd); (6.25 : 13.8922456282552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_RoleHierarchy1" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="7dd56ee8-9c5e-4aff-96b7-53760bac942f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 7.0112939453125); (4.5 : 8.47199625651042); (6.25 : 8.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Permission/Permission_RolePermission" />
+      <nodes>
+        <classShapeMoniker Id="a440ac21-4267-44b2-986d-f787d899137c" />
+        <classShapeMoniker Id="a714d61f-0afd-4080-9ede-d2b99c1ae674" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.77544567220052); (7.75 : 9.77544567220052); (7.75 : 9.06899251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_RolePermission" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="a714d61f-0afd-4080-9ede-d2b99c1ae674" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 18.5104484049479); (10 : 18.5104484049479); (10 : 15.0689925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Session/Session_ActiveRole" />
+      <nodes>
+        <classShapeMoniker Id="bff5613a-0a4b-4c04-a3c5-014695d9f554" />
+        <classShapeMoniker Id="639eca72-e13f-428e-88b9-6c445ee7e75f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.29687875 : 11.2035953776042); (5.29687875 : 16.2219962565104); (6.25 : 16.2219962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_StaticSOD" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="81278eda-8009-4289-8ea3-78638c33fe5e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.76562625 : 11.2035953776042); (4.76562625 : 15.8922456282552); (5.21354541666667 : 15.8922456282552 : JumpStart); (5.38021208333333 : 15.8922456282552 : JumpEnd); (6.25 : 15.8922456282552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Role/Role_StaticSOD1" />
+      <nodes>
+        <classShapeMoniker Id="a9f4a9bb-88b1-4606-9da9-a9ba860d6f64" />
+        <classShapeMoniker Id="81278eda-8009-4289-8ea3-78638c33fe5e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.23437375 : 17.75); (4.23437375 : 13.0377425130208); (4.41666666666667 : 13.0377425130208 : JumpStart); (4.58333333333333 : 13.0377425130208 : JumpEnd); (4.68229291666667 : 13.0377425130208 : JumpStart); (4.84895958333333 : 13.0377425130208 : JumpEnd); (4.94791916666667 : 13.0377425130208 : JumpStart); (5.11458583333333 : 13.0377425130208 : JumpEnd); (5.21354541666667 : 13.0377425130208 : JumpStart); (5.38021208333333 : 13.0377425130208 : JumpEnd); (9.25 : 13.0377425130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/User/User_AuthUserRole" />
+      <nodes>
+        <classShapeMoniker Id="08eb3bc5-b6fb-43fe-8b32-ca3848aa1719" />
+        <classShapeMoniker Id="6a378cc6-5692-4e7c-9fc9-c2dc923d12a3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 18.5392976888021); (6.25 : 18.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/User/User_Session" />
+      <nodes>
+        <classShapeMoniker Id="08eb3bc5-b6fb-43fe-8b32-ca3848aa1719" />
+        <classShapeMoniker Id="bff5613a-0a4b-4c04-a3c5-014695d9f554" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 11.1939925130208); (1.75 : 18.5392976888021); (3.5 : 18.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/rbacLINQ2SQLDataContext/Policy/Policy_User" />
+      <nodes>
+        <classShapeMoniker Id="f8975218-5695-4e0a-a482-2f72f859d379" />
+        <classShapeMoniker Id="08eb3bc5-b6fb-43fe-8b32-ca3848aa1719" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
