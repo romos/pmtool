@@ -33,6 +33,9 @@ namespace pmt
     partial void InsertAction(Action instance);
     partial void UpdateAction(Action instance);
     partial void DeleteAction(Action instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     partial void InsertActiveRole(ActiveRole instance);
     partial void UpdateActiveRole(ActiveRole instance);
     partial void DeleteActiveRole(ActiveRole instance);
@@ -69,9 +72,6 @@ namespace pmt
     partial void InsertStaticSOD(StaticSOD instance);
     partial void UpdateStaticSOD(StaticSOD instance);
     partial void DeleteStaticSOD(StaticSOD instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     #endregion
 		
 		public rbacLINQ2SQLDataContext() : 
@@ -109,6 +109,14 @@ namespace pmt
 			get
 			{
 				return this.GetTable<Action>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> User
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 		
@@ -207,14 +215,6 @@ namespace pmt
 				return this.GetTable<StaticSOD>();
 			}
 		}
-		
-		public System.Data.Linq.Table<User> User
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Action")]
@@ -245,7 +245,7 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -328,6 +328,237 @@ namespace pmt
 		{
 			this.SendPropertyChanging();
 			entity.Action = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private string _Password;
+		
+		private int _Policy_Id;
+		
+		private EntitySet<AuthUserRole> _AuthUserRole;
+		
+		private EntitySet<Session> _Session;
+		
+		private EntityRef<Policy> _Policy;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnPolicy_IdChanging(int value);
+    partial void OnPolicy_IdChanged();
+    #endregion
+		
+		public User()
+		{
+			this._AuthUserRole = new EntitySet<AuthUserRole>(new Action<AuthUserRole>(this.attach_AuthUserRole), new Action<AuthUserRole>(this.detach_AuthUserRole));
+			this._Session = new EntitySet<Session>(new Action<Session>(this.attach_Session), new Action<Session>(this.detach_Session));
+			this._Policy = default(EntityRef<Policy>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Policy_Id", DbType="Int NOT NULL")]
+		public int Policy_Id
+		{
+			get
+			{
+				return this._Policy_Id;
+			}
+			set
+			{
+				if ((this._Policy_Id != value))
+				{
+					if (this._Policy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPolicy_IdChanging(value);
+					this.SendPropertyChanging();
+					this._Policy_Id = value;
+					this.SendPropertyChanged("Policy_Id");
+					this.OnPolicy_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_AuthUserRole", Storage="_AuthUserRole", ThisKey="Id", OtherKey="User_Id")]
+		public EntitySet<AuthUserRole> AuthUserRole
+		{
+			get
+			{
+				return this._AuthUserRole;
+			}
+			set
+			{
+				this._AuthUserRole.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Session", Storage="_Session", ThisKey="Id", OtherKey="User_Id")]
+		public EntitySet<Session> Session
+		{
+			get
+			{
+				return this._Session;
+			}
+			set
+			{
+				this._Session.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Policy_User", Storage="_Policy", ThisKey="Policy_Id", OtherKey="Id", IsForeignKey=true)]
+		public Policy Policy
+		{
+			get
+			{
+				return this._Policy.Entity;
+			}
+			set
+			{
+				Policy previousValue = this._Policy.Entity;
+				if (((previousValue != value) 
+							|| (this._Policy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Policy.Entity = null;
+						previousValue.User.Remove(this);
+					}
+					this._Policy.Entity = value;
+					if ((value != null))
+					{
+						value.User.Add(this);
+						this._Policy_Id = value.Id;
+					}
+					else
+					{
+						this._Policy_Id = default(int);
+					}
+					this.SendPropertyChanged("Policy");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AuthUserRole(AuthUserRole entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_AuthUserRole(AuthUserRole entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_Session(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Session(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 	
@@ -509,9 +740,9 @@ namespace pmt
 		
 		private int _Role_Id;
 		
-		private EntityRef<Role> _Role;
-		
 		private EntityRef<User> _User;
+		
+		private EntityRef<Role> _Role;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -525,8 +756,8 @@ namespace pmt
 		
 		public AuthUserRole()
 		{
-			this._Role = default(EntityRef<Role>);
 			this._User = default(EntityRef<User>);
+			this._Role = default(EntityRef<Role>);
 			OnCreated();
 		}
 		
@@ -578,40 +809,6 @@ namespace pmt
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_AuthUserRole", Storage="_Role", ThisKey="Role_Id", OtherKey="Id", IsForeignKey=true)]
-		public Role Role
-		{
-			get
-			{
-				return this._Role.Entity;
-			}
-			set
-			{
-				Role previousValue = this._Role.Entity;
-				if (((previousValue != value) 
-							|| (this._Role.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Role.Entity = null;
-						previousValue.AuthUserRole.Remove(this);
-					}
-					this._Role.Entity = value;
-					if ((value != null))
-					{
-						value.AuthUserRole.Add(this);
-						this._Role_Id = value.Id;
-					}
-					else
-					{
-						this._Role_Id = default(int);
-					}
-					this.SendPropertyChanged("Role");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_AuthUserRole", Storage="_User", ThisKey="User_Id", OtherKey="Id", IsForeignKey=true)]
 		public User User
 		{
@@ -642,6 +839,40 @@ namespace pmt
 						this._User_Id = default(int);
 					}
 					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_AuthUserRole", Storage="_Role", ThisKey="Role_Id", OtherKey="Id", IsForeignKey=true)]
+		public Role Role
+		{
+			get
+			{
+				return this._Role.Entity;
+			}
+			set
+			{
+				Role previousValue = this._Role.Entity;
+				if (((previousValue != value) 
+							|| (this._Role.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Role.Entity = null;
+						previousValue.AuthUserRole.Remove(this);
+					}
+					this._Role.Entity = value;
+					if ((value != null))
+					{
+						value.AuthUserRole.Add(this);
+						this._Role_Id = value.Id;
+					}
+					else
+					{
+						this._Role_Id = default(int);
+					}
+					this.SendPropertyChanged("Role");
 				}
 			}
 		}
@@ -863,7 +1094,7 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -987,7 +1218,7 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -1399,11 +1630,11 @@ namespace pmt
 		
 		private string _Name;
 		
+		private EntitySet<User> _User;
+		
 		private EntitySet<Permission> _Permission;
 		
 		private EntitySet<Role> _Role;
-		
-		private EntitySet<User> _User;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -1417,13 +1648,13 @@ namespace pmt
 		
 		public Policy()
 		{
+			this._User = new EntitySet<User>(new Action<User>(this.attach_User), new Action<User>(this.detach_User));
 			this._Permission = new EntitySet<Permission>(new Action<Permission>(this.attach_Permission), new Action<Permission>(this.detach_Permission));
 			this._Role = new EntitySet<Role>(new Action<Role>(this.attach_Role), new Action<Role>(this.detach_Role));
-			this._User = new EntitySet<User>(new Action<User>(this.attach_User), new Action<User>(this.detach_User));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -1463,6 +1694,19 @@ namespace pmt
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Policy_User", Storage="_User", ThisKey="Id", OtherKey="Policy_Id")]
+		public EntitySet<User> User
+		{
+			get
+			{
+				return this._User;
+			}
+			set
+			{
+				this._User.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Policy_Permission", Storage="_Permission", ThisKey="Id", OtherKey="Policy_Id")]
 		public EntitySet<Permission> Permission
 		{
@@ -1489,19 +1733,6 @@ namespace pmt
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Policy_User", Storage="_User", ThisKey="Id", OtherKey="Policy_Id")]
-		public EntitySet<User> User
-		{
-			get
-			{
-				return this._User;
-			}
-			set
-			{
-				this._User.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1520,6 +1751,18 @@ namespace pmt
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_User(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Policy = this;
+		}
+		
+		private void detach_User(User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Policy = null;
 		}
 		
 		private void attach_Permission(Permission entity)
@@ -1541,18 +1784,6 @@ namespace pmt
 		}
 		
 		private void detach_Role(Role entity)
-		{
-			this.SendPropertyChanging();
-			entity.Policy = null;
-		}
-		
-		private void attach_User(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Policy = this;
-		}
-		
-		private void detach_User(User entity)
 		{
 			this.SendPropertyChanging();
 			entity.Policy = null;
@@ -1622,7 +1853,7 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -2365,7 +2596,7 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -2714,237 +2945,6 @@ namespace pmt
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private string _Password;
-		
-		private int _Policy_Id;
-		
-		private EntitySet<AuthUserRole> _AuthUserRole;
-		
-		private EntitySet<Session> _Session;
-		
-		private EntityRef<Policy> _Policy;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnPolicy_IdChanging(int value);
-    partial void OnPolicy_IdChanged();
-    #endregion
-		
-		public User()
-		{
-			this._AuthUserRole = new EntitySet<AuthUserRole>(new Action<AuthUserRole>(this.attach_AuthUserRole), new Action<AuthUserRole>(this.detach_AuthUserRole));
-			this._Session = new EntitySet<Session>(new Action<Session>(this.attach_Session), new Action<Session>(this.detach_Session));
-			this._Policy = default(EntityRef<Policy>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Policy_Id", DbType="Int NOT NULL")]
-		public int Policy_Id
-		{
-			get
-			{
-				return this._Policy_Id;
-			}
-			set
-			{
-				if ((this._Policy_Id != value))
-				{
-					if (this._Policy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPolicy_IdChanging(value);
-					this.SendPropertyChanging();
-					this._Policy_Id = value;
-					this.SendPropertyChanged("Policy_Id");
-					this.OnPolicy_IdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_AuthUserRole", Storage="_AuthUserRole", ThisKey="Id", OtherKey="User_Id")]
-		public EntitySet<AuthUserRole> AuthUserRole
-		{
-			get
-			{
-				return this._AuthUserRole;
-			}
-			set
-			{
-				this._AuthUserRole.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Session", Storage="_Session", ThisKey="Id", OtherKey="User_Id")]
-		public EntitySet<Session> Session
-		{
-			get
-			{
-				return this._Session;
-			}
-			set
-			{
-				this._Session.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Policy_User", Storage="_Policy", ThisKey="Policy_Id", OtherKey="Id", IsForeignKey=true)]
-		public Policy Policy
-		{
-			get
-			{
-				return this._Policy.Entity;
-			}
-			set
-			{
-				Policy previousValue = this._Policy.Entity;
-				if (((previousValue != value) 
-							|| (this._Policy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Policy.Entity = null;
-						previousValue.User.Remove(this);
-					}
-					this._Policy.Entity = value;
-					if ((value != null))
-					{
-						value.User.Add(this);
-						this._Policy_Id = value.Id;
-					}
-					else
-					{
-						this._Policy_Id = default(int);
-					}
-					this.SendPropertyChanged("Policy");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AuthUserRole(AuthUserRole entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_AuthUserRole(AuthUserRole entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_Session(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Session(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 }

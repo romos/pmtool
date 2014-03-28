@@ -2,9 +2,20 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\rbac.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="pmt.Properties.Settings" SettingsPropertyName="rbacConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Action" Member="Action">
     <Type Name="Action">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="Action_PermissionPerObject" Member="PermissionPerObject" ThisKey="Id" OtherKey="Action_Id" Type="PermissionPerObject" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Policy_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_AuthUserRole" Member="AuthUserRole" ThisKey="Id" OtherKey="User_Id" Type="AuthUserRole" />
+      <Association Name="User_Session" Member="Session" ThisKey="Id" OtherKey="User_Id" Type="Session" />
+      <Association Name="Policy_User" Member="Policy" ThisKey="Policy_Id" OtherKey="Id" Type="Policy" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ActiveRole" Member="ActiveRole">
@@ -19,8 +30,8 @@
     <Type Name="AuthUserRole">
       <Column Name="User_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Role_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Role_AuthUserRole" Member="Role" ThisKey="Role_Id" OtherKey="Id" Type="Role" IsForeignKey="true" />
       <Association Name="User_AuthUserRole" Member="User" ThisKey="User_Id" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Role_AuthUserRole" Member="Role" ThisKey="Role_Id" OtherKey="Id" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DynamicSOD" Member="DynamicSOD">
@@ -33,14 +44,14 @@
   </Table>
   <Table Name="dbo.Object" Member="Object">
     <Type Name="Object">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="Object_PermissionPerObject" Member="PermissionPerObject" ThisKey="Id" OtherKey="Object_Id" Type="PermissionPerObject" />
     </Type>
   </Table>
   <Table Name="dbo.Permission" Member="Permission">
     <Type Name="Permission">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Policy_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Permission_PermissionPerObject" Member="PermissionPerObject" ThisKey="Id" OtherKey="Permission_Id" Type="PermissionPerObject" />
@@ -60,16 +71,16 @@
   </Table>
   <Table Name="dbo.Policy" Member="Policy">
     <Type Name="Policy">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Policy_User" Member="User" ThisKey="Id" OtherKey="Policy_Id" Type="User" />
       <Association Name="Policy_Permission" Member="Permission" ThisKey="Id" OtherKey="Policy_Id" Type="Permission" />
       <Association Name="Policy_Role" Member="Role" ThisKey="Id" OtherKey="Policy_Id" Type="Role" />
-      <Association Name="Policy_User" Member="User" ThisKey="Id" OtherKey="Policy_Id" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.Role" Member="Role">
     <Type Name="Role">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Cardinality" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Policy_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -103,7 +114,7 @@
   </Table>
   <Table Name="dbo.Session" Member="Session">
     <Type Name="Session">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="User_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="StartTime" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
@@ -118,17 +129,6 @@
       <Column Name="ExclusiveRole_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Role_StaticSOD" Member="Role" ThisKey="ExclusiveRole_Id" OtherKey="Id" Type="Role" IsForeignKey="true" />
       <Association Name="Role_StaticSOD1" Member="Role1" ThisKey="Role_Id" OtherKey="Id" Type="Role" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[User]" Member="User">
-    <Type Name="User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Policy_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="User_AuthUserRole" Member="AuthUserRole" ThisKey="Id" OtherKey="User_Id" Type="AuthUserRole" />
-      <Association Name="User_Session" Member="Session" ThisKey="Id" OtherKey="User_Id" Type="Session" />
-      <Association Name="Policy_User" Member="Policy" ThisKey="Policy_Id" OtherKey="Id" Type="Policy" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

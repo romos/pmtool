@@ -1,0 +1,11 @@
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Release\pmt.exe.config
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Release\rbac.mdf
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Release\rbac_log.ldf
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Release\pmt.exe
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Release\pmt.pdb
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.AboutPmtool.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.MainForm.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.Properties.Resources.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.csproj.GenerateResource.Cache
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.exe
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.pdb

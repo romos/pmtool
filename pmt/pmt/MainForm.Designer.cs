@@ -42,6 +42,7 @@
             this.dataGV_Tables = new System.Windows.Forms.DataGridView();
             this.bindingNavigator_Tables = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -52,11 +53,11 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
             this.btn_user = new System.Windows.Forms.Button();
             this.btn_role = new System.Windows.Forms.Button();
-            this.btn_policy = new System.Windows.Forms.Button();
             this.btn_authUR = new System.Windows.Forms.Button();
+            this.btn_Submit = new System.Windows.Forms.Button();
+            this.btn_policy = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
@@ -168,6 +169,7 @@
             // bindingNavigator_Tables
             // 
             this.bindingNavigator_Tables.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator_Tables.BindingSource = this.bindingSource_Tables;
             this.bindingNavigator_Tables.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator_Tables.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator_Tables.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -299,16 +301,6 @@
             this.btn_role.UseVisualStyleBackColor = true;
             this.btn_role.Click += new System.EventHandler(this.btn_role_Click);
             // 
-            // btn_policy
-            // 
-            this.btn_policy.Location = new System.Drawing.Point(483, 85);
-            this.btn_policy.Name = "btn_policy";
-            this.btn_policy.Size = new System.Drawing.Size(75, 23);
-            this.btn_policy.TabIndex = 9;
-            this.btn_policy.Text = "policy";
-            this.btn_policy.UseVisualStyleBackColor = true;
-            this.btn_policy.Click += new System.EventHandler(this.btn_policy_Click);
-            // 
             // btn_authUR
             // 
             this.btn_authUR.Location = new System.Drawing.Point(564, 85);
@@ -319,13 +311,34 @@
             this.btn_authUR.UseVisualStyleBackColor = true;
             this.btn_authUR.Click += new System.EventHandler(this.btn_authUR_Click);
             // 
+            // btn_Submit
+            // 
+            this.btn_Submit.Location = new System.Drawing.Point(483, 27);
+            this.btn_Submit.Name = "btn_Submit";
+            this.btn_Submit.Size = new System.Drawing.Size(156, 40);
+            this.btn_Submit.TabIndex = 11;
+            this.btn_Submit.Text = "SubmitChanges";
+            this.btn_Submit.UseVisualStyleBackColor = true;
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
+            // 
+            // btn_policy
+            // 
+            this.btn_policy.Location = new System.Drawing.Point(483, 85);
+            this.btn_policy.Name = "btn_policy";
+            this.btn_policy.Size = new System.Drawing.Size(75, 23);
+            this.btn_policy.TabIndex = 12;
+            this.btn_policy.Text = "Policy";
+            this.btn_policy.UseVisualStyleBackColor = true;
+            this.btn_policy.Click += new System.EventHandler(this.btn_Policy_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 478);
-            this.Controls.Add(this.btn_authUR);
             this.Controls.Add(this.btn_policy);
+            this.Controls.Add(this.btn_Submit);
+            this.Controls.Add(this.btn_authUR);
             this.Controls.Add(this.btn_role);
             this.Controls.Add(this.btn_user);
             this.Controls.Add(this.bindingNavigator_Tables);
@@ -377,8 +390,9 @@
         private System.Windows.Forms.BindingSource bindingSource_Tables;
         private System.Windows.Forms.Button btn_user;
         private System.Windows.Forms.Button btn_role;
-        private System.Windows.Forms.Button btn_policy;
         private System.Windows.Forms.Button btn_authUR;
+        private System.Windows.Forms.Button btn_Submit;
+        private System.Windows.Forms.Button btn_policy;
 
 
 

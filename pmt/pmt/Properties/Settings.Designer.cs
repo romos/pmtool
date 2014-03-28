@@ -33,5 +33,16 @@ namespace pmt.Properties {
                 return ((string)(this["rbacConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\bin\\Debug\\rbac.mdf;I" +
+            "ntegrated Security=True;Connect Timeout=30")]
+        public string rbacConnectionString1 {
+            get {
+                return ((string)(this["rbacConnectionString1"]));
+            }
+        }
     }
 }
