@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace pmt
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             rbacLINQ2SQLDataContext db = new rbacLINQ2SQLDataContext();
             var users = from user in db.User
@@ -26,8 +26,11 @@ namespace pmt
 
             MessageBox.Show(String.Format("Id = {0}\nName = {1}\nPassword = {2}\nPolicy_Id = {3}", users.First().Id, users.First().Name, users.First().Password, users.First().Policy_Id),"DataItem");
             int l = users.Count();
-            //MessageBox.Show(users.Count().ToString());
+        }
 
+        private void TSMenuItem_about_Click(object sender, EventArgs e)
+        {
+            new AboutPmtool().ShowDialog();
         }
     }
 }
