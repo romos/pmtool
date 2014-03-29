@@ -20,14 +20,15 @@ namespace pmt
 
             //Create LINQ classes for database
             db = new rbacLINQ2SQLDataContext();
-
+            
             //Create bindings to rbacDataSet (local in-memory copy for rbac.mdf, IMHO)
             dataGV_Tables.DataSource = bindingSource_Tables;
-            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.User". При необходимости она может быть перемещена или удалена.
+            this.userTableAdapter.Fill(this.rbacDataSet.User);
             //User u = new User
             //{
             //    Name = "Roman",
@@ -62,6 +63,10 @@ namespace pmt
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
             string table = cb_Tables.Text;
+            
+            //?! WTF ?! DON'T CHANGE NEXT LINE
+            bindingSource_Tables.DataSource = null;
+
             switch (table)
             {
                 case "Action":
@@ -83,21 +88,14 @@ namespace pmt
                     bindingSource_Tables.DataSource = db.Permission;
                     break;
                 case "PermissionPerObject":
-                    dataGV_Tables.Refresh();
                     bindingSource_Tables.DataSource = db.PermissionPerObject;
-                    dataGV_Tables.Refresh();
                     break;
                 case "Policy":
-                    dataGV_Tables.Refresh();
                     bindingSource_Tables.DataSource = db.Policy;
-                    dataGV_Tables.Refresh();
-                    //dataGV_Tables.Columns["Permission"].Visible = false;
-                    dataGV_Tables.Refresh();
                     break;
                 case "Role":
-                    dataGV_Tables.Refresh();
                     bindingSource_Tables.DataSource = db.Role;
-                    dataGV_Tables.Refresh();
+                    dataGV_Tables.Columns["Policy"].Visible = false;
                     break;
                 case "RoleHierarchy":
                     bindingSource_Tables.DataSource = db.RoleHierarchy;
@@ -112,7 +110,7 @@ namespace pmt
                     bindingSource_Tables.DataSource = db.StaticSOD;
                     break;
                 case "User":
-                    bindingSource_Tables.DataSource = rbacDataSet.User;
+                    bindingSource_Tables.DataSource = db.User;
                     break;
             }
         }
