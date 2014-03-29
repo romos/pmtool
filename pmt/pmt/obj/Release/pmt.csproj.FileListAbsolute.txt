@@ -9,3 +9,4 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.Properties.Resource
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.csproj.GenerateResource.Cache
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.exe
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.pdb
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Release\pmt.csprojResolveAssemblyReference.cache

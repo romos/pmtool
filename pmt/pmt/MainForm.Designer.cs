@@ -38,7 +38,6 @@
             this.TSMenuItem_about = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Tables = new System.Windows.Forms.Label();
             this.cb_Tables = new System.Windows.Forms.ComboBox();
-            this.rbacDataSet = new pmt.rbacDataSet();
             this.dataGV_Tables = new System.Windows.Forms.DataGridView();
             this.bindingNavigator_Tables = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -58,12 +57,13 @@
             this.btn_authUR = new System.Windows.Forms.Button();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_policy = new System.Windows.Forms.Button();
+            this.rbacDataSet = new pmt.rbacDataSet();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).BeginInit();
             this.bindingNavigator_Tables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -151,11 +151,6 @@
             this.cb_Tables.Size = new System.Drawing.Size(137, 21);
             this.cb_Tables.TabIndex = 4;
             this.cb_Tables.SelectedIndexChanged += new System.EventHandler(this.cb_Tables_SelectedIndexChanged);
-            // 
-            // rbacDataSet
-            // 
-            this.rbacDataSet.DataSetName = "rbacDataSet";
-            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGV_Tables
             // 
@@ -331,6 +326,11 @@
             this.btn_policy.UseVisualStyleBackColor = true;
             this.btn_policy.Click += new System.EventHandler(this.btn_Policy_Click);
             // 
+            // rbacDataSet
+            // 
+            this.rbacDataSet.DataSetName = "rbacDataSet";
+            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,12 +352,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).EndInit();
             this.bindingNavigator_Tables.ResumeLayout(false);
             this.bindingNavigator_Tables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

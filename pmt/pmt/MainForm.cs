@@ -20,7 +20,7 @@ namespace pmt
 
             //Create LINQ classes for database
             db = new rbacLINQ2SQLDataContext();
-
+            
             //Create bindings to rbacDataSet (local in-memory copy for rbac.mdf, IMHO)
             dataGV_Tables.DataSource = bindingSource_Tables;
             
@@ -28,39 +28,29 @@ namespace pmt
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //User u = new User
+            //{
+            //    Name = "Roman",
+            //    Password = "r0m4n",
+            //    Policy_Id = 1
+            //};
+            //db.User.InsertOnSubmit(u);
+            //try
+            //{
+            //    db.SubmitChanges();
+            //}
+            //catch (Exception exc)
+            //{
+            //    MessageBox.Show(exc.ToString());
+            //}
             //var users = from user in db.User
-            //            where user.Policy_Id == 1
-            //            select user;
-
+            //        select user;
             //MessageBox.Show(String.Format("Id = {0}\nName = {1}\nPassword = {2}\nPolicy_Id = {3}",
-            //                                users.First().Id,
-            //                                users.First().Name,
-            //                                users.First().Password,
-            //                                users.First().Policy_Id),
+            //                                users.Last().Id,
+            //                                users.Last().Name,
+            //                                users.Last().Password,
+            //                                users.Last().Policy_Id),
             //                                "DataItem");
-            User u = new User
-            {
-                Name = "Roman",
-                Password = "r0m4n",
-                Policy_Id = 1
-            };
-            db.User.InsertOnSubmit(u);
-            try
-            {
-                db.SubmitChanges();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
-            var users = from user in db.User
-                    select user;
-            MessageBox.Show(String.Format("Id = {0}\nName = {1}\nPassword = {2}\nPolicy_Id = {3}",
-                                            users.Last().Id,
-                                            users.Last().Name,
-                                            users.Last().Password,
-                                            users.Last().Policy_Id),
-                                            "DataItem");
         }
 
         private void TSMenuItem_about_Click(object sender, EventArgs e)

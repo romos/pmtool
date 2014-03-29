@@ -1,6 +1,4 @@
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\pmt.exe.config
-C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\rbac.mdf
-C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\rbac_log.ldf
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\pmt.exe
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\pmt.pdb
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.csprojResolveAssemblyReference.cache
