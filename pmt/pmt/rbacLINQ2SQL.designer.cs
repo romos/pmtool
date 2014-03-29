@@ -22,7 +22,7 @@ namespace pmt
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="rbac")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="C:\\MYTESTPROJECTS\\MCD\\DIPLOMA\\PMTOOL\\RBAC.MDF")]
 	public partial class rbacLINQ2SQLDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -75,7 +75,7 @@ namespace pmt
     #endregion
 		
 		public rbacLINQ2SQLDataContext() : 
-				base(global::pmt.Properties.Settings.Default.rbacConnectionString, mappingSource)
+				base(global::pmt.Properties.Settings.Default.C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_RBAC_MDFConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

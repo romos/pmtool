@@ -20,7 +20,7 @@ namespace pmt
 
             //Create LINQ classes for database
             db = new rbacLINQ2SQLDataContext();
-            
+
             //Create bindings to rbacDataSet (local in-memory copy for rbac.mdf, IMHO)
             dataGV_Tables.DataSource = bindingSource_Tables;
             
@@ -61,71 +61,60 @@ namespace pmt
         //dataGridView representation test for different tables
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cb_Tables.SelectionLength != 0)
-            //{
-            //    string table = cb_Tables.SelectedText;
-            //    switch (table)
-            //    {
-            //        case "Action":
-            //            bindingSource_Tables.DataSource = rbacDataSet.Action;
-            //            break;
-            //        case "ActiveRole":
-            //            bindingSource_Tables.DataSource = rbacDataSet.ActiveRole;
-            //            break;
-            //        case "AuthUserRole":
-            //            bindingSource_Tables.DataSource = db.AuthUserRole;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "DynamicSOD":
-            //            bindingSource_Tables.DataSource = db.DynamicSOD;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "Object":
-            //            bindingSource_Tables.DataSource = db.Object;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "Permission":
-            //            bindingSource_Tables.DataSource = db.Permission;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "PermissionPerObject":
-            //            bindingSource_Tables.DataSource = db.PermissionPerObject;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "Policy":
-            //            bindingSource_Tables.DataSource = db.Policy;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "Role":
-            //            bindingSource_Tables.DataSource = db.Role;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "RoleHierarchy":
-            //            bindingSource_Tables.DataSource = db.RoleHierarchy;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "RolePermission":
-            //            bindingSource_Tables.DataSource = db.RolePermission;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "Session":
-            //            bindingSource_Tables.DataSource = db.Session;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "StaticSOD":
-            //            bindingSource_Tables.DataSource = db.StaticSOD;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //        case "User":
-            //            bindingSource_Tables.DataSource = db.User;
-            //            dataGV_Tables.Refresh();
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    return;
-            //}
+            string table = cb_Tables.Text;
+            switch (table)
+            {
+                case "Action":
+                    bindingSource_Tables.DataSource = db.Action;
+                    break;
+                case "ActiveRole":
+                    bindingSource_Tables.DataSource = db.ActiveRole;
+                    break;
+                case "AuthUserRole":
+                    bindingSource_Tables.DataSource = db.AuthUserRole;
+                    break;
+                case "DynamicSOD":
+                    bindingSource_Tables.DataSource = db.DynamicSOD;
+                    break;
+                case "Object":
+                    bindingSource_Tables.DataSource = db.Object;
+                    break;
+                case "Permission":
+                    bindingSource_Tables.DataSource = db.Permission;
+                    break;
+                case "PermissionPerObject":
+                    dataGV_Tables.Refresh();
+                    bindingSource_Tables.DataSource = db.PermissionPerObject;
+                    dataGV_Tables.Refresh();
+                    break;
+                case "Policy":
+                    dataGV_Tables.Refresh();
+                    bindingSource_Tables.DataSource = db.Policy;
+                    dataGV_Tables.Refresh();
+                    //dataGV_Tables.Columns["Permission"].Visible = false;
+                    dataGV_Tables.Refresh();
+                    break;
+                case "Role":
+                    dataGV_Tables.Refresh();
+                    bindingSource_Tables.DataSource = db.Role;
+                    dataGV_Tables.Refresh();
+                    break;
+                case "RoleHierarchy":
+                    bindingSource_Tables.DataSource = db.RoleHierarchy;
+                    break;
+                case "RolePermission":
+                    bindingSource_Tables.DataSource = db.RolePermission;
+                    break;
+                case "Session":
+                    bindingSource_Tables.DataSource = db.Session;
+                    break;
+                case "StaticSOD":
+                    bindingSource_Tables.DataSource = db.StaticSOD;
+                    break;
+                case "User":
+                    bindingSource_Tables.DataSource = rbacDataSet.User;
+                    break;
+            }
         }
 
         private void btn_user_Click(object sender, EventArgs e)
@@ -146,16 +135,15 @@ namespace pmt
             dataGV_Tables.Columns["Role"].Visible = false;
             dataGV_Tables.Columns["User"].Visible = false;
         }
-
-        private void btn_Submit_Click(object sender, EventArgs e)
-        {
-            db.SubmitChanges();
-        }
-
         private void btn_Policy_Click(object sender, EventArgs e)
         {
             bindingSource_Tables.DataSource = db.Policy;
             dataGV_Tables.Columns["Id"].ReadOnly = true;
         }
+        private void btn_Submit_Click(object sender, EventArgs e)
+        {
+            db.SubmitChanges();
+        }
+
     }
 }

@@ -77,9 +77,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rbacDataSet.Designer.cs">
-      <DependentUpon>rbacDataSet.xsd</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rbacDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="rbacLINQ2SQL.designer.cs">
       <AutoGen>True</AutoGen>
@@ -103,19 +103,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="rbacLINQ2SQL.dbml.layout">
-      <DependentUpon>rbacLINQ2SQL.dbml</DependentUpon>
-    </None>
     <None Include="rbacDataSet.xsc">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>
     </None>
     <None Include="rbacDataSet.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>rbacDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="rbacDataSet.xss">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="rbacLINQ2SQL.dbml.layout">
+      <DependentUpon>rbacLINQ2SQL.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -137,12 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="rbac.mdf" />
-    <Content Include="rbac_log.ldf">
-      <DependentUpon>rbac.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

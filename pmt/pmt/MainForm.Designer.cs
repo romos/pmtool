@@ -41,14 +41,10 @@
             this.dataGV_Tables = new System.Windows.Forms.DataGridView();
             this.bindingNavigator_Tables = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,12 +54,13 @@
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_policy = new System.Windows.Forms.Button();
             this.rbacDataSet = new pmt.rbacDataSet();
+            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).BeginInit();
             this.bindingNavigator_Tables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -165,16 +162,13 @@
             // 
             this.bindingNavigator_Tables.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bindingNavigator_Tables.BindingSource = this.bindingSource_Tables;
-            this.bindingNavigator_Tables.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator_Tables.CountItem = null;
             this.bindingNavigator_Tables.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator_Tables.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bindingNavigator_Tables.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
@@ -186,7 +180,7 @@
             this.bindingNavigator_Tables.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bindingNavigator_Tables.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator_Tables.Name = "bindingNavigator_Tables";
-            this.bindingNavigator_Tables.PositionItem = this.bindingNavigatorSeparator1;
+            this.bindingNavigator_Tables.PositionItem = null;
             this.bindingNavigator_Tables.Size = new System.Drawing.Size(651, 25);
             this.bindingNavigator_Tables.TabIndex = 6;
             this.bindingNavigator_Tables.Text = "bindingNavigator1";
@@ -199,13 +193,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -238,20 +225,6 @@
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -356,8 +329,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).EndInit();
             this.bindingNavigator_Tables.ResumeLayout(false);
             this.bindingNavigator_Tables.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,13 +350,10 @@
         private System.Windows.Forms.DataGridView dataGV_Tables;
         private System.Windows.Forms.BindingNavigator bindingNavigator_Tables;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rbac" Class="rbacLINQ2SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\rbac.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="pmt.Properties.Settings" SettingsPropertyName="rbacConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\MYTESTPROJECTS\MCD\DIPLOMA\PMTOOL\RBAC.MDF" Class="rbacLINQ2SQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=РОМА-ПК;Initial Catalog=C:\MYTESTPROJECTS\MCD\DIPLOMA\PMTOOL\RBAC.MDF;Integrated Security=True" SettingsObjectName="pmt.Properties.Settings" SettingsPropertyName="C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_RBAC_MDFConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Action" Member="Action">
     <Type Name="Action">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

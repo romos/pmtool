@@ -44,5 +44,27 @@ namespace pmt.Properties {
                 return ((string)(this["rbacConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=РОМА-ПК;Initial Catalog=C:\\MYTESTPROJECTS\\MCD\\DIPLOMA\\PMTOOL\\PMT\\PMT\\" +
+            "RBAC.MDF;Integrated Security=True")]
+        public string C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_PMT_PMT_RBAC_MDFConnectionString {
+            get {
+                return ((string)(this["C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_PMT_PMT_RBAC_MDFConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=РОМА-ПК;Initial Catalog=C:\\MYTESTPROJECTS\\MCD\\DIPLOMA\\PMTOOL\\RBAC.MDF" +
+            ";Integrated Security=True")]
+        public string C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_RBAC_MDFConnectionString {
+            get {
+                return ((string)(this["C__MYTESTPROJECTS_MCD_DIPLOMA_PMTOOL_RBAC_MDFConnectionString"]));
+            }
+        }
     }
 }
