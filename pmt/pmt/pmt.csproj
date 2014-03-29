@@ -93,7 +93,7 @@
       <DependentUpon>rbacLINQ2SQL.dbml</DependentUpon>
     </Compile>
     <Compile Include="RBACManager.cs" />
-    <Compile Include="Viusalizer.cs" />
+    <Compile Include="Visualizer.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,6 +8,9 @@ namespace pmt
 {
     class RBACManager
     {
+        //?
+        public static rbacLINQ2SQLDataContext db;
+
         public static Exception AddUser(User u)
         {
             try

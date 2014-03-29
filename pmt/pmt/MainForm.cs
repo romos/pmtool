@@ -23,12 +23,15 @@ namespace pmt
             
             //Create bindings to rbacDataSet (local in-memory copy for rbac.mdf, IMHO)
             dataGV_Tables.DataSource = bindingSource_Tables;
+
+            /////testing auto-generated forms for tables
+            //new Form1().Show();
+            /////1. testing TableAdapterManager for the Role-table edit procedure
+            //roleTableAdapter1.Fill(rbacDataSet.Role);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.User". При необходимости она может быть перемещена или удалена.
-            this.userTableAdapter.Fill(this.rbacDataSet.User);
             //User u = new User
             //{
             //    Name = "Roman",
@@ -63,8 +66,8 @@ namespace pmt
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
             string table = cb_Tables.Text;
-            
-            //?! WTF ?! DON'T CHANGE NEXT LINE
+
+            /////?! WTF ?! DON'T CHANGE NEXT LINE
             bindingSource_Tables.DataSource = null;
 
             switch (table)
@@ -77,6 +80,8 @@ namespace pmt
                     break;
                 case "AuthUserRole":
                     bindingSource_Tables.DataSource = db.AuthUserRole;
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["User"].Visible = false;
                     break;
                 case "DynamicSOD":
                     bindingSource_Tables.DataSource = db.DynamicSOD;
@@ -92,9 +97,15 @@ namespace pmt
                     break;
                 case "Policy":
                     bindingSource_Tables.DataSource = db.Policy;
+                    dataGV_Tables.Columns["Id"].ReadOnly = true;
                     break;
                 case "Role":
+                    /////1. 'DataSet' way to change database.
+                    /////Use with tableAdapterManager1 (see below on Submit Button click)
+                    //bindingSource_Tables.DataSource = rbacDataSet.Role;
+
                     bindingSource_Tables.DataSource = db.Role;
+                    dataGV_Tables.Columns["Id"].ReadOnly = true;
                     dataGV_Tables.Columns["Policy"].Visible = false;
                     break;
                 case "RoleHierarchy":
@@ -111,36 +122,18 @@ namespace pmt
                     break;
                 case "User":
                     bindingSource_Tables.DataSource = db.User;
+                    dataGV_Tables.Columns["Id"].ReadOnly = true;
+                    dataGV_Tables.Columns["Policy"].Visible = false;
                     break;
             }
         }
 
-        private void btn_user_Click(object sender, EventArgs e)
-        {
-            bindingSource_Tables.DataSource = db.User;
-            dataGV_Tables.Columns["Id"].ReadOnly = true;
-            dataGV_Tables.Columns["Policy"].Visible = false;
-        }
-        private void btn_role_Click(object sender, EventArgs e)
-        {
-            bindingSource_Tables.DataSource = db.Role;
-            dataGV_Tables.Columns["Id"].ReadOnly = true;
-            dataGV_Tables.Columns["Policy"].Visible = false;
-        }
-        private void btn_authUR_Click(object sender, EventArgs e)
-        {
-            bindingSource_Tables.DataSource = db.AuthUserRole;
-            dataGV_Tables.Columns["Role"].Visible = false;
-            dataGV_Tables.Columns["User"].Visible = false;
-        }
-        private void btn_Policy_Click(object sender, EventArgs e)
-        {
-            bindingSource_Tables.DataSource = db.Policy;
-            dataGV_Tables.Columns["Id"].ReadOnly = true;
-        }
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             db.SubmitChanges();
+
+            /////1. to use with rbacDataSet.Role in "Role"-case:
+            //tableAdapterManager1.UpdateAll(rbacDataSet);
         }
 
     }

@@ -22,7 +22,6 @@ namespace pmt
             this.Validate();
             this.userBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.rbacDataSet);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
