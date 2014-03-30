@@ -58,12 +58,34 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.roleTableAdapter1 = new pmt.rbacDataSetTableAdapters.RoleTableAdapter();
             this.tableAdapterManager1 = new pmt.rbacDataSetTableAdapters.TableAdapterManager();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_rmPolicy = new System.Windows.Forms.Button();
+            this.btn_setCardinality = new System.Windows.Forms.Button();
+            this.btn_addPolicy = new System.Windows.Forms.Button();
+            this.btn_rmDSOD = new System.Windows.Forms.Button();
+            this.btn_addDSOD = new System.Windows.Forms.Button();
+            this.btn_rmSSOD = new System.Windows.Forms.Button();
+            this.btn_addSSOD = new System.Windows.Forms.Button();
+            this.btn_rmInheritance = new System.Windows.Forms.Button();
+            this.btn_addInheritance = new System.Windows.Forms.Button();
+            this.btn_rmAssignment = new System.Windows.Forms.Button();
+            this.btn_addAssignment = new System.Windows.Forms.Button();
+            this.btn_rmRole = new System.Windows.Forms.Button();
+            this.btn_addRole = new System.Windows.Forms.Button();
+            this.btn_rmUser = new System.Windows.Forms.Button();
+            this.btn_addUser = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).BeginInit();
             this.bindingNavigator_Tables.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -75,7 +97,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(651, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1186, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,7 +142,7 @@
             // label_Tables
             // 
             this.label_Tables.AutoSize = true;
-            this.label_Tables.Location = new System.Drawing.Point(12, 33);
+            this.label_Tables.Location = new System.Drawing.Point(6, 27);
             this.label_Tables.Name = "label_Tables";
             this.label_Tables.Size = new System.Drawing.Size(103, 13);
             this.label_Tables.TabIndex = 3;
@@ -128,7 +150,6 @@
             // 
             // cb_Tables
             // 
-            this.cb_Tables.DisplayMember = "ва";
             this.cb_Tables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Tables.FormattingEnabled = true;
             this.cb_Tables.Items.AddRange(new object[] {
@@ -146,9 +167,9 @@
             "Session",
             "StaticSOD",
             "User"});
-            this.cb_Tables.Location = new System.Drawing.Point(121, 30);
+            this.cb_Tables.Location = new System.Drawing.Point(115, 24);
             this.cb_Tables.Name = "cb_Tables";
-            this.cb_Tables.Size = new System.Drawing.Size(137, 21);
+            this.cb_Tables.Size = new System.Drawing.Size(147, 21);
             this.cb_Tables.TabIndex = 4;
             this.cb_Tables.SelectedIndexChanged += new System.EventHandler(this.cb_Tables_SelectedIndexChanged);
             // 
@@ -163,9 +184,9 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Location = new System.Drawing.Point(284, 30);
+            this.btn_Submit.Location = new System.Drawing.Point(323, 59);
             this.btn_Submit.Name = "btn_Submit";
-            this.btn_Submit.Size = new System.Drawing.Size(108, 21);
+            this.btn_Submit.Size = new System.Drawing.Size(142, 25);
             this.btn_Submit.TabIndex = 11;
             this.btn_Submit.Text = "SubmitChanges";
             this.btn_Submit.UseVisualStyleBackColor = true;
@@ -182,10 +203,9 @@
             // dataGV_Tables
             // 
             this.dataGV_Tables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGV_Tables.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGV_Tables.Location = new System.Drawing.Point(0, 136);
+            this.dataGV_Tables.Location = new System.Drawing.Point(4, 87);
             this.dataGV_Tables.Name = "dataGV_Tables";
-            this.dataGV_Tables.Size = new System.Drawing.Size(651, 342);
+            this.dataGV_Tables.Size = new System.Drawing.Size(461, 343);
             this.dataGV_Tables.TabIndex = 5;
             // 
             // bindingNavigator_Tables
@@ -195,7 +215,7 @@
             this.bindingNavigator_Tables.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator_Tables.CountItemFormat = "из {0}";
             this.bindingNavigator_Tables.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator_Tables.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bindingNavigator_Tables.Dock = System.Windows.Forms.DockStyle.None;
             this.bindingNavigator_Tables.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -208,14 +228,14 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator_Tables.Location = new System.Drawing.Point(0, 111);
+            this.bindingNavigator_Tables.Location = new System.Drawing.Point(6, 59);
             this.bindingNavigator_Tables.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator_Tables.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator_Tables.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bindingNavigator_Tables.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator_Tables.Name = "bindingNavigator_Tables";
             this.bindingNavigator_Tables.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator_Tables.Size = new System.Drawing.Size(651, 25);
+            this.bindingNavigator_Tables.Size = new System.Drawing.Size(256, 25);
             this.bindingNavigator_Tables.TabIndex = 13;
             this.bindingNavigator_Tables.Text = "bindingNavigator_Tables";
             // 
@@ -327,16 +347,223 @@
             this.tableAdapterManager1.UpdateOrder = pmt.rbacDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager1.UserTableAdapter = this.userTableAdapter;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.bindingNavigator_Tables);
+            this.groupBox1.Controls.Add(this.dataGV_Tables);
+            this.groupBox1.Controls.Add(this.btn_Submit);
+            this.groupBox1.Controls.Add(this.label_Tables);
+            this.groupBox1.Controls.Add(this.cb_Tables);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(473, 436);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tables";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.btn_rmPolicy);
+            this.groupBox2.Controls.Add(this.btn_setCardinality);
+            this.groupBox2.Controls.Add(this.btn_addPolicy);
+            this.groupBox2.Controls.Add(this.btn_rmDSOD);
+            this.groupBox2.Controls.Add(this.btn_addDSOD);
+            this.groupBox2.Controls.Add(this.btn_rmSSOD);
+            this.groupBox2.Controls.Add(this.btn_addSSOD);
+            this.groupBox2.Controls.Add(this.btn_rmInheritance);
+            this.groupBox2.Controls.Add(this.btn_addInheritance);
+            this.groupBox2.Controls.Add(this.btn_rmAssignment);
+            this.groupBox2.Controls.Add(this.btn_addAssignment);
+            this.groupBox2.Controls.Add(this.btn_rmRole);
+            this.groupBox2.Controls.Add(this.btn_addRole);
+            this.groupBox2.Controls.Add(this.btn_rmUser);
+            this.groupBox2.Controls.Add(this.btn_addUser);
+            this.groupBox2.Location = new System.Drawing.Point(497, 27);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(185, 436);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Functionality";
+            // 
+            // btn_rmPolicy
+            // 
+            this.btn_rmPolicy.Location = new System.Drawing.Point(23, 399);
+            this.btn_rmPolicy.Name = "btn_rmPolicy";
+            this.btn_rmPolicy.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmPolicy.TabIndex = 14;
+            this.btn_rmPolicy.Text = "rmPolicy";
+            this.btn_rmPolicy.UseVisualStyleBackColor = true;
+            this.btn_rmPolicy.Click += new System.EventHandler(this.btn_rmPolicy_Click);
+            // 
+            // btn_setCardinality
+            // 
+            this.btn_setCardinality.Location = new System.Drawing.Point(23, 344);
+            this.btn_setCardinality.Name = "btn_setCardinality";
+            this.btn_setCardinality.Size = new System.Drawing.Size(140, 21);
+            this.btn_setCardinality.TabIndex = 12;
+            this.btn_setCardinality.Text = "setCardinality";
+            this.btn_setCardinality.UseVisualStyleBackColor = true;
+            this.btn_setCardinality.Click += new System.EventHandler(this.btn_setCardinality_Click);
+            // 
+            // btn_addPolicy
+            // 
+            this.btn_addPolicy.Location = new System.Drawing.Point(23, 371);
+            this.btn_addPolicy.Name = "btn_addPolicy";
+            this.btn_addPolicy.Size = new System.Drawing.Size(140, 21);
+            this.btn_addPolicy.TabIndex = 13;
+            this.btn_addPolicy.Text = "addPolicy";
+            this.btn_addPolicy.UseVisualStyleBackColor = true;
+            this.btn_addPolicy.Click += new System.EventHandler(this.btn_addPolicy_Click);
+            // 
+            // btn_rmDSOD
+            // 
+            this.btn_rmDSOD.Location = new System.Drawing.Point(23, 317);
+            this.btn_rmDSOD.Name = "btn_rmDSOD";
+            this.btn_rmDSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmDSOD.TabIndex = 11;
+            this.btn_rmDSOD.Text = "rmDSOD";
+            this.btn_rmDSOD.UseVisualStyleBackColor = true;
+            this.btn_rmDSOD.Click += new System.EventHandler(this.btn_rmDSOD_Click);
+            // 
+            // btn_addDSOD
+            // 
+            this.btn_addDSOD.Location = new System.Drawing.Point(23, 290);
+            this.btn_addDSOD.Name = "btn_addDSOD";
+            this.btn_addDSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_addDSOD.TabIndex = 10;
+            this.btn_addDSOD.Text = "addDSOD";
+            this.btn_addDSOD.UseVisualStyleBackColor = true;
+            this.btn_addDSOD.Click += new System.EventHandler(this.btn_addDSOD_Click);
+            // 
+            // btn_rmSSOD
+            // 
+            this.btn_rmSSOD.Location = new System.Drawing.Point(23, 263);
+            this.btn_rmSSOD.Name = "btn_rmSSOD";
+            this.btn_rmSSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmSSOD.TabIndex = 9;
+            this.btn_rmSSOD.Text = "rmSSOD";
+            this.btn_rmSSOD.UseVisualStyleBackColor = true;
+            this.btn_rmSSOD.Click += new System.EventHandler(this.btn_rmSSOD_Click);
+            // 
+            // btn_addSSOD
+            // 
+            this.btn_addSSOD.Location = new System.Drawing.Point(23, 236);
+            this.btn_addSSOD.Name = "btn_addSSOD";
+            this.btn_addSSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_addSSOD.TabIndex = 8;
+            this.btn_addSSOD.Text = "addSSOD";
+            this.btn_addSSOD.UseVisualStyleBackColor = true;
+            this.btn_addSSOD.Click += new System.EventHandler(this.btn_addSSOD_Click);
+            // 
+            // btn_rmInheritance
+            // 
+            this.btn_rmInheritance.Location = new System.Drawing.Point(23, 209);
+            this.btn_rmInheritance.Name = "btn_rmInheritance";
+            this.btn_rmInheritance.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmInheritance.TabIndex = 7;
+            this.btn_rmInheritance.Text = "rmInheritance";
+            this.btn_rmInheritance.UseVisualStyleBackColor = true;
+            this.btn_rmInheritance.Click += new System.EventHandler(this.btn_rmInheritance_Click);
+            // 
+            // btn_addInheritance
+            // 
+            this.btn_addInheritance.Location = new System.Drawing.Point(23, 182);
+            this.btn_addInheritance.Name = "btn_addInheritance";
+            this.btn_addInheritance.Size = new System.Drawing.Size(140, 21);
+            this.btn_addInheritance.TabIndex = 6;
+            this.btn_addInheritance.Text = "addInheritance";
+            this.btn_addInheritance.UseVisualStyleBackColor = true;
+            this.btn_addInheritance.Click += new System.EventHandler(this.btn_addInheritance_Click);
+            // 
+            // btn_rmAssignment
+            // 
+            this.btn_rmAssignment.Location = new System.Drawing.Point(23, 155);
+            this.btn_rmAssignment.Name = "btn_rmAssignment";
+            this.btn_rmAssignment.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmAssignment.TabIndex = 5;
+            this.btn_rmAssignment.Text = "rmAssignment";
+            this.btn_rmAssignment.UseVisualStyleBackColor = true;
+            this.btn_rmAssignment.Click += new System.EventHandler(this.btn_rmAssignment_Click);
+            // 
+            // btn_addAssignment
+            // 
+            this.btn_addAssignment.Location = new System.Drawing.Point(23, 128);
+            this.btn_addAssignment.Name = "btn_addAssignment";
+            this.btn_addAssignment.Size = new System.Drawing.Size(140, 21);
+            this.btn_addAssignment.TabIndex = 4;
+            this.btn_addAssignment.Text = "addAssignment";
+            this.btn_addAssignment.UseVisualStyleBackColor = true;
+            this.btn_addAssignment.Click += new System.EventHandler(this.btn_addAssignment_Click);
+            // 
+            // btn_rmRole
+            // 
+            this.btn_rmRole.Location = new System.Drawing.Point(23, 101);
+            this.btn_rmRole.Name = "btn_rmRole";
+            this.btn_rmRole.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmRole.TabIndex = 3;
+            this.btn_rmRole.Text = "rmRole";
+            this.btn_rmRole.UseVisualStyleBackColor = true;
+            this.btn_rmRole.Click += new System.EventHandler(this.btn_rmRole_Click);
+            // 
+            // btn_addRole
+            // 
+            this.btn_addRole.Location = new System.Drawing.Point(23, 74);
+            this.btn_addRole.Name = "btn_addRole";
+            this.btn_addRole.Size = new System.Drawing.Size(140, 21);
+            this.btn_addRole.TabIndex = 2;
+            this.btn_addRole.Text = "addRole";
+            this.btn_addRole.UseVisualStyleBackColor = true;
+            this.btn_addRole.Click += new System.EventHandler(this.btn_addRole_Click);
+            // 
+            // btn_rmUser
+            // 
+            this.btn_rmUser.Location = new System.Drawing.Point(23, 47);
+            this.btn_rmUser.Name = "btn_rmUser";
+            this.btn_rmUser.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmUser.TabIndex = 1;
+            this.btn_rmUser.Text = "rmUser";
+            this.btn_rmUser.UseVisualStyleBackColor = true;
+            this.btn_rmUser.Click += new System.EventHandler(this.btn_rmUser_Click);
+            // 
+            // btn_addUser
+            // 
+            this.btn_addUser.Location = new System.Drawing.Point(23, 20);
+            this.btn_addUser.Name = "btn_addUser";
+            this.btn_addUser.Size = new System.Drawing.Size(140, 21);
+            this.btn_addUser.TabIndex = 0;
+            this.btn_addUser.Text = "addUser";
+            this.btn_addUser.UseVisualStyleBackColor = true;
+            this.btn_addUser.Click += new System.EventHandler(this.btn_addUser_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Location = new System.Drawing.Point(688, 27);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(486, 436);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "MS Visio";
+            // 
+            // rbacDataSetBindingSource
+            // 
+            this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
+            this.rbacDataSetBindingSource.Position = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 478);
-            this.Controls.Add(this.bindingNavigator_Tables);
-            this.Controls.Add(this.btn_Submit);
-            this.Controls.Add(this.dataGV_Tables);
-            this.Controls.Add(this.cb_Tables);
-            this.Controls.Add(this.label_Tables);
+            this.ClientSize = new System.Drawing.Size(1186, 475);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -350,6 +577,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).EndInit();
             this.bindingNavigator_Tables.ResumeLayout(false);
             this.bindingNavigator_Tables.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +616,25 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private rbacDataSetTableAdapters.RoleTableAdapter roleTableAdapter1;
         private rbacDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btn_setCardinality;
+        private System.Windows.Forms.Button btn_rmDSOD;
+        private System.Windows.Forms.Button btn_addDSOD;
+        private System.Windows.Forms.Button btn_rmSSOD;
+        private System.Windows.Forms.Button btn_addSSOD;
+        private System.Windows.Forms.Button btn_rmInheritance;
+        private System.Windows.Forms.Button btn_addInheritance;
+        private System.Windows.Forms.Button btn_rmAssignment;
+        private System.Windows.Forms.Button btn_addAssignment;
+        private System.Windows.Forms.Button btn_rmRole;
+        private System.Windows.Forms.Button btn_addRole;
+        private System.Windows.Forms.Button btn_rmUser;
+        private System.Windows.Forms.Button btn_addUser;
+        private System.Windows.Forms.Button btn_rmPolicy;
+        private System.Windows.Forms.Button btn_addPolicy;
+        private System.Windows.Forms.BindingSource rbacDataSetBindingSource;
 
 
 

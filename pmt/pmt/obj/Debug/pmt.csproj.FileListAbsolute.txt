@@ -9,3 +9,4 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.pdb
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.AboutPmtool.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.MainForm.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form1.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_addUser.resources

@@ -9,68 +9,22 @@ namespace pmt
     class RBACManager
     {
         //?
-        public static rbacLINQ2SQLDataContext db;
+        //public static rbacLINQ2SQLDataContext db;
 
-        public static Exception AddUser(User u)
+        public static int AddUser(User u)
         {
             try
             {
             }
             catch (Exception e)
             {
-                return e;
+                return 0;
             }
             finally
             {
             }
-            return null;
-        }
-        
-        public static Exception AddRole(Role r)
-        {
-            try
-            {
-            }
-            catch (Exception e)
-            {
-                return e;
-            }
-            finally
-            {
-            }
-            return null;
-        }
-        
-        public static Exception AddPermission(Permission p)
-        {
-            try
-            {
-            }
-            catch (Exception e)
-            {
-                return e;
-            }
-            finally
-            {
-            }
-            return null;
-        }
-        
-        public static Exception AddPermissionPerObject(PermissionPerObject ppo)
-        {
-            try
-            {
-            }
-            catch (Exception e)
-            {
-                return e;
-            }
-            finally
-            {
-            }
-            return null;
-        }
-        
+            return 1;
+        }      
         //...
     }
 }
