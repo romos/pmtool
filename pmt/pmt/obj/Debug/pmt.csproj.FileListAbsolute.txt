@@ -11,3 +11,4 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.MainForm.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form1.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_addUser.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_addRole.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmUser.resources

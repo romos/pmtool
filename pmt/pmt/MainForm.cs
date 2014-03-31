@@ -61,7 +61,8 @@ namespace pmt
             //                                users.Last().Policy_Id),
             //                                "DataItem");
         }
-
+        
+        /////AboutBox About Program
         private void TSMenuItem_about_Click(object sender, EventArgs e)
         {
             new AboutPmtool().ShowDialog();
@@ -132,6 +133,7 @@ namespace pmt
                     break;
             }
         }
+        /////Submit changes to dataGridView
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             //[Submit nothing] Prevent Submit windows appearance, when no change done
@@ -185,7 +187,9 @@ namespace pmt
 
         private void btn_rmUser_Click(object sender, EventArgs e)
         {
-
+            new Form_rmUser(this).ShowDialog();
+            cb_Tables.Text = "User";
+            bindingSource_Tables.DataSource = db.User.GetNewBindingList();
         }
 
         private void btn_addRole_Click(object sender, EventArgs e)

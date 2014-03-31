@@ -26,7 +26,7 @@ namespace pmt
         }
 
         private void btn_addUser_Save_Click(object sender, EventArgs e)
-        {
+        {           
             if (tb_Name.Text != "" && tb_Pwd.Text != "")
             {
                 if (cb_Policy.Text != "")

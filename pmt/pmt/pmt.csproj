@@ -106,6 +106,12 @@
     <Compile Include="Form_addRole.Designer.cs">
       <DependentUpon>Form_addRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_rmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmUser.Designer.cs">
+      <DependentUpon>Form_rmUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="Form_addRole.resx">
       <DependentUpon>Form_addRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmUser.resx">
+      <DependentUpon>Form_rmUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="rbacDataSet.xsc">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>
