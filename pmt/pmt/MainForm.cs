@@ -165,10 +165,10 @@ namespace pmt
         private void btn_addUser_Click(object sender, EventArgs e)
         {
             new Form_addUser(this).ShowDialog();
-
             cb_Tables.Text = "User";
             bindingSource_Tables.DataSource = db.User.GetNewBindingList();
 
+            /*
             /////Не сработало для обновления dataGV_Tables.
             //
             //db.Refresh(RefreshMode.OverwriteCurrentValues);
@@ -180,6 +180,7 @@ namespace pmt
             //
             /////Делает пустым dataGV:
             //bindingSource_Tables.DataSource = null;
+            */
         }
 
         private void btn_rmUser_Click(object sender, EventArgs e)
@@ -189,7 +190,9 @@ namespace pmt
 
         private void btn_addRole_Click(object sender, EventArgs e)
         {
-
+            new Form_addRole(this).ShowDialog();
+            cb_Tables.Text = "Role";
+            bindingSource_Tables.DataSource = db.Role.GetNewBindingList();
         }
 
         private void btn_rmRole_Click(object sender, EventArgs e)

@@ -235,18 +235,20 @@
             this.bindingNavigator_Tables.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator_Tables.Name = "bindingNavigator_Tables";
             this.bindingNavigator_Tables.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator_Tables.Size = new System.Drawing.Size(256, 25);
+            this.bindingNavigator_Tables.Size = new System.Drawing.Size(287, 25);
             this.bindingNavigator_Tables.TabIndex = 13;
             this.bindingNavigator_Tables.Text = "bindingNavigator_Tables";
             // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Enabled = false;
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            this.bindingNavigatorAddNewItem.ToolTipText = "Добавить (temporary disabled)";
             // 
             // bindingNavigatorCountItem
             // 
@@ -258,11 +260,13 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Удалить";
+            this.bindingNavigatorDeleteItem.ToolTipText = "Удалить (temporary disabled)";
             // 
             // bindingNavigatorMoveFirstItem
             // 
