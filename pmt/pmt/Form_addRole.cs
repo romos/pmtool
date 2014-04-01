@@ -28,15 +28,16 @@ namespace pmt
         private void btn_addRole_Save_Click(object sender, EventArgs e)
         {
             int i;
+            Program.ExitCode status;
 
             if (tb_Name.Text != "" && tb_Cardinality.Text != "")
             {
                 if (cb_Policy.Text != "")
                 {
                     //Check Cardinality to be a number:
-                    if (!Int32.TryParse(tb_Cardinality.Text, out i)){
+                    if (!Int32.TryParse(tb_Cardinality.Text, out i) || Convert.ToInt32(tb_Cardinality.Text) < 0){
                         MessageBox.Show(this,
-                                        "Cardinality должно быть числом!",
+                                        "Cardinality должно быть целым числом > 0!",
                                         "Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
@@ -50,65 +51,56 @@ namespace pmt
                         Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
                     };
 
-                    //check if the role exists
-                    var query = from role in mainForm.db.Role
-                                where role.Name == r.Name && role.Policy_Id == r.Policy_Id
-                                select role;
-
-                    //if does not exist, add:
-                    if (query.Count() == 0)
+                    status = RBACManager.AddRole(r, mainForm.db);
+                    if (status == Program.ExitCode.Error)
                     {
-                        mainForm.db.Role.InsertOnSubmit(r);
-                        try
-                        {
-                            mainForm.db.SubmitChanges();
-                            MessageBox.Show(this,
+                        MessageBox.Show(this,
+                                            "Error while Submiting results in the DataBase!",
+                                            "Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (status == Program.ExitCode.Success)
+                    {
+                        MessageBox.Show(this,
                                         "Роль добавлена!",
                                         "Success",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        catch (Exception exc)
-                        {
-                            MessageBox.Show(this,
-                                        exc.ToString(),
-                                        "Error",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                        }
+                        this.Close();
+                        return;
                     }
-                    //if exists, Ignore or Update:
-                    else
+                    if (status == Program.ExitCode.ElementExists)
                     {
                         if (MessageBox.Show(this,
-                                    "Роль с такими 'Name' и 'Policy_Id' уже существует!\nОбновить данные для этой роли?",
+                                    "Роль с такими 'Name' и 'Cardinality' уже существует!\nОбновить данные для этой роли?",
                                     "Warning",
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            //Update existing:
-                            query.First().Cardinality = r.Cardinality;
-                            try
+                            status = RBACManager.UpdateRole(r, mainForm.db);
+                            if (status == Program.ExitCode.Error)
                             {
-                                mainForm.db.SubmitChanges();
                                 MessageBox.Show(this,
-                                            "Роль обновлена!",
+                                            "Error while Submiting results in the DataBase!",
+                                            "Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                                return;
+                            }
+                            if (status == Program.ExitCode.Success)
+                            {
+                                MessageBox.Show(this,
+                                            "Данные для роли обновлены!",
                                             "Success",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Information);
                                 this.Close();
-                            }
-                            catch (Exception exc)
-                            {
-                                MessageBox.Show(this,
-                                            exc.ToString(),
-                                            "Error",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
+                                return;
                             }
                         }
-                        //Ignore changes, return to add-Form
+                        //MsgBox."NO" pressed => Ignore changes, return to add-Form
                         else
                         {
                             return;

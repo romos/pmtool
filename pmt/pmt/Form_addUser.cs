@@ -26,7 +26,9 @@ namespace pmt
         }
 
         private void btn_addUser_Save_Click(object sender, EventArgs e)
-        {           
+        {
+            Program.ExitCode status;
+
             if (tb_Name.Text != "" && tb_Pwd.Text != "")
             {
                 if (cb_Policy.Text != "")
@@ -37,37 +39,28 @@ namespace pmt
                         Password = tb_Pwd.Text,
                         Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
                     };
-                    
-                    //check if the user exists
-                    var query = from usr in mainForm.db.User
-                                where usr.Name == u.Name && usr.Policy_Id == u.Policy_Id
-                                select usr;
-                    
-                    //if does not exist, add:
-                    if (query.Count() == 0)
+
+                    status = RBACManager.AddUser(u, mainForm.db);
+                    if (status == Program.ExitCode.Error)
                     {
-                        mainForm.db.User.InsertOnSubmit(u);
-                        try
-                        {
-                            mainForm.db.SubmitChanges();
-                            MessageBox.Show(this,
+                        MessageBox.Show(this,
+                                            "Error while Submiting results in the DataBase!",
+                                            "Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (status == Program.ExitCode.Success)
+                    {
+                        MessageBox.Show(this,
                                         "Пользователь добавлен!",
                                         "Success",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        catch (Exception exc)
-                        {
-                            MessageBox.Show(this,
-                                        exc.ToString(),
-                                        "Error",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                        }
+                        this.Close();
+                        return;
                     }
-                    //if exists, Ignore or Update:
-                    else
+                    if (status == Program.ExitCode.ElementExists)
                     {
                         if (MessageBox.Show(this,
                                     "Пользователь с такими 'Name' и 'Policy_Id' уже существует!\nОбновить данные для этого пользователя?",
@@ -75,28 +68,28 @@ namespace pmt
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
-                            //Update existing:
-                            query.First().Password = u.Password;
-                            try
+                            status = RBACManager.UpdateUser(u, mainForm.db);
+                            if (status == Program.ExitCode.Error)
                             {
-                                mainForm.db.SubmitChanges();
+                                MessageBox.Show(this,
+                                            "Error while Submiting results in the DataBase!",
+                                            "Error",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Error);
+                                return;
+                            }
+                            if (status == Program.ExitCode.Success)
+                            {
                                 MessageBox.Show(this,
                                             "Данные пользователя обновлены!",
                                             "Success",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Information);
                                 this.Close();
-                            }
-                            catch (Exception exc)
-                            {
-                                MessageBox.Show(this,
-                                            exc.ToString(),
-                                            "Error",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
+                                return;
                             }
                         }
-                        //Ignore changes, return to add-Form
+                        //MsgBox."NO" pressed => Ignore changes, return to add-Form
                         else
                         {
                             return;
@@ -106,22 +99,21 @@ namespace pmt
                 else
                 {
                     MessageBox.Show(this,
-                    "Выберите политику 'Policy'!",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                                "Выберите политику 'Policy'!",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show(this,
-                    "Вы не заполнили одно из полей 'Name' или 'Password'!",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                            "Вы не заполнили одно из полей 'Name' или 'Password'!",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
             }
         }
-
         private void Form_addUser_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Policy". При необходимости она может быть перемещена или удалена.

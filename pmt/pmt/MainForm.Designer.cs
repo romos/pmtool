@@ -184,10 +184,12 @@
             // 
             // btn_Submit
             // 
+            this.btn_Submit.Enabled = false;
             this.btn_Submit.Location = new System.Drawing.Point(323, 59);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(142, 25);
             this.btn_Submit.TabIndex = 11;
+            this.btn_Submit.TabStop = false;
             this.btn_Submit.Text = "SubmitChanges";
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
@@ -205,8 +207,10 @@
             this.dataGV_Tables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_Tables.Location = new System.Drawing.Point(4, 87);
             this.dataGV_Tables.Name = "dataGV_Tables";
+            this.dataGV_Tables.ReadOnly = true;
             this.dataGV_Tables.Size = new System.Drawing.Size(461, 343);
             this.dataGV_Tables.TabIndex = 5;
+            this.dataGV_Tables.TabStop = false;
             // 
             // bindingNavigator_Tables
             // 
@@ -235,7 +239,7 @@
             this.bindingNavigator_Tables.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator_Tables.Name = "bindingNavigator_Tables";
             this.bindingNavigator_Tables.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator_Tables.Size = new System.Drawing.Size(287, 25);
+            this.bindingNavigator_Tables.Size = new System.Drawing.Size(256, 25);
             this.bindingNavigator_Tables.TabIndex = 13;
             this.bindingNavigator_Tables.Text = "bindingNavigator_Tables";
             // 

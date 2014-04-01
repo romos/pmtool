@@ -37,36 +37,15 @@ namespace pmt
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //User u = new User
-            //{
-            //    Name = "Roman",
-            //    Password = "r0m4n",
-            //    Policy_Id = 1
-            //};
-            //db.User.InsertOnSubmit(u);
-            //try
-            //{
-            //    db.SubmitChanges();
-            //}
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show(exc.ToString());
-            //}
-            //var users = from user in db.User
-            //        select user;
-            //MessageBox.Show(String.Format("Id = {0}\nName = {1}\nPassword = {2}\nPolicy_Id = {3}",
-            //                                users.Last().Id,
-            //                                users.Last().Name,
-            //                                users.Last().Password,
-            //                                users.Last().Policy_Id),
-            //                                "DataItem");
         }
         
+
         /////AboutBox About Program
         private void TSMenuItem_about_Click(object sender, EventArgs e)
         {
             new AboutPmtool().ShowDialog();
         }
+
 
         /////dataGridView representation test for different tables
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,6 +143,7 @@ namespace pmt
             //tableAdapterManager1.UpdateAll(rbacDataSet);
         }
 
+
         private void btn_addUser_Click(object sender, EventArgs e)
         {
             new Form_addUser(this).ShowDialog();
@@ -184,14 +164,12 @@ namespace pmt
             //bindingSource_Tables.DataSource = null;
             */
         }
-
         private void btn_rmUser_Click(object sender, EventArgs e)
         {
             new Form_rmUser(this).ShowDialog();
             cb_Tables.Text = "User";
             bindingSource_Tables.DataSource = db.User.GetNewBindingList();
         }
-
         private void btn_addRole_Click(object sender, EventArgs e)
         {
             new Form_addRole(this).ShowDialog();

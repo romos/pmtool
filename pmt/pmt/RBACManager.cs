@@ -8,14 +8,12 @@ namespace pmt
 {
     class RBACManager
     {
-        /*public static string AddUser(User u, rbacLINQ2SQLDataContext db)
+        public static Program.ExitCode AddUser(User u, rbacLINQ2SQLDataContext db)
         {
-            
             //check if the user exists
             var query = from usr in db.User
                         where usr.Name == u.Name && usr.Policy_Id == u.Policy_Id
                         select usr;
-            
             //if doesn't exist, add:
             if (query.Count() == 0)
             {
@@ -23,51 +21,96 @@ namespace pmt
                 try
                 {
                     db.SubmitChanges();
-                    return "Пользователь добавлен!";
+                    return Program.ExitCode.Success;
                 }
                 catch (Exception exc)
                 {
-                    exc.ToString();
+                    return Program.ExitCode.Error;
                 }
             }
-            //if exists, either Update, or Ignore:
+            //if exists:
             else
             {
-                if (MessageBox.Show(this,
-                            "Пользователь с такими 'Name' и 'Policy_Id' уже существует!\nОбновить данные для этого пользователя?",
-                            "Warning",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning) == DialogResult.Yes)
+                return Program.ExitCode.ElementExists;
+            }
+        }
+        public static Program.ExitCode UpdateUser(User u, rbacLINQ2SQLDataContext db)
+        {
+            var query = from usr in db.User
+                        where usr.Name == u.Name && usr.Policy_Id == u.Policy_Id
+                        select usr;
+            query.First().Password = u.Password;
+            try
+            {
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc)
+            {
+                return Program.ExitCode.Error;
+            }
+        }
+
+        public static Program.ExitCode AddRole(Role r, rbacLINQ2SQLDataContext db)
+        {
+            //check if the role exists
+            var query = from role in db.Role
+                        where role.Name == r.Name && role.Policy_Id == r.Policy_Id
+                        select role;
+            //if does not exist, add:
+            if (query.Count() == 0)
+            {
+                db.Role.InsertOnSubmit(r);
+                try
                 {
-                    //обновить данные существующего пользователя
-                    query.First().Password = u.Password;
-                    try
-                    {
-                        mainForm.db.SubmitChanges();
-                        MessageBox.Show(this,
-                                    "Данные пользователя обновлены!",
-                                    "Success",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    catch (Exception exc)
-                    {
-                        MessageBox.Show(this,
-                                    exc.ToString(),
-                                    "Error",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                    }
+                    db.SubmitChanges();
+                    return Program.ExitCode.Success;
                 }
-                else
+                catch (Exception exc)
                 {
-                    //отменить изменение, вернуться в форму добавления
-                    return;
+                    return Program.ExitCode.Error;
                 }
             }
-        }      
-        */
-        //...
+            //if exists, Ignore or Update:
+            else
+            {
+                return Program.ExitCode.ElementExists;
+            }
+        }
+        public static Program.ExitCode UpdateRole(Role r, rbacLINQ2SQLDataContext db)
+        {
+            var query = from role in db.Role
+                        where role.Name == r.Name && role.Policy_Id == r.Policy_Id
+                        select role;
+            query.First().Cardinality = r.Cardinality;
+            try
+            {
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc)
+            {
+                return Program.ExitCode.Error;
+            }
+        }
+
+        public static Program.ExitCode DelUser(User u, rbacLINQ2SQLDataContext db)
+        {
+            try
+            {
+                db.User.DeleteOnSubmit(db.User.Single(usr =>
+                                                (usr.Id == u.Id &&
+                                                usr.Policy_Id == u.Policy_Id)));
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc)
+            {
+                return Program.ExitCode.Error;
+            }
+        }
+
+
+
     }
 }

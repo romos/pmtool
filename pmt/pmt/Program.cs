@@ -8,6 +8,12 @@ namespace pmt
 {
     static class Program
     {
+        public enum ExitCode : int
+        {
+            Success = 0,
+            Error = 1,
+            ElementExists = 2
+        };
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

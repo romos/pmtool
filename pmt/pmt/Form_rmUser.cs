@@ -32,9 +32,8 @@ namespace pmt
 
         private void btn_rmUser_Save_Click(object sender, EventArgs e)
         {
-            mainForm.db.User.DeleteOnSubmit(mainForm.db.User.Single(u => 
-                                                    (u.Id == Convert.ToInt32(cb_Name.SelectedValue) &&
-                                                     u.Policy_Id == Convert.ToInt32(cb_Policy.SelectedValue))));
+            Program.ExitCode status;
+
             if (MessageBox.Show(this,
                             "Удалить пользователя?",
                             "Warning",
@@ -44,23 +43,32 @@ namespace pmt
                 return;
             }
             //удалить пользователя после подтверждения:
-            try
+            User u = new User
             {
-                mainForm.db.SubmitChanges();
+                Id = Convert.ToInt32(cb_Name.SelectedValue),
+                Name = cb_Name.Text,
+                Password = tb_Password.Text,
+                Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
+            };
+            status = RBACManager.DelUser(u, mainForm.db);
+            if (status == Program.ExitCode.Success)
+            {
                 MessageBox.Show(this,
                             "Пользователь удален!",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                 this.Close();
+                return;
             }
-            catch (Exception exc)
+            if (status == Program.ExitCode.Error)
             {
                 MessageBox.Show(this,
-                            exc.ToString(),
+                            "Error while submitting deletion to the DataBase",
                             "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
+                return;
             }
         }
 
