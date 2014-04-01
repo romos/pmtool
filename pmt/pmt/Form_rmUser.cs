@@ -42,6 +42,7 @@ namespace pmt
             {
                 return;
             }
+
             //удалить пользователя после подтверждения:
             User u = new User
             {
@@ -50,7 +51,9 @@ namespace pmt
                 Password = tb_Password.Text,
                 Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
             };
+
             status = RBACManager.DelUser(u, mainForm.db);
+
             if (status == Program.ExitCode.Success)
             {
                 MessageBox.Show(this,

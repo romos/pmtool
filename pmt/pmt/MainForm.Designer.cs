@@ -184,7 +184,6 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Enabled = false;
             this.btn_Submit.Location = new System.Drawing.Point(323, 59);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(142, 25);
@@ -207,7 +206,6 @@
             this.dataGV_Tables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_Tables.Location = new System.Drawing.Point(4, 87);
             this.dataGV_Tables.Name = "dataGV_Tables";
-            this.dataGV_Tables.ReadOnly = true;
             this.dataGV_Tables.Size = new System.Drawing.Size(461, 343);
             this.dataGV_Tables.TabIndex = 5;
             this.dataGV_Tables.TabStop = false;

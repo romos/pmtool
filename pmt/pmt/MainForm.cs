@@ -62,9 +62,12 @@ namespace pmt
                     break;
                 case "ActiveRole":
                     bindingSource_Tables.DataSource = db.ActiveRole.GetNewBindingList();
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Session"].Visible = false;
                     break;
                 case "AuthUserRole":
                     bindingSource_Tables.DataSource = db.AuthUserRole.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["User_Id"],ListSortDirection.Ascending);
                     dataGV_Tables.Columns["Role"].Visible = false;
                     dataGV_Tables.Columns["User"].Visible = false;
                     break;
@@ -101,6 +104,7 @@ namespace pmt
                     break;
                 case "Session":
                     bindingSource_Tables.DataSource = db.Session.GetNewBindingList();
+                    dataGV_Tables.Columns["User"].Visible = false;
                     break;
                 case "StaticSOD":
                     bindingSource_Tables.DataSource = db.StaticSOD.GetNewBindingList();

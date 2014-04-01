@@ -98,9 +98,18 @@ namespace pmt
         {
             try
             {
-                db.User.DeleteOnSubmit(db.User.Single(usr =>
-                                                (usr.Id == u.Id &&
-                                                usr.Policy_Id == u.Policy_Id)));
+                User user = db.User.Single(u1 => (u1.Id == u.Id &&
+                                                  u1.Policy_Id == u.Policy_Id));
+
+                db.AuthUserRole.DeleteAllOnSubmit(user.AuthUserRole);
+                foreach (Session s in user.Session){
+                    db.ActiveRole.DeleteAllOnSubmit(s.ActiveRole);
+                }
+                db.Session.DeleteAllOnSubmit(user.Session);
+
+                db.User.DeleteOnSubmit(db.User.Single(u1 =>
+                                                (u1.Id == u.Id &&
+                                                u1.Policy_Id == u.Policy_Id)));
                 db.SubmitChanges();
                 return Program.ExitCode.Success;
             }
@@ -109,7 +118,31 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
+        //public static Program.ExitCode DelRole(Role r, rbacLINQ2SQLDataContext db)
+        //{
+        //    try
+        //    {
+        //        Role role = db.Role.Single(r1 => (r1.Id == r.Id &&
+        //                                          r1.Policy_Id == r.Policy_Id));
 
+        //        db.AuthUserRole.DeleteAllOnSubmit(user.AuthUserRole);
+        //        foreach (Session s in user.Session)
+        //        {
+        //            db.ActiveRole.DeleteAllOnSubmit(s.ActiveRole);
+        //        }
+        //        db.Session.DeleteAllOnSubmit(user.Session);
+
+        //        db.User.DeleteOnSubmit(db.User.Single(u1 =>
+        //                                        (u1.Id == u.Id &&
+        //                                        u1.Policy_Id == u.Policy_Id)));
+        //        db.SubmitChanges();
+        //        return Program.ExitCode.Success;
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        return Program.ExitCode.Error;
+        //    }
+        //}
 
 
     }

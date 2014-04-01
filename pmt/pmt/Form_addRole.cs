@@ -35,9 +35,9 @@ namespace pmt
                 if (cb_Policy.Text != "")
                 {
                     //Check Cardinality to be a number:
-                    if (!Int32.TryParse(tb_Cardinality.Text, out i) || Convert.ToInt32(tb_Cardinality.Text) < 0){
+                    if (!Int32.TryParse(tb_Cardinality.Text, out i) || Convert.ToInt32(tb_Cardinality.Text) < -1){
                         MessageBox.Show(this,
-                                        "Cardinality должно быть целым числом > 0!",
+                                        "Cardinality должно быть целым числом >= -1!\n'-1' обозн. бесконечность.",
                                         "Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
