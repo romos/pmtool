@@ -62,6 +62,7 @@ namespace pmt
                     break;
                 case "ActiveRole":
                     bindingSource_Tables.DataSource = db.ActiveRole.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Session_Id"], ListSortDirection.Ascending);
                     dataGV_Tables.Columns["Role"].Visible = false;
                     dataGV_Tables.Columns["Session"].Visible = false;
                     break;
@@ -73,15 +74,23 @@ namespace pmt
                     break;
                 case "DynamicSOD":
                     bindingSource_Tables.DataSource = db.DynamicSOD.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Role_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Role1"].Visible = false;
                     break;
                 case "Object":
                     bindingSource_Tables.DataSource = db.Object.GetNewBindingList();
                     break;
                 case "Permission":
                     bindingSource_Tables.DataSource = db.Permission.GetNewBindingList();
+                    dataGV_Tables.Columns["Policy"].Visible = false;
                     break;
                 case "PermissionPerObject":
                     bindingSource_Tables.DataSource = db.PermissionPerObject.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Object_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Columns["Action"].Visible = false;
+                    dataGV_Tables.Columns["Object"].Visible = false;
+                    dataGV_Tables.Columns["Permission"].Visible = false;
                     break;
                 case "Policy":
                     bindingSource_Tables.DataSource = db.Policy.GetNewBindingList();
@@ -98,9 +107,14 @@ namespace pmt
                     break;
                 case "RoleHierarchy":
                     bindingSource_Tables.DataSource = db.RoleHierarchy.GetNewBindingList();
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Role1"].Visible = false;
                     break;
                 case "RolePermission":
                     bindingSource_Tables.DataSource = db.RolePermission.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Role_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Permission"].Visible = false;
                     break;
                 case "Session":
                     bindingSource_Tables.DataSource = db.Session.GetNewBindingList();
@@ -108,6 +122,9 @@ namespace pmt
                     break;
                 case "StaticSOD":
                     bindingSource_Tables.DataSource = db.StaticSOD.GetNewBindingList();
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Role_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Role1"].Visible = false;
                     break;
                 case "User":
                     bindingSource_Tables.DataSource = db.User.GetNewBindingList();
@@ -180,10 +197,11 @@ namespace pmt
             cb_Tables.Text = "Role";
             bindingSource_Tables.DataSource = db.Role.GetNewBindingList();
         }
-
         private void btn_rmRole_Click(object sender, EventArgs e)
         {
-
+            new Form_rmRole(this).ShowDialog();
+            cb_Tables.Text = "Role";
+            bindingSource_Tables.DataSource = db.Role.GetNewBindingList();
         }
 
         private void btn_addAssignment_Click(object sender, EventArgs e)

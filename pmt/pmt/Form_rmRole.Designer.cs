@@ -1,6 +1,6 @@
 ﻿namespace pmt
 {
-    partial class Form_rmUser
+    partial class Form_rmRole
     {
         /// <summary>
         /// Required designer variable.
@@ -30,22 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             this.l_Name = new System.Windows.Forms.Label();
-            this.tb_Password = new System.Windows.Forms.TextBox();
-            this.fKUserPolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tb_Cardinality = new System.Windows.Forms.TextBox();
+            this.fKRolePolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rbacDataSet = new pmt.rbacDataSet();
-            this.l_Password = new System.Windows.Forms.Label();
+            this.l_Cardinality = new System.Windows.Forms.Label();
             this.l_Policy = new System.Windows.Forms.Label();
             this.cb_Policy = new System.Windows.Forms.ComboBox();
-            this.btn_rmUser_Save = new System.Windows.Forms.Button();
-            this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
+            this.btn_rmRole_Save = new System.Windows.Forms.Button();
             this.cb_Name = new System.Windows.Forms.ComboBox();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userTableAdapter = new pmt.rbacDataSetTableAdapters.UserTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).BeginInit();
+            this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
+            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.roleTableAdapter = new pmt.rbacDataSetTableAdapters.RoleTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // l_Name
@@ -57,20 +57,19 @@
             this.l_Name.TabIndex = 0;
             this.l_Name.Text = "Name";
             // 
-            // tb_Password
+            // tb_Cardinality
             // 
-            this.tb_Password.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.fKUserPolicyBindingSource, "Password", true));
-            this.tb_Password.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fKUserPolicyBindingSource, "Password", true));
-            this.tb_Password.Enabled = false;
-            this.tb_Password.Location = new System.Drawing.Point(70, 38);
-            this.tb_Password.Name = "tb_Password";
-            this.tb_Password.Size = new System.Drawing.Size(100, 20);
-            this.tb_Password.TabIndex = 3;
+            this.tb_Cardinality.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fKRolePolicyBindingSource, "Cardinality", true));
+            this.tb_Cardinality.Enabled = false;
+            this.tb_Cardinality.Location = new System.Drawing.Point(70, 38);
+            this.tb_Cardinality.Name = "tb_Cardinality";
+            this.tb_Cardinality.Size = new System.Drawing.Size(100, 20);
+            this.tb_Cardinality.TabIndex = 3;
             // 
-            // fKUserPolicyBindingSource
+            // fKRolePolicyBindingSource
             // 
-            this.fKUserPolicyBindingSource.DataMember = "FK_User_Policy";
-            this.fKUserPolicyBindingSource.DataSource = this.policyBindingSource;
+            this.fKRolePolicyBindingSource.DataMember = "FK_Role_Policy";
+            this.fKRolePolicyBindingSource.DataSource = this.policyBindingSource;
             // 
             // policyBindingSource
             // 
@@ -82,14 +81,14 @@
             this.rbacDataSet.DataSetName = "rbacDataSet";
             this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // l_Password
+            // l_Cardinality
             // 
-            this.l_Password.AutoSize = true;
-            this.l_Password.Location = new System.Drawing.Point(11, 41);
-            this.l_Password.Name = "l_Password";
-            this.l_Password.Size = new System.Drawing.Size(53, 13);
-            this.l_Password.TabIndex = 2;
-            this.l_Password.Text = "Password";
+            this.l_Cardinality.AutoSize = true;
+            this.l_Cardinality.Location = new System.Drawing.Point(11, 41);
+            this.l_Cardinality.Name = "l_Cardinality";
+            this.l_Cardinality.Size = new System.Drawing.Size(55, 13);
+            this.l_Cardinality.TabIndex = 2;
+            this.l_Cardinality.Text = "Cardinality";
             // 
             // l_Policy
             // 
@@ -112,23 +111,19 @@
             this.cb_Policy.TabIndex = 5;
             this.cb_Policy.ValueMember = "Id";
             // 
-            // btn_rmUser_Save
+            // btn_rmRole_Save
             // 
-            this.btn_rmUser_Save.Location = new System.Drawing.Point(194, 28);
-            this.btn_rmUser_Save.Name = "btn_rmUser_Save";
-            this.btn_rmUser_Save.Size = new System.Drawing.Size(100, 38);
-            this.btn_rmUser_Save.TabIndex = 6;
-            this.btn_rmUser_Save.Text = "Remove user";
-            this.btn_rmUser_Save.UseVisualStyleBackColor = true;
-            this.btn_rmUser_Save.Click += new System.EventHandler(this.btn_rmUser_Save_Click);
-            // 
-            // policyTableAdapter
-            // 
-            this.policyTableAdapter.ClearBeforeFill = true;
+            this.btn_rmRole_Save.Location = new System.Drawing.Point(194, 28);
+            this.btn_rmRole_Save.Name = "btn_rmRole_Save";
+            this.btn_rmRole_Save.Size = new System.Drawing.Size(100, 38);
+            this.btn_rmRole_Save.TabIndex = 6;
+            this.btn_rmRole_Save.Text = "Remove role";
+            this.btn_rmRole_Save.UseVisualStyleBackColor = true;
+            this.btn_rmRole_Save.Click += new System.EventHandler(this.btn_rmRole_Save_Click);
             // 
             // cb_Name
             // 
-            this.cb_Name.DataSource = this.fKUserPolicyBindingSource;
+            this.cb_Name.DataSource = this.fKRolePolicyBindingSource;
             this.cb_Name.DisplayMember = "Name";
             this.cb_Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Name.FormattingEnabled = true;
@@ -138,34 +133,38 @@
             this.cb_Name.TabIndex = 7;
             this.cb_Name.ValueMember = "Id";
             // 
-            // userBindingSource
+            // policyTableAdapter
             // 
-            this.userBindingSource.DataMember = "User";
-            this.userBindingSource.DataSource = this.rbacDataSet;
+            this.policyTableAdapter.ClearBeforeFill = true;
             // 
-            // userTableAdapter
+            // roleBindingSource
             // 
-            this.userTableAdapter.ClearBeforeFill = true;
+            this.roleBindingSource.DataMember = "Role";
+            this.roleBindingSource.DataSource = this.rbacDataSet;
             // 
-            // Form_rmUser
+            // roleTableAdapter
+            // 
+            this.roleTableAdapter.ClearBeforeFill = true;
+            // 
+            // Form_rmRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 100);
             this.Controls.Add(this.cb_Name);
-            this.Controls.Add(this.btn_rmUser_Save);
+            this.Controls.Add(this.btn_rmRole_Save);
             this.Controls.Add(this.cb_Policy);
             this.Controls.Add(this.l_Policy);
-            this.Controls.Add(this.tb_Password);
-            this.Controls.Add(this.l_Password);
+            this.Controls.Add(this.tb_Cardinality);
+            this.Controls.Add(this.l_Cardinality);
             this.Controls.Add(this.l_Name);
-            this.Name = "Form_rmUser";
-            this.Text = "Form_rmUser";
-            this.Load += new System.EventHandler(this.Form_rmUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).EndInit();
+            this.Name = "Form_rmRole";
+            this.Text = "Form_rmRole";
+            this.Load += new System.EventHandler(this.Form_rmRole_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,17 +173,17 @@
         #endregion
 
         private System.Windows.Forms.Label l_Name;
-        private System.Windows.Forms.TextBox tb_Password;
-        private System.Windows.Forms.Label l_Password;
+        private System.Windows.Forms.TextBox tb_Cardinality;
+        private System.Windows.Forms.Label l_Cardinality;
         private System.Windows.Forms.Label l_Policy;
         private System.Windows.Forms.ComboBox cb_Policy;
-        private System.Windows.Forms.Button btn_rmUser_Save;
-        private System.Windows.Forms.BindingSource policyBindingSource;
-        private rbacDataSet rbacDataSet;
-        private rbacDataSetTableAdapters.PolicyTableAdapter policyTableAdapter;
+        private System.Windows.Forms.Button btn_rmRole_Save;
         private System.Windows.Forms.ComboBox cb_Name;
-        private System.Windows.Forms.BindingSource userBindingSource;
-        private rbacDataSetTableAdapters.UserTableAdapter userTableAdapter;
-        private System.Windows.Forms.BindingSource fKUserPolicyBindingSource;
+        private rbacDataSet rbacDataSet;
+        private System.Windows.Forms.BindingSource policyBindingSource;
+        private rbacDataSetTableAdapters.PolicyTableAdapter policyTableAdapter;
+        private System.Windows.Forms.BindingSource roleBindingSource;
+        private rbacDataSetTableAdapters.RoleTableAdapter roleTableAdapter;
+        private System.Windows.Forms.BindingSource fKRolePolicyBindingSource;
     }
 }

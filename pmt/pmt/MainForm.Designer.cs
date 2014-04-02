@@ -203,6 +203,8 @@
             // 
             // dataGV_Tables
             // 
+            this.dataGV_Tables.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGV_Tables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_Tables.Location = new System.Drawing.Point(4, 87);
             this.dataGV_Tables.Name = "dataGV_Tables";
@@ -397,6 +399,7 @@
             // 
             // btn_rmPolicy
             // 
+            this.btn_rmPolicy.Enabled = false;
             this.btn_rmPolicy.Location = new System.Drawing.Point(23, 399);
             this.btn_rmPolicy.Name = "btn_rmPolicy";
             this.btn_rmPolicy.Size = new System.Drawing.Size(140, 21);
@@ -407,6 +410,7 @@
             // 
             // btn_setCardinality
             // 
+            this.btn_setCardinality.Enabled = false;
             this.btn_setCardinality.Location = new System.Drawing.Point(23, 344);
             this.btn_setCardinality.Name = "btn_setCardinality";
             this.btn_setCardinality.Size = new System.Drawing.Size(140, 21);
@@ -417,6 +421,7 @@
             // 
             // btn_addPolicy
             // 
+            this.btn_addPolicy.Enabled = false;
             this.btn_addPolicy.Location = new System.Drawing.Point(23, 371);
             this.btn_addPolicy.Name = "btn_addPolicy";
             this.btn_addPolicy.Size = new System.Drawing.Size(140, 21);
@@ -427,6 +432,7 @@
             // 
             // btn_rmDSOD
             // 
+            this.btn_rmDSOD.Enabled = false;
             this.btn_rmDSOD.Location = new System.Drawing.Point(23, 317);
             this.btn_rmDSOD.Name = "btn_rmDSOD";
             this.btn_rmDSOD.Size = new System.Drawing.Size(140, 21);
@@ -437,6 +443,7 @@
             // 
             // btn_addDSOD
             // 
+            this.btn_addDSOD.Enabled = false;
             this.btn_addDSOD.Location = new System.Drawing.Point(23, 290);
             this.btn_addDSOD.Name = "btn_addDSOD";
             this.btn_addDSOD.Size = new System.Drawing.Size(140, 21);
@@ -447,6 +454,7 @@
             // 
             // btn_rmSSOD
             // 
+            this.btn_rmSSOD.Enabled = false;
             this.btn_rmSSOD.Location = new System.Drawing.Point(23, 263);
             this.btn_rmSSOD.Name = "btn_rmSSOD";
             this.btn_rmSSOD.Size = new System.Drawing.Size(140, 21);
@@ -457,6 +465,7 @@
             // 
             // btn_addSSOD
             // 
+            this.btn_addSSOD.Enabled = false;
             this.btn_addSSOD.Location = new System.Drawing.Point(23, 236);
             this.btn_addSSOD.Name = "btn_addSSOD";
             this.btn_addSSOD.Size = new System.Drawing.Size(140, 21);
@@ -467,6 +476,7 @@
             // 
             // btn_rmInheritance
             // 
+            this.btn_rmInheritance.Enabled = false;
             this.btn_rmInheritance.Location = new System.Drawing.Point(23, 209);
             this.btn_rmInheritance.Name = "btn_rmInheritance";
             this.btn_rmInheritance.Size = new System.Drawing.Size(140, 21);
@@ -477,6 +487,7 @@
             // 
             // btn_addInheritance
             // 
+            this.btn_addInheritance.Enabled = false;
             this.btn_addInheritance.Location = new System.Drawing.Point(23, 182);
             this.btn_addInheritance.Name = "btn_addInheritance";
             this.btn_addInheritance.Size = new System.Drawing.Size(140, 21);
@@ -487,6 +498,7 @@
             // 
             // btn_rmAssignment
             // 
+            this.btn_rmAssignment.Enabled = false;
             this.btn_rmAssignment.Location = new System.Drawing.Point(23, 155);
             this.btn_rmAssignment.Name = "btn_rmAssignment";
             this.btn_rmAssignment.Size = new System.Drawing.Size(140, 21);
@@ -497,6 +509,7 @@
             // 
             // btn_addAssignment
             // 
+            this.btn_addAssignment.Enabled = false;
             this.btn_addAssignment.Location = new System.Drawing.Point(23, 128);
             this.btn_addAssignment.Name = "btn_addAssignment";
             this.btn_addAssignment.Size = new System.Drawing.Size(140, 21);

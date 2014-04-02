@@ -50,6 +50,35 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
+        public static Program.ExitCode DelUser(User u, rbacLINQ2SQLDataContext db)
+        {
+            try
+            {
+                User user = db.User.Single(u1 => (u1.Id == u.Id &&
+                                                  u1.Policy_Id == u.Policy_Id));
+
+                //Можем запрещать удалять Юзера, у которого есть assigned roles.
+                //if (user.AuthUserRole.Count != 0)
+                //{
+                //    return Program.ExitCode.HasAssigned;
+                //}
+                foreach (Session s in user.Session)
+                {
+                    db.ActiveRole.DeleteAllOnSubmit(s.ActiveRole);
+                }
+                db.Session.DeleteAllOnSubmit(user.Session);
+                db.AuthUserRole.DeleteAllOnSubmit(user.AuthUserRole);
+                db.User.DeleteOnSubmit(db.User.Single(u1 =>
+                                                (u1.Id == u.Id &&
+                                                u1.Policy_Id == u.Policy_Id)));
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc)
+            {
+                return Program.ExitCode.Error;
+            }
+        }
 
         public static Program.ExitCode AddRole(Role r, rbacLINQ2SQLDataContext db)
         {
@@ -93,23 +122,24 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
-
-        public static Program.ExitCode DelUser(User u, rbacLINQ2SQLDataContext db)
+        public static Program.ExitCode DelRole(Role r, rbacLINQ2SQLDataContext db)
         {
             try
             {
-                User user = db.User.Single(u1 => (u1.Id == u.Id &&
-                                                  u1.Policy_Id == u.Policy_Id));
+                Role role = db.Role.Single(r1 => (r1.Id == r.Id &&
+                                                  r1.Policy_Id == r.Policy_Id));
+                //Можем запрещать удалять Роли, которые привязаны к каким-то Юзерам
+                //if (role.AuthUserRole.Count != 0)
+                //{
+                //    return Program.ExitCode.HasAssigned;
+                //}
 
-                db.AuthUserRole.DeleteAllOnSubmit(user.AuthUserRole);
-                foreach (Session s in user.Session){
-                    db.ActiveRole.DeleteAllOnSubmit(s.ActiveRole);
-                }
-                db.Session.DeleteAllOnSubmit(user.Session);
+                
+                db.ActiveRole.DeleteAllOnSubmit(role.ActiveRole);
+                db.AuthUserRole.DeleteAllOnSubmit(role.AuthUserRole);
+                db.RolePermission.DeleteAllOnSubmit(role.RolePermission);
+                db.Role.DeleteOnSubmit(role);
 
-                db.User.DeleteOnSubmit(db.User.Single(u1 =>
-                                                (u1.Id == u.Id &&
-                                                u1.Policy_Id == u.Policy_Id)));
                 db.SubmitChanges();
                 return Program.ExitCode.Success;
             }
@@ -118,32 +148,5 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
-        //public static Program.ExitCode DelRole(Role r, rbacLINQ2SQLDataContext db)
-        //{
-        //    try
-        //    {
-        //        Role role = db.Role.Single(r1 => (r1.Id == r.Id &&
-        //                                          r1.Policy_Id == r.Policy_Id));
-
-        //        db.AuthUserRole.DeleteAllOnSubmit(user.AuthUserRole);
-        //        foreach (Session s in user.Session)
-        //        {
-        //            db.ActiveRole.DeleteAllOnSubmit(s.ActiveRole);
-        //        }
-        //        db.Session.DeleteAllOnSubmit(user.Session);
-
-        //        db.User.DeleteOnSubmit(db.User.Single(u1 =>
-        //                                        (u1.Id == u.Id &&
-        //                                        u1.Policy_Id == u.Policy_Id)));
-        //        db.SubmitChanges();
-        //        return Program.ExitCode.Success;
-        //    }
-        //    catch (Exception exc)
-        //    {
-        //        return Program.ExitCode.Error;
-        //    }
-        //}
-
-
     }
 }

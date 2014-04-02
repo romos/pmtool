@@ -12,7 +12,8 @@ namespace pmt
         {
             Success = 0,
             Error = 1,
-            ElementExists = 2
+            ElementExists = 2,
+            HasAssigned = 3
         };
         /// <summary>
         /// Главная точка входа для приложения.
