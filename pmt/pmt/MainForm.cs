@@ -38,24 +38,11 @@ namespace pmt
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
-        
 
-        /////AboutBox About Program
-        private void TSMenuItem_about_Click(object sender, EventArgs e)
+        //Renew dataGV_Tables bindings for correct visualizing
+        private void RenewDataGV_Tables(string table_name)
         {
-            new AboutPmtool().ShowDialog();
-        }
-
-
-        /////dataGridView representation test for different tables
-        private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string table = cb_Tables.Text;
-
-            /////?! WTF ?! DON'T CHANGE NEXT LINE
-            bindingSource_Tables.DataSource = null;
-
-            switch (table)
+            switch (table_name)
             {
                 case "Action":
                     bindingSource_Tables.DataSource = db.Action.GetNewBindingList();
@@ -68,7 +55,7 @@ namespace pmt
                     break;
                 case "AuthUserRole":
                     bindingSource_Tables.DataSource = db.AuthUserRole.GetNewBindingList();
-                    dataGV_Tables.Sort(dataGV_Tables.Columns["User_Id"],ListSortDirection.Ascending);
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["User_Id"], ListSortDirection.Ascending);
                     dataGV_Tables.Columns["Role"].Visible = false;
                     dataGV_Tables.Columns["User"].Visible = false;
                     break;
@@ -133,6 +120,18 @@ namespace pmt
                     break;
             }
         }
+
+        /////dataGridView representation test for different tables
+        private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string table = cb_Tables.Text;
+
+            /////?! WTF ?! DON'T CHANGE NEXT LINE
+            bindingSource_Tables.DataSource = null;
+            
+            RenewDataGV_Tables(table);
+        }
+
         /////Submit changes to dataGridView
         private void btn_Submit_Click(object sender, EventArgs e)
         {
@@ -164,13 +163,11 @@ namespace pmt
             //tableAdapterManager1.UpdateAll(rbacDataSet);
         }
 
-
         private void btn_addUser_Click(object sender, EventArgs e)
         {
             new Form_addUser(this).ShowDialog();
             cb_Tables.Text = "User";
-            bindingSource_Tables.DataSource = db.User.GetNewBindingList();
-
+            RenewDataGV_Tables("User");
             /*
             /////Не сработало для обновления dataGV_Tables.
             //
@@ -189,24 +186,25 @@ namespace pmt
         {
             new Form_rmUser(this).ShowDialog();
             cb_Tables.Text = "User";
-            bindingSource_Tables.DataSource = db.User.GetNewBindingList();
+            RenewDataGV_Tables("User");
         }
         private void btn_addRole_Click(object sender, EventArgs e)
         {
             new Form_addRole(this).ShowDialog();
             cb_Tables.Text = "Role";
-            bindingSource_Tables.DataSource = db.Role.GetNewBindingList();
+            RenewDataGV_Tables("Role");
         }
         private void btn_rmRole_Click(object sender, EventArgs e)
         {
             new Form_rmRole(this).ShowDialog();
             cb_Tables.Text = "Role";
-            bindingSource_Tables.DataSource = db.Role.GetNewBindingList();
+            RenewDataGV_Tables("Role");
         }
-
         private void btn_addAssignment_Click(object sender, EventArgs e)
         {
-
+            new Form_addAssignment(this).ShowDialog();
+            cb_Tables.Text = "AuthUserRole";
+            RenewDataGV_Tables("AuthUserRole");
         }
 
         private void btn_addInheritance_Click(object sender, EventArgs e)
@@ -257,6 +255,12 @@ namespace pmt
         private void btn_rmPolicy_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /////AboutBox About Program
+        private void TSMenuItem_about_Click(object sender, EventArgs e)
+        {
+            new AboutPmtool().ShowDialog();
         }
     }
 }

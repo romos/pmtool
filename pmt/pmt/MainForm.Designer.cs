@@ -38,7 +38,6 @@
             this.TSMenuItem_about = new System.Windows.Forms.ToolStripMenuItem();
             this.label_Tables = new System.Windows.Forms.Label();
             this.cb_Tables = new System.Windows.Forms.ComboBox();
-            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
             this.rbacDataSet = new pmt.rbacDataSet();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.permissionPerObjectTableAdapter1 = new pmt.rbacDataSetTableAdapters.PermissionPerObjectTableAdapter();
@@ -77,8 +76,8 @@
             this.btn_addUser = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource_Tables = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).BeginInit();
@@ -86,6 +85,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -172,10 +172,6 @@
             this.cb_Tables.Size = new System.Drawing.Size(147, 21);
             this.cb_Tables.TabIndex = 4;
             this.cb_Tables.SelectedIndexChanged += new System.EventHandler(this.cb_Tables_SelectedIndexChanged);
-            // 
-            // bindingSource_Tables
-            // 
-            this.bindingSource_Tables.AllowNew = true;
             // 
             // rbacDataSet
             // 
@@ -509,7 +505,6 @@
             // 
             // btn_addAssignment
             // 
-            this.btn_addAssignment.Enabled = false;
             this.btn_addAssignment.Location = new System.Drawing.Point(23, 128);
             this.btn_addAssignment.Name = "btn_addAssignment";
             this.btn_addAssignment.Size = new System.Drawing.Size(140, 21);
@@ -575,6 +570,10 @@
             this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
             this.rbacDataSetBindingSource.Position = 0;
             // 
+            // bindingSource_Tables
+            // 
+            this.bindingSource_Tables.AllowNew = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,7 +589,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator_Tables)).EndInit();
@@ -600,6 +598,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

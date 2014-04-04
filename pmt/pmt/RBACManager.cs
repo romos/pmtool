@@ -148,5 +148,32 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
+
+        public static Program.ExitCode addAssignment(AuthUserRole assgnUR, rbacLINQ2SQLDataContext db)
+        {
+            //check if the role exists
+            var query = from  aur in db.AuthUserRole
+                        where aur.Role_Id == assgnUR.Role_Id && aur.User_Id == assgnUR.User_Id
+                        select aur;
+            //if does not exist, add:
+            if (query.Count() == 0)
+            {
+                db.AuthUserRole.InsertOnSubmit(assgnUR);
+                try
+                {
+                    db.SubmitChanges();
+                    return Program.ExitCode.Success;
+                }
+                catch (Exception exc)
+                {
+                    return Program.ExitCode.Error;
+                }
+            }
+            //if exists, Ignore or Update:
+            else
+            {
+                return Program.ExitCode.ElementExists;
+            }
+        }
     }
 }
