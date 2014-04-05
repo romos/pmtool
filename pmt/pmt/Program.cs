@@ -13,7 +13,9 @@ namespace pmt
             Success = 0,
             Error = 1,
             ElementExists = 2,
-            //HasAssigned = 3
+            ElementDoesNotExists = 3,
+            //Ppo_exists = 100, //can be used for AddPermission Functionality
+            //HasAssigned = 4
         };
         /// <summary>
         /// Главная точка входа для приложения.
@@ -26,4 +28,23 @@ namespace pmt
             Application.Run(new MainForm());
         }
     }
+
+
+    /*
+     * Список таблиц базы данных в MainForm->cb_Tables
+        Action
+        ActiveRole
+        AuthUserRole
+        DynamicSOD
+        Object
+        Permission
+        PermissionPerObject
+        Policy
+        Role
+        RoleHierarchy
+        RolePermission
+        Session
+        StaticSOD
+        User
+     * */
 }

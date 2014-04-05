@@ -124,6 +124,60 @@
     <Compile Include="Form_addAssignment.Designer.cs">
       <DependentUpon>Form_addAssignment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_rmAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmAssignment.Designer.cs">
+      <DependentUpon>Form_rmAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_addPolicy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addPolicy.Designer.cs">
+      <DependentUpon>Form_addPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_rmPolicy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmPolicy.Designer.cs">
+      <DependentUpon>Form_rmPolicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_addAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addAction.Designer.cs">
+      <DependentUpon>Form_addAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_addObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addObject.Designer.cs">
+      <DependentUpon>Form_addObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_addPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addPermission.Designer.cs">
+      <DependentUpon>Form_addPermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_addRolePermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_addRolePermission.Designer.cs">
+      <DependentUpon>Form_addRolePermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_rmRolePermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmRolePermission.Designer.cs">
+      <DependentUpon>Form_rmRolePermission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_rmPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmPermission.Designer.cs">
+      <DependentUpon>Form_rmPermission.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +210,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_addAssignment.resx">
       <DependentUpon>Form_addAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmAssignment.resx">
+      <DependentUpon>Form_rmAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_addPolicy.resx">
+      <DependentUpon>Form_addPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmPolicy.resx">
+      <DependentUpon>Form_rmPolicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_addAction.resx">
+      <DependentUpon>Form_addAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_addObject.resx">
+      <DependentUpon>Form_addObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_addPermission.resx">
+      <DependentUpon>Form_addPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_addRolePermission.resx">
+      <DependentUpon>Form_addRolePermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmRolePermission.resx">
+      <DependentUpon>Form_rmRolePermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmPermission.resx">
+      <DependentUpon>Form_rmPermission.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="rbacDataSet.xsc">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>

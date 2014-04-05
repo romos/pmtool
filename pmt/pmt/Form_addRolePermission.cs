@@ -11,53 +11,37 @@ using System.Windows.Forms;
 
 namespace pmt
 {
-    public partial class Form_rmRole : Form
+    public partial class Form_addRolePermission : Form
     {
         private MainForm mainForm;
 
-        public Form_rmRole()
+        public Form_addRolePermission()
         {
             InitializeComponent();
         }
-        public Form_rmRole(MainForm mf)
+        public Form_addRolePermission(MainForm mf)
         {
             InitializeComponent();
             mainForm = mf;
         }
 
-        private void tb_Pwd_UpdateValue()
-        {
-            tb_Cardinality.Text = ((DataRowView)cb_Name.SelectedItem)["Password"].ToString();
-        }
-
-        private void btn_rmRole_Save_Click(object sender, EventArgs e)
+        private void btn_addRolePermission_Save_Click(object sender, EventArgs e)
         {
             Program.ExitCode status;
 
-            if (MessageBox.Show(this,
-                            "Удалить роль?",
-                            "Warning",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning) == DialogResult.No)
+            //Создать RolePermission:
+            RolePermission rp = new RolePermission
             {
-                return;
-            }
-
-            //удалить роль после подтверждения:
-            Role r = new Role
-            {
-                Id = Convert.ToInt32(cb_Name.SelectedValue),
-                Name = cb_Name.Text,
-                Cardinality = Convert.ToInt32(tb_Cardinality.Text),
-                Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
+                Role_Id = Convert.ToInt32(cb_Role.SelectedValue),
+                Permission_Id = Convert.ToInt32(cb_Permission.SelectedValue),
             };
 
-            status = RBACManager.RmRole(r, mainForm.db);
+            status = RBACManager.AddRolePermission(rp, mainForm.db);
 
             if (status == Program.ExitCode.Success)
             {
                 MessageBox.Show(this,
-                            "Роль удалена!",
+                            "Permission успешно авторизован для роли!",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -73,15 +57,25 @@ namespace pmt
                             MessageBoxIcon.Error);
                 return;
             }
+            if (status == Program.ExitCode.ElementExists)
+            {
+                MessageBox.Show(this,
+                            "Выбранный permission уже авторизован для выбранной роли!",
+                            "Warning",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                return;
+            }
         }
 
-        private void Form_rmRole_Load(object sender, EventArgs e)
+        private void Form_addRolePermission_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Permission". При необходимости она может быть перемещена или удалена.
+            this.permissionTableAdapter.Fill(this.rbacDataSet.Permission);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Role". При необходимости она может быть перемещена или удалена.
             this.roleTableAdapter.Fill(this.rbacDataSet.Role);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Policy". При необходимости она может быть перемещена или удалена.
             this.policyTableAdapter.Fill(this.rbacDataSet.Policy);
         }
-
     }
 }

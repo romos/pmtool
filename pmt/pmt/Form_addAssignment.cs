@@ -36,7 +36,7 @@ namespace pmt
                 Role_Id = Convert.ToInt32(cb_Role.SelectedValue),
             };
 
-            status = RBACManager.addAssignment(assgnUR, mainForm.db);
+            status = RBACManager.AddAssignment(assgnUR, mainForm.db);
 
             if (status == Program.ExitCode.Success)
             {

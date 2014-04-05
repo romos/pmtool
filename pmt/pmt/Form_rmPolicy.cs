@@ -11,31 +11,26 @@ using System.Windows.Forms;
 
 namespace pmt
 {
-    public partial class Form_rmUser : Form
+    public partial class Form_rmPolicy : Form
     {
         private MainForm mainForm;
 
-        public Form_rmUser()
+        public Form_rmPolicy()
         {
             InitializeComponent();
         }
-        public Form_rmUser(MainForm mf)
+        public Form_rmPolicy(MainForm mf)
         {
             InitializeComponent();
             mainForm = mf;
         }
 
-        private void tb_Pwd_UpdateValue()
-        {
-            tb_Password.Text = ((DataRowView)cb_Name.SelectedItem)["Password"].ToString();
-        }
-
-        private void btn_rmUser_Save_Click(object sender, EventArgs e)
+        private void btn_rmPolicy_Save_Click(object sender, EventArgs e)
         {
             Program.ExitCode status;
 
             if (MessageBox.Show(this,
-                            "Удалить пользователя?",
+                            "Удалить политику?\nУдаляются также все связанные с ней объекты (User, Role, Permission...)",
                             "Warning",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning) == DialogResult.No)
@@ -43,21 +38,18 @@ namespace pmt
                 return;
             }
 
-            //удалить пользователя после подтверждения:
-            User u = new User
+            //удалить политику после подтверждения:
+            Policy p = new Policy
             {
-                Id = Convert.ToInt32(cb_Name.SelectedValue),
-                Name = cb_Name.Text,
-                Password = tb_Password.Text,
-                Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
+                Id = Convert.ToInt32(cb_Policy.SelectedValue),
             };
 
-            status = RBACManager.RmUser(u, mainForm.db);
+            status = RBACManager.RmPolicy(p, mainForm.db);
 
             if (status == Program.ExitCode.Success)
             {
                 MessageBox.Show(this,
-                            "Пользователь удален!",
+                            "Политика удалена!",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -74,14 +66,10 @@ namespace pmt
                 return;
             }
         }
-
-        private void Form_rmUser_Load(object sender, EventArgs e)
+        private void Form_rmPolicy_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.User". При необходимости она может быть перемещена или удалена.
-            this.userTableAdapter.Fill(this.rbacDataSet.User);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Policy". При необходимости она может быть перемещена или удалена.
             this.policyTableAdapter.Fill(this.rbacDataSet.Policy);
         }
-
     }
 }

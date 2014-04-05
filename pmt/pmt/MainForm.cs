@@ -39,7 +39,9 @@ namespace pmt
         {
         }
 
+        //
         //Renew dataGV_Tables bindings for correct visualizing
+        //
         private void RenewDataGV_Tables(string table_name)
         {
             switch (table_name)
@@ -74,7 +76,10 @@ namespace pmt
                     break;
                 case "PermissionPerObject":
                     bindingSource_Tables.DataSource = db.PermissionPerObject.GetNewBindingList();
-                    dataGV_Tables.Sort(dataGV_Tables.Columns["Object_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Sort(dataGV_Tables.Columns["Permission_Id"], ListSortDirection.Ascending);
+                    dataGV_Tables.Columns["Permission_Id"].DisplayIndex = 0;
+                    dataGV_Tables.Columns["Action_Id"].DisplayIndex = 1;
+                    dataGV_Tables.Columns["Object_Id"].DisplayIndex = 2;
                     dataGV_Tables.Columns["Action"].Visible = false;
                     dataGV_Tables.Columns["Object"].Visible = false;
                     dataGV_Tables.Columns["Permission"].Visible = false;
@@ -120,8 +125,10 @@ namespace pmt
                     break;
             }
         }
-
-        /////dataGridView representation test for different tables
+        
+        //
+        //dataGridView representation test for different tables
+        //
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
             string table = cb_Tables.Text;
@@ -131,8 +138,10 @@ namespace pmt
             
             RenewDataGV_Tables(table);
         }
-
-        /////Submit changes to dataGridView
+        
+        //
+        //Submit changes to dataGridView
+        //
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             //[Submit nothing] Prevent Submit windows appearance, when no change done
@@ -188,6 +197,7 @@ namespace pmt
             cb_Tables.Text = "User";
             RenewDataGV_Tables("User");
         }
+
         private void btn_addRole_Click(object sender, EventArgs e)
         {
             new Form_addRole(this).ShowDialog();
@@ -200,64 +210,85 @@ namespace pmt
             cb_Tables.Text = "Role";
             RenewDataGV_Tables("Role");
         }
+
         private void btn_addAssignment_Click(object sender, EventArgs e)
         {
             new Form_addAssignment(this).ShowDialog();
             cb_Tables.Text = "AuthUserRole";
             RenewDataGV_Tables("AuthUserRole");
         }
-
-        private void btn_addInheritance_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_rmAssignment_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_rmInheritance_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_addSSOD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_rmSSOD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_setCardinality_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_rmDSOD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_addDSOD_Click(object sender, EventArgs e)
-        {
-
+            new Form_rmAssignment(this).ShowDialog();
+            cb_Tables.Text = "AuthUserRole";
+            RenewDataGV_Tables("AuthUserRole");
         }
 
         private void btn_addPolicy_Click(object sender, EventArgs e)
         {
-
+            new Form_addPolicy(this).ShowDialog();
+            cb_Tables.Text = "Policy";
+            RenewDataGV_Tables("Policy");
+        }
+        private void btn_rmPolicy_Click(object sender, EventArgs e)
+        {
+            new Form_rmPolicy(this).ShowDialog();
+            cb_Tables.Text = "Policy";
+            RenewDataGV_Tables("Policy");
         }
 
-        private void btn_rmPolicy_Click(object sender, EventArgs e)
+        private void btn_addAction_Click(object sender, EventArgs e)
+        {
+            new Form_addAction(this).ShowDialog();
+            cb_Tables.Text = "Action";
+            RenewDataGV_Tables("Action");
+        }
+        private void btn_rmAction_Click(object sender, EventArgs e)
         {
 
         }
 
-        /////AboutBox About Program
+        private void btn_addObject_Click(object sender, EventArgs e)
+        {
+            new Form_addObject(this).ShowDialog();
+            cb_Tables.Text = "Object";
+            RenewDataGV_Tables("Object");
+        }
+        private void btn_rmObject_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_addPermission_Click(object sender, EventArgs e)
+        {
+            new Form_addPermission(this).ShowDialog();
+            cb_Tables.Text = "RolePermission";
+            RenewDataGV_Tables("RolePermission");
+        }
+        private void btn_rmPermission_Click(object sender, EventArgs e)
+        {
+            new Form_rmPermission(this).ShowDialog();
+            cb_Tables.Text = "RolePermission";
+            RenewDataGV_Tables("RolePermission");
+        }
+
+        private void btn_addRolePerm_Click(object sender, EventArgs e)
+        {
+            new Form_addRolePermission(this).ShowDialog();
+            cb_Tables.Text = "RolePermission";
+            RenewDataGV_Tables("RolePermission");
+        }
+        private void btn_rmRolePerm_Click(object sender, EventArgs e)
+        {
+            new Form_rmRolePermission(this).ShowDialog();
+            cb_Tables.Text = "RolePermission";
+            RenewDataGV_Tables("RolePermission");
+        }
+
+
+        //
+        //AboutBox About Program
+        //
         private void TSMenuItem_about_Click(object sender, EventArgs e)
         {
             new AboutPmtool().ShowDialog();
