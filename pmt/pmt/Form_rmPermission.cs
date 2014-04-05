@@ -46,7 +46,7 @@ namespace pmt
                 Permission_Id = Convert.ToInt32(cb_Permission.SelectedValue),
             };
 
-            status = RBACManager.RmPermission(ppo, mainForm.db);
+            status = RBACManager.RmPermissionPerObject(ppo, mainForm.db);
 
             if (status == Program.ExitCode.Success)
             {

@@ -245,7 +245,9 @@ namespace pmt
         }
         private void btn_rmAction_Click(object sender, EventArgs e)
         {
-
+            new Form_rmAction(this).ShowDialog();
+            cb_Tables.Text = "Action";
+            RenewDataGV_Tables("Action");
         }
 
         private void btn_addObject_Click(object sender, EventArgs e)
@@ -256,14 +258,16 @@ namespace pmt
         }
         private void btn_rmObject_Click(object sender, EventArgs e)
         {
-
+            new Form_rmObject(this).ShowDialog();
+            cb_Tables.Text = "Object";
+            RenewDataGV_Tables("Object");
         }
 
         private void btn_addPermission_Click(object sender, EventArgs e)
         {
             new Form_addPermission(this).ShowDialog();
-            cb_Tables.Text = "RolePermission";
-            RenewDataGV_Tables("RolePermission");
+            cb_Tables.Text = "Permission";
+            RenewDataGV_Tables("Permission");
         }
         private void btn_rmPermission_Click(object sender, EventArgs e)
         {
@@ -284,7 +288,6 @@ namespace pmt
             cb_Tables.Text = "RolePermission";
             RenewDataGV_Tables("RolePermission");
         }
-
 
         //
         //AboutBox About Program

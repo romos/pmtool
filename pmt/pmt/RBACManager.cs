@@ -50,7 +50,7 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
-        public static Program.ExitCode RmUser(User u, rbacLINQ2SQLDataContext db)
+        public static Program.ExitCode RmUser(User u, rbacLINQ2SQLDataContext db, bool submitChanges = true)
         {
             try
             {
@@ -71,7 +71,9 @@ namespace pmt
                 db.User.DeleteOnSubmit(db.User.Single(u1 =>
                                                 (u1.Id == u.Id &&
                                                 u1.Policy_Id == u.Policy_Id)));
-                db.SubmitChanges();
+                if (submitChanges)
+                    db.SubmitChanges();
+
                 return Program.ExitCode.Success;
             }
             catch (Exception exc)
@@ -122,7 +124,7 @@ namespace pmt
                 return Program.ExitCode.Error;
             }
         }
-        public static Program.ExitCode RmRole(Role r, rbacLINQ2SQLDataContext db)
+        public static Program.ExitCode RmRole(Role r, rbacLINQ2SQLDataContext db, bool submitChanges = true)
         {
             try
             {
@@ -140,7 +142,9 @@ namespace pmt
                 db.RolePermission.DeleteAllOnSubmit(role.RolePermission);
                 db.Role.DeleteOnSubmit(role);
 
-                db.SubmitChanges();
+                if (submitChanges)
+                    db.SubmitChanges();
+
                 return Program.ExitCode.Success;
             }
             catch (Exception exc)
@@ -231,15 +235,11 @@ namespace pmt
                 return Program.ExitCode.ElementExists;
             }
         }
-        //
-        // TODO:
-        //
         public static Program.ExitCode RmPolicy(Policy policy_in, rbacLINQ2SQLDataContext db)
         {
             Program.ExitCode status;
-            return Program.ExitCode.Success;
 
-            //check if the role exists
+            //check if the policy exists
             var query = from policy in db.Policy
                         where policy.Id == policy_in.Id
                         select policy;
@@ -248,24 +248,24 @@ namespace pmt
             {
                 Policy p = query.First();
 
-                //foreach (User u in p.User)
-                //{
-                //    status = RmUser(u, db);
-                //    if (status != Program.ExitCode.Success)
-                //        return status;
-                //}
-                //foreach (Role r in p.Role)
-                //{
-                //    status = RmRole(r, db);
-                //    if (status != Program.ExitCode.Success)
-                //        return status;
-                //}
-                //foreach (Permission perm in p.Permission)
-                //{
-                //    status = RmPermission(perm, db);
-                //    if (status != Program.ExitCode.Success)
-                //        return status;
-                //}
+                foreach (User u in p.User)
+                {
+                    status = RmUser(u, db, false);
+                    if (status != Program.ExitCode.Success)
+                        return status;
+                }
+                foreach (Role r in p.Role)
+                {
+                    status = RmRole(r, db, false);
+                    if (status != Program.ExitCode.Success)
+                        return status;
+                }
+                foreach (Permission perm in p.Permission)
+                {
+                    status = RmPermission(perm, db, false);
+                    if (status != Program.ExitCode.Success)
+                        return status;
+                }
                 db.Policy.DeleteOnSubmit(p);
                 try
                 {
@@ -286,7 +286,7 @@ namespace pmt
 
         public static Program.ExitCode AddAction(Action a_in, rbacLINQ2SQLDataContext db)
         {
-            //check if the role exists
+            //check if exists
             var query = from act in db.Action
                         where act.Name == a_in.Name
                         select act;
@@ -310,35 +310,46 @@ namespace pmt
                 return Program.ExitCode.ElementExists;
             }
         }
-        //
-        //
-        //
         public static Program.ExitCode RmAction(Action a_in, rbacLINQ2SQLDataContext db)
         {
-            return Program.ExitCode.Success;
-            ////check if the role exists
-            //var query = from act in db.Action
-            //            where act.Name == a_in.Name
-            //            select act;
-            ////if does not exist, add:
-            //if (query.Count() == 0)
-            //{
-            //    db.Action.InsertOnSubmit(a_in);
-            //    try
-            //    {
-            //        db.SubmitChanges();
-            //        return Program.ExitCode.Success;
-            //    }
-            //    catch (Exception exc)
-            //    {
-            //        return Program.ExitCode.Error;
-            //    }
-            //}
-            ////if exists, Ignore or Update:
-            //else
-            //{
-            //    return Program.ExitCode.ElementExists;
-            //}
+            var query = from act in db.Action
+                        where act.Name == a_in.Name
+                        select act;
+            if (query.Count() == 0)
+                return Program.ExitCode.ElementDoesNotExists;
+
+            Action a = query.First();
+            
+            HashSet<int> pids = new HashSet<int>();
+            
+            foreach (var ppo in a.PermissionPerObject)
+            {
+                pids.Add(ppo.Permission_Id);
+                db.PermissionPerObject.DeleteOnSubmit(ppo);
+            }
+
+            try { db.SubmitChanges(); }
+            catch (Exception exc) { return Program.ExitCode.Error; }
+
+            //check if there're entities for PPOs deleted. If not - delete these Permission entities:
+            var prmsn = db.PermissionPerObject.Where(x => (pids.Contains<int>(x.Permission_Id)))
+                                              .Select(x => x.Permission_Id);
+            foreach (int i in prmsn)
+                pids.Remove(i);
+
+            var query1 = db.Permission.Where(x => pids.Contains<int>(x.Id));
+            foreach (var q in query1)
+            {
+                RmPermission(q, db, false);
+            }
+
+            db.Action.DeleteOnSubmit(a);
+            try
+            {
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc) { return Program.ExitCode.Error; }
         }
 
         public static Program.ExitCode AddObject(Object o_in, rbacLINQ2SQLDataContext db)
@@ -367,35 +378,46 @@ namespace pmt
                 return Program.ExitCode.ElementExists;
             }
         }
-        //
-        //
-        //
         public static Program.ExitCode RmObject(Object o_in, rbacLINQ2SQLDataContext db)
         {
-            return Program.ExitCode.Success;
-            ////check if the role exists
-            //var query = from obj in db.Object
-            //            where obj.Name == o_in.Name
-            //            select obj;
-            ////if does not exist, add:
-            //if (query.Count() == 0)
-            //{
-            //    db.Object.InsertOnSubmit(o_in);
-            //    try
-            //    {
-            //        db.SubmitChanges();
-            //        return Program.ExitCode.Success;
-            //    }
-            //    catch (Exception exc)
-            //    {
-            //        return Program.ExitCode.Error;
-            //    }
-            //}
-            ////if exists, Ignore or Update:
-            //else
-            //{
-            //    return Program.ExitCode.ElementExists;
-            //}
+            var query = from obj in db.Object
+                        where obj.Name == o_in.Name
+                        select obj;
+            if (query.Count() == 0)
+                return Program.ExitCode.ElementDoesNotExists;
+
+            Object o = query.First();
+
+            HashSet<int> pids = new HashSet<int>();
+
+            foreach (var ppo in o.PermissionPerObject)
+            {
+                pids.Add(ppo.Permission_Id);
+                db.PermissionPerObject.DeleteOnSubmit(ppo);
+            }
+
+            try { db.SubmitChanges(); }
+            catch (Exception exc) { return Program.ExitCode.Error; }
+
+            //check if there're entities for PPOs deleted. If not - delete these Permission entities:
+            var prmsn = db.PermissionPerObject.Where(x => (pids.Contains<int>(x.Permission_Id)))
+                                              .Select(x => x.Permission_Id);
+            foreach (int i in prmsn)
+                pids.Remove(i);
+
+            var query1 = db.Permission.Where(x => pids.Contains<int>(x.Id));
+            foreach (var q in query1)
+            {
+                RmPermission(q, db, false);
+            }
+
+            db.Object.DeleteOnSubmit(o);
+            try
+            {
+                db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc) { return Program.ExitCode.Error; }
         }
 
         public static Program.ExitCode AddPermission(Permission p_in, Action a_in, Object o_in, rbacLINQ2SQLDataContext db)
@@ -443,7 +465,7 @@ namespace pmt
                 catch (Exception exc) { return Program.ExitCode.Error; }
             }
         }
-        public static Program.ExitCode RmPermission(PermissionPerObject ppo_in, rbacLINQ2SQLDataContext db)
+        public static Program.ExitCode RmPermissionPerObject(PermissionPerObject ppo_in, rbacLINQ2SQLDataContext db)
         {
             var query_ppo = from ppo in db.PermissionPerObject
                             where ppo.Action_Id == ppo_in.Action_Id && ppo.Object_Id == ppo_in.Object_Id && ppo.Permission_Id == ppo_in.Permission_Id
@@ -479,6 +501,26 @@ namespace pmt
             }
 
             return Program.ExitCode.Success;
+        }
+        public static Program.ExitCode RmPermission(Permission p_in, rbacLINQ2SQLDataContext db, bool submitChanges = true)
+        {
+            var query_p = from p in db.Permission
+                            where p.Name == p_in.Name && p.Policy_Id == p_in.Policy_Id
+                            select p;
+            if (query_p.Count() == 0)
+            {
+                return Program.ExitCode.ElementDoesNotExists;
+            }
+            db.PermissionPerObject.DeleteAllOnSubmit(query_p.First().PermissionPerObject);
+            db.RolePermission.DeleteAllOnSubmit(query_p.First().RolePermission);
+            db.Permission.DeleteOnSubmit(query_p.First());
+            try
+            {
+                if (submitChanges)
+                    db.SubmitChanges();
+                return Program.ExitCode.Success;
+            }
+            catch (Exception exc) { return Program.ExitCode.Error; }
         }
 
         public static Program.ExitCode AddRolePermission(RolePermission rp_in, rbacLINQ2SQLDataContext db)

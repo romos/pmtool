@@ -178,6 +178,18 @@
     <Compile Include="Form_rmPermission.Designer.cs">
       <DependentUpon>Form_rmPermission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_rmAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmAction.Designer.cs">
+      <DependentUpon>Form_rmAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_rmObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_rmObject.Designer.cs">
+      <DependentUpon>Form_rmObject.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_rmPermission.resx">
       <DependentUpon>Form_rmPermission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmAction.resx">
+      <DependentUpon>Form_rmAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_rmObject.resx">
+      <DependentUpon>Form_rmObject.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="rbacDataSet.xsc">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>

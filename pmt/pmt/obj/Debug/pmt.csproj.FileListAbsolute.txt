@@ -23,3 +23,5 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_addPermission.re
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_addRolePermission.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmRolePermission.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmPermission.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmAction.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmObject.resources
