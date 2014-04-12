@@ -9,11 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AxMicrosoft.Office.Interop.VisOcx;
+using Visio = Microsoft.Office.Interop.Visio;
+
 namespace pmt
 {
     public partial class MainForm : Form
     {
         public rbacLINQ2SQLDataContext db;
+        public Visio.Page currentPage;
+        public Visio.Document currentStencil;
+        public Visio.Window stencilWindow;
 
         public MainForm()
         {
@@ -21,6 +27,7 @@ namespace pmt
 
             //Create LINQ classes for database
             db = new rbacLINQ2SQLDataContext();
+
             //Create bindings to rbacDataSet (local in-memory copy for rbac.mdf, IMHO)
             dataGV_Tables.DataSource = bindingSource_Tables;
 
@@ -34,13 +41,21 @@ namespace pmt
             /////1. testing TableAdapterManager for the Role-table edit procedure
             //roleTableAdapter1.Fill(rbacDataSet.Role);
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
-
         //
-        //Renew dataGV_Tables bindings for correct visualizing
+        //AboutBox About Program
+        //
+        private void TSMenuItem_about_Click(object sender, EventArgs e)
+        {
+            new AboutPmtool().ShowDialog();
+        }
+
+
+        //=====================================================
+        //
+        // Renew dataGV_Tables bindings for correct visualizing
         //
         private void RenewDataGV_Tables(string table_name)
         {
@@ -125,9 +140,8 @@ namespace pmt
                     break;
             }
         }
-        
         //
-        //dataGridView representation test for different tables
+        // dataGridView representation test for different tables
         //
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -137,10 +151,9 @@ namespace pmt
             bindingSource_Tables.DataSource = null;
             
             RenewDataGV_Tables(table);
-        }
-        
+        }  
         //
-        //Submit changes to dataGridView
+        // Submit changes to dataGridView
         //
         private void btn_Submit_Click(object sender, EventArgs e)
         {
@@ -172,6 +185,11 @@ namespace pmt
             //tableAdapterManager1.UpdateAll(rbacDataSet);
         }
 
+
+        //=====================================================
+        //
+        // Basic functionality for RBAC0:
+        //
         private void btn_addUser_Click(object sender, EventArgs e)
         {
             new Form_addUser(this).ShowDialog();
@@ -289,12 +307,24 @@ namespace pmt
             RenewDataGV_Tables("RolePermission");
         }
 
+        //=====================================================
         //
-        //AboutBox About Program
+        // Visio visualizer
         //
-        private void TSMenuItem_about_Click(object sender, EventArgs e)
+
+        //
+        // Renew visioDrawingControl, delete everything from it, initialize Application and Document...
+        //
+        //private void RenewVisioDrawingControl()
+        //{
+        //    // Delete current ActivePage and renumber other pages (1 - true, 0 - false):
+        //    //axDrawingControl1.Document.Application.ActivePage.Delete(1);
+        //}
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            new AboutPmtool().ShowDialog();
+            //RenewVisioDrawingControl();
+            Visualizer.VisualizeUsers(axDrawingControl1.Document.Application.ActivePage, this.db);
         }
     }
 }

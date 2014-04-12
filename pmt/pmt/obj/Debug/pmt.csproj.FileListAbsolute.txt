@@ -25,3 +25,6 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmRolePermission
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmPermission.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmAction.resources
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmObject.resources
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\AxInterop.Microsoft.Office.Interop.VisOcx.dll
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\AxInterop.Microsoft.Office.Interop.VisOcx.dll
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.csproj.ResolveComReference.cache

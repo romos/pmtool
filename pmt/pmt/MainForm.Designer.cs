@@ -84,8 +84,10 @@
             this.btn_addAssignment = new System.Windows.Forms.Button();
             this.btn_rmUser = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.axDrawingControl1 = new AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl();
             this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
@@ -94,6 +96,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Tables)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axDrawingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -382,6 +386,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btn_rmRolePerm);
             this.groupBox2.Controls.Add(this.btn_addRolePerm);
             this.groupBox2.Controls.Add(this.btn_rmPermission);
@@ -414,7 +419,7 @@
             // 
             // btn_rmRolePerm
             // 
-            this.btn_rmRolePerm.Location = new System.Drawing.Point(108, 367);
+            this.btn_rmRolePerm.Location = new System.Drawing.Point(108, 308);
             this.btn_rmRolePerm.Name = "btn_rmRolePerm";
             this.btn_rmRolePerm.Size = new System.Drawing.Size(96, 36);
             this.btn_rmRolePerm.TabIndex = 24;
@@ -424,7 +429,7 @@
             // 
             // btn_addRolePerm
             // 
-            this.btn_addRolePerm.Location = new System.Drawing.Point(6, 368);
+            this.btn_addRolePerm.Location = new System.Drawing.Point(6, 309);
             this.btn_addRolePerm.Name = "btn_addRolePerm";
             this.btn_addRolePerm.Size = new System.Drawing.Size(96, 36);
             this.btn_addRolePerm.TabIndex = 23;
@@ -434,7 +439,7 @@
             // 
             // btn_rmPermission
             // 
-            this.btn_rmPermission.Location = new System.Drawing.Point(108, 325);
+            this.btn_rmPermission.Location = new System.Drawing.Point(108, 266);
             this.btn_rmPermission.Name = "btn_rmPermission";
             this.btn_rmPermission.Size = new System.Drawing.Size(96, 36);
             this.btn_rmPermission.TabIndex = 22;
@@ -444,7 +449,7 @@
             // 
             // btn_addPermission
             // 
-            this.btn_addPermission.Location = new System.Drawing.Point(6, 326);
+            this.btn_addPermission.Location = new System.Drawing.Point(6, 267);
             this.btn_addPermission.Name = "btn_addPermission";
             this.btn_addPermission.Size = new System.Drawing.Size(96, 36);
             this.btn_addPermission.TabIndex = 21;
@@ -454,7 +459,7 @@
             // 
             // btn_rmObject
             // 
-            this.btn_rmObject.Location = new System.Drawing.Point(108, 283);
+            this.btn_rmObject.Location = new System.Drawing.Point(108, 224);
             this.btn_rmObject.Name = "btn_rmObject";
             this.btn_rmObject.Size = new System.Drawing.Size(96, 36);
             this.btn_rmObject.TabIndex = 20;
@@ -464,7 +469,7 @@
             // 
             // btn_rmAction
             // 
-            this.btn_rmAction.Location = new System.Drawing.Point(108, 241);
+            this.btn_rmAction.Location = new System.Drawing.Point(108, 182);
             this.btn_rmAction.Name = "btn_rmAction";
             this.btn_rmAction.Size = new System.Drawing.Size(96, 36);
             this.btn_rmAction.TabIndex = 18;
@@ -474,7 +479,7 @@
             // 
             // btn_addObject
             // 
-            this.btn_addObject.Location = new System.Drawing.Point(6, 284);
+            this.btn_addObject.Location = new System.Drawing.Point(6, 225);
             this.btn_addObject.Name = "btn_addObject";
             this.btn_addObject.Size = new System.Drawing.Size(96, 36);
             this.btn_addObject.TabIndex = 19;
@@ -484,7 +489,7 @@
             // 
             // btn_addAction
             // 
-            this.btn_addAction.Location = new System.Drawing.Point(6, 242);
+            this.btn_addAction.Location = new System.Drawing.Point(6, 183);
             this.btn_addAction.Name = "btn_addAction";
             this.btn_addAction.Size = new System.Drawing.Size(96, 36);
             this.btn_addAction.TabIndex = 17;
@@ -494,7 +499,7 @@
             // 
             // btn_addPolicy
             // 
-            this.btn_addPolicy.Location = new System.Drawing.Point(6, 148);
+            this.btn_addPolicy.Location = new System.Drawing.Point(6, 143);
             this.btn_addPolicy.Name = "btn_addPolicy";
             this.btn_addPolicy.Size = new System.Drawing.Size(96, 36);
             this.btn_addPolicy.TabIndex = 15;
@@ -504,7 +509,7 @@
             // 
             // btn_addUser
             // 
-            this.btn_addUser.Location = new System.Drawing.Point(6, 22);
+            this.btn_addUser.Location = new System.Drawing.Point(6, 17);
             this.btn_addUser.Name = "btn_addUser";
             this.btn_addUser.Size = new System.Drawing.Size(96, 36);
             this.btn_addUser.TabIndex = 0;
@@ -514,7 +519,7 @@
             // 
             // btn_rmRole
             // 
-            this.btn_rmRole.Location = new System.Drawing.Point(108, 63);
+            this.btn_rmRole.Location = new System.Drawing.Point(108, 58);
             this.btn_rmRole.Name = "btn_rmRole";
             this.btn_rmRole.Size = new System.Drawing.Size(96, 36);
             this.btn_rmRole.TabIndex = 3;
@@ -524,7 +529,7 @@
             // 
             // btn_rmAssignment
             // 
-            this.btn_rmAssignment.Location = new System.Drawing.Point(108, 105);
+            this.btn_rmAssignment.Location = new System.Drawing.Point(108, 100);
             this.btn_rmAssignment.Name = "btn_rmAssignment";
             this.btn_rmAssignment.Size = new System.Drawing.Size(96, 36);
             this.btn_rmAssignment.TabIndex = 5;
@@ -534,7 +539,7 @@
             // 
             // btn_addRole
             // 
-            this.btn_addRole.Location = new System.Drawing.Point(6, 64);
+            this.btn_addRole.Location = new System.Drawing.Point(6, 59);
             this.btn_addRole.Name = "btn_addRole";
             this.btn_addRole.Size = new System.Drawing.Size(96, 36);
             this.btn_addRole.TabIndex = 2;
@@ -544,7 +549,7 @@
             // 
             // btn_rmPolicy
             // 
-            this.btn_rmPolicy.Location = new System.Drawing.Point(108, 147);
+            this.btn_rmPolicy.Location = new System.Drawing.Point(108, 142);
             this.btn_rmPolicy.Name = "btn_rmPolicy";
             this.btn_rmPolicy.Size = new System.Drawing.Size(96, 36);
             this.btn_rmPolicy.TabIndex = 16;
@@ -558,7 +563,7 @@
             this.btn_setCardinality.Enabled = false;
             this.btn_setCardinality.Location = new System.Drawing.Point(6, 548);
             this.btn_setCardinality.Name = "btn_setCardinality";
-            this.btn_setCardinality.Size = new System.Drawing.Size(140, 21);
+            this.btn_setCardinality.Size = new System.Drawing.Size(198, 21);
             this.btn_setCardinality.TabIndex = 12;
             this.btn_setCardinality.Text = "setCardinality";
             this.btn_setCardinality.UseVisualStyleBackColor = true;
@@ -568,7 +573,7 @@
             this.btn_rmDSOD.Enabled = false;
             this.btn_rmDSOD.Location = new System.Drawing.Point(6, 528);
             this.btn_rmDSOD.Name = "btn_rmDSOD";
-            this.btn_rmDSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmDSOD.Size = new System.Drawing.Size(198, 21);
             this.btn_rmDSOD.TabIndex = 11;
             this.btn_rmDSOD.Text = "rmDSOD";
             this.btn_rmDSOD.UseVisualStyleBackColor = true;
@@ -578,7 +583,7 @@
             this.btn_addDSOD.Enabled = false;
             this.btn_addDSOD.Location = new System.Drawing.Point(6, 508);
             this.btn_addDSOD.Name = "btn_addDSOD";
-            this.btn_addDSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_addDSOD.Size = new System.Drawing.Size(198, 21);
             this.btn_addDSOD.TabIndex = 10;
             this.btn_addDSOD.Text = "addDSOD";
             this.btn_addDSOD.UseVisualStyleBackColor = true;
@@ -588,7 +593,7 @@
             this.btn_rmSSOD.Enabled = false;
             this.btn_rmSSOD.Location = new System.Drawing.Point(6, 488);
             this.btn_rmSSOD.Name = "btn_rmSSOD";
-            this.btn_rmSSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmSSOD.Size = new System.Drawing.Size(198, 21);
             this.btn_rmSSOD.TabIndex = 9;
             this.btn_rmSSOD.Text = "rmSSOD";
             this.btn_rmSSOD.UseVisualStyleBackColor = true;
@@ -598,7 +603,7 @@
             this.btn_addSSOD.Enabled = false;
             this.btn_addSSOD.Location = new System.Drawing.Point(6, 467);
             this.btn_addSSOD.Name = "btn_addSSOD";
-            this.btn_addSSOD.Size = new System.Drawing.Size(140, 21);
+            this.btn_addSSOD.Size = new System.Drawing.Size(198, 21);
             this.btn_addSSOD.TabIndex = 8;
             this.btn_addSSOD.Text = "addSSOD";
             this.btn_addSSOD.UseVisualStyleBackColor = true;
@@ -608,7 +613,7 @@
             this.btn_rmInheritance.Enabled = false;
             this.btn_rmInheritance.Location = new System.Drawing.Point(6, 447);
             this.btn_rmInheritance.Name = "btn_rmInheritance";
-            this.btn_rmInheritance.Size = new System.Drawing.Size(140, 21);
+            this.btn_rmInheritance.Size = new System.Drawing.Size(198, 21);
             this.btn_rmInheritance.TabIndex = 7;
             this.btn_rmInheritance.Text = "rmInheritance";
             this.btn_rmInheritance.UseVisualStyleBackColor = true;
@@ -618,14 +623,14 @@
             this.btn_addInheritance.Enabled = false;
             this.btn_addInheritance.Location = new System.Drawing.Point(6, 427);
             this.btn_addInheritance.Name = "btn_addInheritance";
-            this.btn_addInheritance.Size = new System.Drawing.Size(140, 21);
+            this.btn_addInheritance.Size = new System.Drawing.Size(198, 21);
             this.btn_addInheritance.TabIndex = 6;
             this.btn_addInheritance.Text = "addInheritance";
             this.btn_addInheritance.UseVisualStyleBackColor = true;
             // 
             // btn_addAssignment
             // 
-            this.btn_addAssignment.Location = new System.Drawing.Point(6, 106);
+            this.btn_addAssignment.Location = new System.Drawing.Point(6, 101);
             this.btn_addAssignment.Name = "btn_addAssignment";
             this.btn_addAssignment.Size = new System.Drawing.Size(96, 36);
             this.btn_addAssignment.TabIndex = 4;
@@ -635,7 +640,7 @@
             // 
             // btn_rmUser
             // 
-            this.btn_rmUser.Location = new System.Drawing.Point(108, 21);
+            this.btn_rmUser.Location = new System.Drawing.Point(108, 16);
             this.btn_rmUser.Name = "btn_rmUser";
             this.btn_rmUser.Size = new System.Drawing.Size(96, 36);
             this.btn_rmUser.TabIndex = 1;
@@ -648,6 +653,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.axDrawingControl1);
             this.groupBox3.Location = new System.Drawing.Point(667, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(518, 578);
@@ -655,10 +661,29 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "MS Visio";
             // 
+            // axDrawingControl1
+            // 
+            this.axDrawingControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axDrawingControl1.Enabled = true;
+            this.axDrawingControl1.Location = new System.Drawing.Point(3, 16);
+            this.axDrawingControl1.Name = "axDrawingControl1";
+            this.axDrawingControl1.Size = new System.Drawing.Size(512, 559);
+            this.axDrawingControl1.TabIndex = 0;
+            // 
             // rbacDataSetBindingSource
             // 
             this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
             this.rbacDataSetBindingSource.Position = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 45);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -684,6 +709,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axDrawingControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -748,6 +775,8 @@
         private System.Windows.Forms.Button btn_addPermission;
         private System.Windows.Forms.Button btn_rmRolePerm;
         private System.Windows.Forms.Button btn_addRolePerm;
+        private AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl axDrawingControl1;
+        private System.Windows.Forms.Button button1;
 
 
 
