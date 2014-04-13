@@ -321,10 +321,22 @@ namespace pmt
         //    //axDrawingControl1.Document.Application.ActivePage.Delete(1);
         //}
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             //RenewVisioDrawingControl();
+            //Visualizer.DeletePage(axDrawingControl1.Document.Application.ActivePage);
             Visualizer.VisualizeUsers(axDrawingControl1.Document.Application.ActivePage, this.db);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Visualizer.ClearPage(axDrawingControl1.Document.Application.ActivePage);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Visualizer.DeletePage(axDrawingControl1.Document.Application.ActivePage);
         }
     }
 }

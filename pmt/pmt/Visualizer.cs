@@ -16,6 +16,9 @@ namespace pmt
             // No initialization is required
         }
 
+        // TODO:
+        // 1. Вычислять макс.длину строки и делать размер Контейнера соответствующим
+        //
         public static Program.ExitCode VisualizeUsers(Visio.Page targetPage,
                                                     rbacLINQ2SQLDataContext db)
         {
@@ -27,9 +30,8 @@ namespace pmt
             Visio.Document targetDocument = null;
             Visio.ContainerProperties containerProperties = null;
             int currentDiagramServices = -1;
+            int prevDiagramServices;
             System.Array containerMembers = null;
-
-
 
 
             if (targetPage == null)
@@ -42,23 +44,43 @@ namespace pmt
                 // Turn on all Visio diagram services
                 targetDocument = targetPage.Document;
                 visioApplication = targetPage.Application;
-                stencilUML = visioApplication.Documents.OpenEx(@"C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\UML_Class.vssx", (short)Visio.VisOpenSaveArgs.visAddHidden);
+                stencilUML = visioApplication.Documents.
+                            OpenEx(@"C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\UML_Class.vssx",
+                                    (short)Visio.VisOpenSaveArgs.visOpenHidden);
 
+                // Enable All Diagram Services to enable adding huge-named members to the container
+                prevDiagramServices = targetDocument.DiagramServicesEnabled;
+                targetDocument.DiagramServicesEnabled = currentDiagramServices;
 
                 // DO NOT REMOVE NEXT LINE!
-                //-- WTF?! Добавление этой строчки убирает из Container'а дефолтные члены...
+                //-- WTF?! Добавление этой строчки убирает из Container'а дефолтные члены.
+                //-- Причем только для первого раза. Если создавать еще сущности, то уже будет опять с дефолтными.
+                //
                 //-- Вместо этой строки сейчас просто удаляются дефолтные члены контейнеров.
                 //-- Благо, их генерится всего два, и удаление не занимает много времени.
                 //targetPage.Document.OpenStencilWindow();
 
-                Array pageNames;
-                targetPage.Document.Pages.GetNames(out pageNames);
+                // Just drop elements from User Table:
+                //foreach (User u in db.User)
+                //{
+                //    System.Diagnostics.Debug.WriteLine(lastElemInContainer);
+                //    shapeUser = targetPage.Drop(stencilUML.Masters["Member"], 0, 0);
+                //    shapeUser.Text = String.Format("name: {0}|password: {1}|policy: {2}", u.Name, u.Password, u.Policy_Id);
+                //    //shapeUser.Text = String.Format("name: {0}", u.Name);
+                //    targetPage.Application.ActiveWindow.Select(shapeUser, (short)Visio.VisSelectArgs.visSelect);
+                //}
 
                 // Drop a container
-                shapeUserContainer = targetPage.Drop(stencilUML.Masters["Class"], 5, 5);
+                shapeUserContainer = targetPage.DropContainer(stencilUML.Masters["Class"], null);
+                // Same as prev.row:
+                //shapeUserContainer = targetPage.Drop(stencilUML.Masters["Class"], 5, 5);
                 shapeUserContainer.Text = "User Table";
 
-                //Delete default members, that appear right after a container was dropped on a page
+                // Get/Set Container List Spacing Interval (gap between members in list)
+                //shapeUserContainer.ContainerProperties.SetListSpacing(Visio.VisUnitCodes.visInches, 0.2);
+                //System.Diagnostics.Debug.WriteLine(shapeUserContainer.ContainerProperties.GetListSpacing(Visio.VisUnitCodes.visInches));
+                
+                // Delete default members, that appear right after a container was dropped on a page
                 foreach (int o in shapeUserContainer.ContainerProperties.GetMemberShapes((int)Visio.VisContainerFlags.visContainerFlagsDefault))
                 {
                     targetPage.Shapes.get_ItemFromID(o).Delete();
@@ -76,28 +98,31 @@ namespace pmt
                                                             lastElemInContainer);
                         lastElemInContainer += 1;
                     }
-
-                    shapeUser = targetPage.DropIntoList(stencilUML.Masters.get_ItemU("Member"),
-                                                        shapeUserContainer,
-                                                        lastElemInContainer);
+                    shapeUser = targetPage.DropIntoList(stencilUML.Masters["Member"],
+                                                            shapeUserContainer,
+                                                            lastElemInContainer);
                     lastElemInContainer += 1;
-                    shapeUser.Text = String.Format("Name: {0}|Password: {1}|Policy: {2}", u.Name, u.Password, u.Policy_Id);
-                    
-                    //shapeUserContainer.ContainerProperties.InsertListMember(shapeUser, lastElemInContainer);
+                    shapeUser.Text = String.Format("name: {0}|password: {1}|policy: {2}", u.Name, u.Password, u.Policy_Id);
+
+                    // Same with Insert method:
+                    //shapeUserContainer.ContainerProperties.InsertListMember(
+                    //    shapeUser = targetPage.Drop(stencilUML.Masters.get_ItemU("Member"),0,0), lastElemInContainer);
+                    //shapeUser.Text = String.Format("Name: {0}|Password: {1}|Policy: {2}", u.Name, u.Password, u.Policy_Id);
+                    //lastElemInContainer += 1;
                 }
 
-                
                 containerProperties = shapeUserContainer.ContainerProperties;
                 // Report on contents of container
                 containerMembers = containerProperties.GetMemberShapes((int)Visio.VisContainerFlags.visContainerFlagsDefault);
                 foreach (int member in containerMembers)
                 {
-                    System.Diagnostics.Debug.WriteLine(targetPage.Shapes.get_ItemFromID(member).NameU + " |===> "+ targetPage.Shapes.get_ItemFromID(member).Text);
+                    System.Diagnostics.Debug.WriteLine(targetPage.Shapes.get_ItemFromID(member).NameU +
+                        " |===> "+ targetPage.Shapes.get_ItemFromID(member).Text);
                 }
+                targetDocument.DiagramServicesEnabled = prevDiagramServices;
             }
             catch (Exception err)
             {
-
                 System.Diagnostics.Debug.WriteLine(err.Message);
                 // Return the Diagram Services status to its previous state if it was set in 
                 // the try block. 
@@ -105,12 +130,49 @@ namespace pmt
                 {
                     targetDocument.DiagramServicesEnabled = currentDiagramServices;
                 }
-
                 throw;
             }
+
+            targetPage.Application.ActiveWindow.DeselectAll();
+            targetPage.CenterDrawing();
             stencilUML.Close();
             return Program.ExitCode.Success;
         }
+
+        public static bool ClearPage(Visio.Page targetPage)
+        {
+            try
+            {
+                Visio.Selection selection;
+                targetPage.Application.ActiveWindow.SelectAll();
+                selection = targetPage.Application.ActiveWindow.Selection;
+                selection.Delete();
+                
+                // Не все удаляет.
+                //foreach (Visio.Shape sh in targetPage.Shapes)
+                //{
+                //    sh.DeleteEx(0);
+                //}
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool DeletePage(Visio.Page targetPage)
+        {
+            try
+            {
+                targetPage.Delete(1);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         ///// <summary>This method looks for the document with the name specified
         ///// in stencilName in the Documents collection and, if the document is

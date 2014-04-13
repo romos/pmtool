@@ -60,6 +60,7 @@
             this.tableAdapterManager1 = new pmt.rbacDataSetTableAdapters.TableAdapterManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_rmRolePerm = new System.Windows.Forms.Button();
             this.btn_addRolePerm = new System.Windows.Forms.Button();
             this.btn_rmPermission = new System.Windows.Forms.Button();
@@ -87,7 +88,8 @@
             this.axDrawingControl1 = new AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl();
             this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
@@ -386,6 +388,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btn_rmRolePerm);
             this.groupBox2.Controls.Add(this.btn_addRolePerm);
@@ -416,6 +420,16 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Functionality";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 358);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 19);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Draw User Table";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_rmRolePerm
             // 
@@ -675,15 +689,25 @@
             this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
             this.rbacDataSetBindingSource.Position = 0;
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(6, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 45);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(6, 377);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(198, 20);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "ClearPage";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 397);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(198, 20);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "DeletePage";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainForm
             // 
@@ -777,6 +801,8 @@
         private System.Windows.Forms.Button btn_addRolePerm;
         private AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl axDrawingControl1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
 
 
 

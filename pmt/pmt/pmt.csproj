@@ -73,10 +73,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addUser.cs">
+    <Compile Include="RBACFuncForms\Form_addUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addUser.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addUser.Designer.cs">
       <DependentUpon>Form_addUser.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -100,94 +100,94 @@
     </Compile>
     <Compile Include="RBACManager.cs" />
     <Compile Include="Visualizer.cs" />
-    <Compile Include="Form_addRole.cs">
+    <Compile Include="RBACFuncForms\Form_addRole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addRole.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addRole.Designer.cs">
       <DependentUpon>Form_addRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmUser.cs">
+    <Compile Include="RBACFuncForms\Form_rmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmUser.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmUser.Designer.cs">
       <DependentUpon>Form_rmUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmRole.cs">
+    <Compile Include="RBACFuncForms\Form_rmRole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmRole.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmRole.Designer.cs">
       <DependentUpon>Form_rmRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addAssignment.cs">
+    <Compile Include="RBACFuncForms\Form_addAssignment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addAssignment.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addAssignment.Designer.cs">
       <DependentUpon>Form_addAssignment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmAssignment.cs">
+    <Compile Include="RBACFuncForms\Form_rmAssignment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmAssignment.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmAssignment.Designer.cs">
       <DependentUpon>Form_rmAssignment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addPolicy.cs">
+    <Compile Include="RBACFuncForms\Form_addPolicy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addPolicy.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addPolicy.Designer.cs">
       <DependentUpon>Form_addPolicy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmPolicy.cs">
+    <Compile Include="RBACFuncForms\Form_rmPolicy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmPolicy.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmPolicy.Designer.cs">
       <DependentUpon>Form_rmPolicy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addAction.cs">
+    <Compile Include="RBACFuncForms\Form_addAction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addAction.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addAction.Designer.cs">
       <DependentUpon>Form_addAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addObject.cs">
+    <Compile Include="RBACFuncForms\Form_addObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addObject.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addObject.Designer.cs">
       <DependentUpon>Form_addObject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addPermission.cs">
+    <Compile Include="RBACFuncForms\Form_addPermission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addPermission.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addPermission.Designer.cs">
       <DependentUpon>Form_addPermission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_addRolePermission.cs">
+    <Compile Include="RBACFuncForms\Form_addRolePermission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_addRolePermission.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_addRolePermission.Designer.cs">
       <DependentUpon>Form_addRolePermission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmRolePermission.cs">
+    <Compile Include="RBACFuncForms\Form_rmRolePermission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmRolePermission.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmRolePermission.Designer.cs">
       <DependentUpon>Form_rmRolePermission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmPermission.cs">
+    <Compile Include="RBACFuncForms\Form_rmPermission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmPermission.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmPermission.Designer.cs">
       <DependentUpon>Form_rmPermission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmAction.cs">
+    <Compile Include="RBACFuncForms\Form_rmAction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmAction.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmAction.Designer.cs">
       <DependentUpon>Form_rmAction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_rmObject.cs">
+    <Compile Include="RBACFuncForms\Form_rmObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_rmObject.Designer.cs">
+    <Compile Include="RBACFuncForms\Form_rmObject.Designer.cs">
       <DependentUpon>Form_rmObject.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AboutBox.resx">
@@ -196,7 +196,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addUser.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addUser.resx">
       <DependentUpon>Form_addUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -211,49 +211,49 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form_addRole.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addRole.resx">
       <DependentUpon>Form_addRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmUser.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmUser.resx">
       <DependentUpon>Form_rmUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmRole.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmRole.resx">
       <DependentUpon>Form_rmRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addAssignment.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addAssignment.resx">
       <DependentUpon>Form_addAssignment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmAssignment.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmAssignment.resx">
       <DependentUpon>Form_rmAssignment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addPolicy.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addPolicy.resx">
       <DependentUpon>Form_addPolicy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmPolicy.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmPolicy.resx">
       <DependentUpon>Form_rmPolicy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addAction.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addAction.resx">
       <DependentUpon>Form_addAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addObject.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addObject.resx">
       <DependentUpon>Form_addObject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addPermission.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addPermission.resx">
       <DependentUpon>Form_addPermission.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_addRolePermission.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_addRolePermission.resx">
       <DependentUpon>Form_addRolePermission.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmRolePermission.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmRolePermission.resx">
       <DependentUpon>Form_rmRolePermission.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmPermission.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmPermission.resx">
       <DependentUpon>Form_rmPermission.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmAction.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmAction.resx">
       <DependentUpon>Form_rmAction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_rmObject.resx">
+    <EmbeddedResource Include="RBACFuncForms\Form_rmObject.resx">
       <DependentUpon>Form_rmObject.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="rbacDataSet.xsc">
