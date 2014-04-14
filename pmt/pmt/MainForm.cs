@@ -20,6 +20,7 @@ namespace pmt
         public Visio.Page currentPage;
         public Visio.Document currentStencil;
         public Visio.Window stencilWindow;
+        public AxDrawingControl axDrawingControl;
 
         public MainForm()
         {
@@ -40,6 +41,9 @@ namespace pmt
             //new Form1().Show();
             /////1. testing TableAdapterManager for the Role-table edit procedure
             //roleTableAdapter1.Fill(rbacDataSet.Role);
+
+            //axDrawing
+            axDrawingControl = axDrawingControl1;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -307,8 +311,6 @@ namespace pmt
             RenewDataGV_Tables("RolePermission");
         }
 
-        //=====================================================
-        //
         // Visio visualizer
         //
 
@@ -321,20 +323,36 @@ namespace pmt
         //    //axDrawingControl1.Document.Application.ActivePage.Delete(1);
         //}
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_DrawUserTable_Click(object sender, EventArgs e)
         {
-            //RenewVisioDrawingControl();
-            //Visualizer.DeletePage(axDrawingControl1.Document.Application.ActivePage);
-            Visualizer.VisualizeUsers(axDrawingControl1.Document.Application.ActivePage, this.db);
+            Program.ExitCode status;
+
+            // Отрисовка диаграммы:
+            if (axDrawingControl.Document.Application.ActivePage.Shapes.Count == 0)
+                status = Visualizer.VisualizeUsers(axDrawingControl.Document.Application.ActivePage, db);
+            else
+                status = Visualizer.VisualizeUsers(axDrawingControl.Document.Pages.Add(), db);
+
+            if (status == Program.ExitCode.Error)
+            {
+                MessageBox.Show(this,
+                            "Error while drawing UserTable relation!",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+            }
+        }
+        private void btn_DrawURP_Click(object sender, EventArgs e)
+        {
+            new Form_drawURP(this).ShowDialog();
+            cb_Tables.Text = "RolePermission";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_ClearPage_Click(object sender, EventArgs e)
         {
             Visualizer.ClearPage(axDrawingControl1.Document.Application.ActivePage);
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_DeletePage_Click(object sender, EventArgs e)
         {
             Visualizer.DeletePage(axDrawingControl1.Document.Application.ActivePage);
         }

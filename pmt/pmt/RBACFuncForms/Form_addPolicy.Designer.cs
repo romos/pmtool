@@ -61,15 +61,22 @@
             // 
             // Form_addPolicy
             // 
+            this.AcceptButton = this.btn_addPolicy_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 66);
             this.Controls.Add(this.btn_addPolicy_Save);
             this.Controls.Add(this.tb_Name);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_addPolicy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_addPolicy";
             this.Load += new System.EventHandler(this.Form_addPolicy_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_addPolicy_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

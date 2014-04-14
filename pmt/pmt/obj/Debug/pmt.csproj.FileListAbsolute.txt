@@ -28,3 +28,4 @@ C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_rmObject.resourc
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\bin\Debug\AxInterop.Microsoft.Office.Interop.VisOcx.dll
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\AxInterop.Microsoft.Office.Interop.VisOcx.dll
 C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.csproj.ResolveComReference.cache
+C:\MyTestProjects\MCD\diploma\pmtool\pmt\pmt\obj\Debug\pmt.Form_drawURP.resources

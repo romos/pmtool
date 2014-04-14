@@ -32,11 +32,11 @@
             this.l_Name = new System.Windows.Forms.Label();
             this.btn_rmAction_Save = new System.Windows.Forms.Button();
             this.cb_Name = new System.Windows.Forms.ComboBox();
-            this.rbacDataSet = new pmt.rbacDataSet();
             this.actionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rbacDataSet = new pmt.rbacDataSet();
             this.actionTableAdapter = new pmt.rbacDataSetTableAdapters.ActionTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // l_Name
@@ -70,15 +70,15 @@
             this.cb_Name.TabIndex = 7;
             this.cb_Name.ValueMember = "Id";
             // 
-            // rbacDataSet
-            // 
-            this.rbacDataSet.DataSetName = "rbacDataSet";
-            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // actionBindingSource
             // 
             this.actionBindingSource.DataMember = "Action";
             this.actionBindingSource.DataSource = this.rbacDataSet;
+            // 
+            // rbacDataSet
+            // 
+            this.rbacDataSet.DataSetName = "rbacDataSet";
+            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // actionTableAdapter
             // 
@@ -86,17 +86,24 @@
             // 
             // Form_rmAction
             // 
+            this.AcceptButton = this.btn_rmAction_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 61);
             this.Controls.Add(this.cb_Name);
             this.Controls.Add(this.btn_rmAction_Save);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmAction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmAction";
             this.Load += new System.EventHandler(this.Form_rmAction_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmAction_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.actionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

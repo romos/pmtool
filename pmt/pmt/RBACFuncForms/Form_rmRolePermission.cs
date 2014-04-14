@@ -124,5 +124,13 @@ namespace pmt
             cb_Permission.ValueMember = "pid";
             cb_Permission.DisplayMember = "pname";
         }
+
+        private void Form_rmRolePermission_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

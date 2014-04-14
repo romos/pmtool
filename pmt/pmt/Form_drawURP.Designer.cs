@@ -1,6 +1,6 @@
 ﻿namespace pmt
 {
-    partial class Form_rmUser
+    partial class Form_drawURP
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.l_Password = new System.Windows.Forms.Label();
             this.l_Policy = new System.Windows.Forms.Label();
             this.cb_Policy = new System.Windows.Forms.ComboBox();
-            this.btn_rmUser_Save = new System.Windows.Forms.Button();
+            this.btn_drawURP_Save = new System.Windows.Forms.Button();
             this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
             this.cb_Name = new System.Windows.Forms.ComboBox();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -112,15 +112,15 @@
             this.cb_Policy.TabIndex = 5;
             this.cb_Policy.ValueMember = "Id";
             // 
-            // btn_rmUser_Save
+            // btn_drawURP_Save
             // 
-            this.btn_rmUser_Save.Location = new System.Drawing.Point(194, 28);
-            this.btn_rmUser_Save.Name = "btn_rmUser_Save";
-            this.btn_rmUser_Save.Size = new System.Drawing.Size(100, 38);
-            this.btn_rmUser_Save.TabIndex = 6;
-            this.btn_rmUser_Save.Text = "Remove user";
-            this.btn_rmUser_Save.UseVisualStyleBackColor = true;
-            this.btn_rmUser_Save.Click += new System.EventHandler(this.btn_rmUser_Save_Click);
+            this.btn_drawURP_Save.Location = new System.Drawing.Point(180, 21);
+            this.btn_drawURP_Save.Name = "btn_drawURP_Save";
+            this.btn_drawURP_Save.Size = new System.Drawing.Size(129, 53);
+            this.btn_drawURP_Save.TabIndex = 6;
+            this.btn_drawURP_Save.Text = "Draw User-Role-Permission relation";
+            this.btn_drawURP_Save.UseVisualStyleBackColor = true;
+            this.btn_drawURP_Save.Click += new System.EventHandler(this.btn_drawURP_Save_Click);
             // 
             // policyTableAdapter
             // 
@@ -147,14 +147,14 @@
             // 
             this.userTableAdapter.ClearBeforeFill = true;
             // 
-            // Form_rmUser
+            // Form_drawURP
             // 
-            this.AcceptButton = this.btn_rmUser_Save;
+            this.AcceptButton = this.btn_drawURP_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 100);
+            this.ClientSize = new System.Drawing.Size(316, 100);
             this.Controls.Add(this.cb_Name);
-            this.Controls.Add(this.btn_rmUser_Save);
+            this.Controls.Add(this.btn_drawURP_Save);
             this.Controls.Add(this.cb_Policy);
             this.Controls.Add(this.l_Policy);
             this.Controls.Add(this.tb_Password);
@@ -164,11 +164,11 @@
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form_rmUser";
+            this.Name = "Form_drawURP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Form_rmUser";
-            this.Load += new System.EventHandler(this.Form_rmUser_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmUser_KeyDown);
+            this.Text = "Form_drawURP";
+            this.Load += new System.EventHandler(this.Form_drawURP_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_drawURP_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Label l_Password;
         private System.Windows.Forms.Label l_Policy;
         private System.Windows.Forms.ComboBox cb_Policy;
-        private System.Windows.Forms.Button btn_rmUser_Save;
+        private System.Windows.Forms.Button btn_drawURP_Save;
         private System.Windows.Forms.BindingSource policyBindingSource;
         private rbacDataSet rbacDataSet;
         private rbacDataSetTableAdapters.PolicyTableAdapter policyTableAdapter;

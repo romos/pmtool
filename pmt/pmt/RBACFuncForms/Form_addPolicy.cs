@@ -79,5 +79,13 @@ namespace pmt
         private void Form_addPolicy_Load(object sender, EventArgs e)
         {
         }
+
+        private void Form_addPolicy_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

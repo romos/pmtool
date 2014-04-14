@@ -81,5 +81,13 @@ namespace pmt
             this.actionTableAdapter.Fill(this.rbacDataSet.Action);
         }
 
+        private void Form_rmAction_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
     }
 }

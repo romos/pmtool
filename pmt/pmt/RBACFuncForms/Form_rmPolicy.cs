@@ -71,5 +71,13 @@ namespace pmt
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.Policy". При необходимости она может быть перемещена или удалена.
             this.policyTableAdapter.Fill(this.rbacDataSet.Policy);
         }
+
+        private void Form_rmPolicy_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

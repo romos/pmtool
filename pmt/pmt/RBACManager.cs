@@ -54,7 +54,7 @@ namespace pmt
         {
             try
             {
-                User user = db.User.Single(u1 => (u1.Id == u.Id &&
+                User user = db.User.Single(u1 => (u1.Id == u.Id && u1.Name == u.Name &&
                                                   u1.Policy_Id == u.Policy_Id));
 
                 //Можем запрещать удалять Юзера, у которого есть assigned roles.

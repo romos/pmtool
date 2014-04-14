@@ -32,23 +32,23 @@
             this.l_RoleName = new System.Windows.Forms.Label();
             this.l_PermName = new System.Windows.Forms.Label();
             this.cb_Permission = new System.Windows.Forms.ComboBox();
+            this.fKRolePermissionRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fKRolePolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rbacDataSet = new pmt.rbacDataSet();
             this.btn_rmRolePermission_Save = new System.Windows.Forms.Button();
             this.cb_Role = new System.Windows.Forms.ComboBox();
             this.cb_Policy = new System.Windows.Forms.ComboBox();
             this.l_Policy = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbacDataSet = new pmt.rbacDataSet();
-            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
-            this.fKRolePolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roleTableAdapter = new pmt.rbacDataSetTableAdapters.RoleTableAdapter();
-            this.fKRolePermissionRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rolePermissionTableAdapter = new pmt.rbacDataSetTableAdapters.RolePermissionTableAdapter();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKRolePermissionRoleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // l_RoleName
@@ -84,6 +84,26 @@
             this.cb_Permission.Size = new System.Drawing.Size(100, 21);
             this.cb_Permission.TabIndex = 5;
             this.cb_Permission.ValueMember = "Permission_Id";
+            // 
+            // fKRolePermissionRoleBindingSource
+            // 
+            this.fKRolePermissionRoleBindingSource.DataMember = "FK_RolePermission_Role";
+            this.fKRolePermissionRoleBindingSource.DataSource = this.fKRolePolicyBindingSource;
+            // 
+            // fKRolePolicyBindingSource
+            // 
+            this.fKRolePolicyBindingSource.DataMember = "FK_Role_Policy";
+            this.fKRolePolicyBindingSource.DataSource = this.policyBindingSource;
+            // 
+            // policyBindingSource
+            // 
+            this.policyBindingSource.DataMember = "Policy";
+            this.policyBindingSource.DataSource = this.rbacDataSet;
+            // 
+            // rbacDataSet
+            // 
+            this.rbacDataSet.DataSetName = "rbacDataSet";
+            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btn_rmRolePermission_Save
             // 
@@ -148,33 +168,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Role-Permission Assignment within the policy";
             // 
-            // rbacDataSet
-            // 
-            this.rbacDataSet.DataSetName = "rbacDataSet";
-            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // policyBindingSource
-            // 
-            this.policyBindingSource.DataMember = "Policy";
-            this.policyBindingSource.DataSource = this.rbacDataSet;
-            // 
             // policyTableAdapter
             // 
             this.policyTableAdapter.ClearBeforeFill = true;
             // 
-            // fKRolePolicyBindingSource
-            // 
-            this.fKRolePolicyBindingSource.DataMember = "FK_Role_Policy";
-            this.fKRolePolicyBindingSource.DataSource = this.policyBindingSource;
-            // 
             // roleTableAdapter
             // 
             this.roleTableAdapter.ClearBeforeFill = true;
-            // 
-            // fKRolePermissionRoleBindingSource
-            // 
-            this.fKRolePermissionRoleBindingSource.DataMember = "FK_RolePermission_Role";
-            this.fKRolePermissionRoleBindingSource.DataSource = this.fKRolePolicyBindingSource;
             // 
             // rolePermissionTableAdapter
             // 
@@ -182,21 +182,28 @@
             // 
             // Form_rmRolePermission
             // 
+            this.AcceptButton = this.btn_rmRolePermission_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 128);
             this.Controls.Add(this.cb_Policy);
             this.Controls.Add(this.l_Policy);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmRolePermission";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmRolePermission";
             this.Load += new System.EventHandler(this.Form_rmRolePermission_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmRolePermission_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.fKRolePermissionRoleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKRolePermissionRoleBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

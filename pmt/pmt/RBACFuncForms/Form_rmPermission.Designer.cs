@@ -32,23 +32,23 @@
             this.l_Name = new System.Windows.Forms.Label();
             this.l_Object = new System.Windows.Forms.Label();
             this.cb_Object = new System.Windows.Forms.ComboBox();
+            this.fKPermissionPerObjectPermissionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fKPermissionPolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rbacDataSet = new pmt.rbacDataSet();
             this.btn_rmPermission_Save = new System.Windows.Forms.Button();
             this.cb_Action = new System.Windows.Forms.ComboBox();
             this.l_Action = new System.Windows.Forms.Label();
             this.cb_Policy = new System.Windows.Forms.ComboBox();
             this.l_Policy = new System.Windows.Forms.Label();
             this.cb_Permission = new System.Windows.Forms.ComboBox();
-            this.rbacDataSet = new pmt.rbacDataSet();
-            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
-            this.fKPermissionPolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.permissionTableAdapter = new pmt.rbacDataSetTableAdapters.PermissionTableAdapter();
-            this.fKPermissionPerObjectPermissionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.permissionPerObjectTableAdapter = new pmt.rbacDataSetTableAdapters.PermissionPerObjectTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPolicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPerObjectPermissionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPolicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // l_Name
@@ -80,6 +80,26 @@
             this.cb_Object.Size = new System.Drawing.Size(100, 21);
             this.cb_Object.TabIndex = 3;
             this.cb_Object.ValueMember = "Object_Id";
+            // 
+            // fKPermissionPerObjectPermissionBindingSource
+            // 
+            this.fKPermissionPerObjectPermissionBindingSource.DataMember = "FK_PermissionPerObject_Permission";
+            this.fKPermissionPerObjectPermissionBindingSource.DataSource = this.fKPermissionPolicyBindingSource;
+            // 
+            // fKPermissionPolicyBindingSource
+            // 
+            this.fKPermissionPolicyBindingSource.DataMember = "FK_Permission_Policy";
+            this.fKPermissionPolicyBindingSource.DataSource = this.policyBindingSource;
+            // 
+            // policyBindingSource
+            // 
+            this.policyBindingSource.DataMember = "Policy";
+            this.policyBindingSource.DataSource = this.rbacDataSet;
+            // 
+            // rbacDataSet
+            // 
+            this.rbacDataSet.DataSetName = "rbacDataSet";
+            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btn_rmPermission_Save
             // 
@@ -145,33 +165,13 @@
             this.cb_Permission.TabIndex = 10;
             this.cb_Permission.ValueMember = "Id";
             // 
-            // rbacDataSet
-            // 
-            this.rbacDataSet.DataSetName = "rbacDataSet";
-            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // policyBindingSource
-            // 
-            this.policyBindingSource.DataMember = "Policy";
-            this.policyBindingSource.DataSource = this.rbacDataSet;
-            // 
             // policyTableAdapter
             // 
             this.policyTableAdapter.ClearBeforeFill = true;
             // 
-            // fKPermissionPolicyBindingSource
-            // 
-            this.fKPermissionPolicyBindingSource.DataMember = "FK_Permission_Policy";
-            this.fKPermissionPolicyBindingSource.DataSource = this.policyBindingSource;
-            // 
             // permissionTableAdapter
             // 
             this.permissionTableAdapter.ClearBeforeFill = true;
-            // 
-            // fKPermissionPerObjectPermissionBindingSource
-            // 
-            this.fKPermissionPerObjectPermissionBindingSource.DataMember = "FK_PermissionPerObject_Permission";
-            this.fKPermissionPerObjectPermissionBindingSource.DataSource = this.fKPermissionPolicyBindingSource;
             // 
             // permissionPerObjectTableAdapter
             // 
@@ -179,6 +179,7 @@
             // 
             // Form_rmPermission
             // 
+            this.AcceptButton = this.btn_rmPermission_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 121);
@@ -191,13 +192,19 @@
             this.Controls.Add(this.cb_Object);
             this.Controls.Add(this.l_Object);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmPermission";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmPermission";
             this.Load += new System.EventHandler(this.Form_rmPermission_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPolicyBindingSource)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmPermission_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPerObjectPermissionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPermissionPolicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -86,15 +86,22 @@
             // 
             // Form_rmPolicy
             // 
+            this.AcceptButton = this.btn_rmPolicy_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 66);
             this.Controls.Add(this.cb_Policy);
             this.Controls.Add(this.btn_rmPolicy_Save);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmPolicy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmPolicy";
             this.Load += new System.EventHandler(this.Form_rmPolicy_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmPolicy_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.ResumeLayout(false);

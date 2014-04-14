@@ -32,23 +32,23 @@
             this.l_UserName = new System.Windows.Forms.Label();
             this.l_RoleName = new System.Windows.Forms.Label();
             this.cb_Role = new System.Windows.Forms.ComboBox();
+            this.fKAuthUserRoleUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fKUserPolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rbacDataSet = new pmt.rbacDataSet();
             this.btn_rmAssignment_Save = new System.Windows.Forms.Button();
             this.cb_User = new System.Windows.Forms.ComboBox();
             this.cb_Policy = new System.Windows.Forms.ComboBox();
-            this.policyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rbacDataSet = new pmt.rbacDataSet();
             this.l_Policy = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.policyTableAdapter = new pmt.rbacDataSetTableAdapters.PolicyTableAdapter();
-            this.fKUserPolicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTableAdapter = new pmt.rbacDataSetTableAdapters.UserTableAdapter();
-            this.fKAuthUserRoleUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.authUserRoleTableAdapter = new pmt.rbacDataSetTableAdapters.AuthUserRoleTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.fKAuthUserRoleUserBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKAuthUserRoleUserBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // l_UserName
@@ -84,6 +84,26 @@
             this.cb_Role.Size = new System.Drawing.Size(100, 21);
             this.cb_Role.TabIndex = 5;
             this.cb_Role.ValueMember = "Role_Id";
+            // 
+            // fKAuthUserRoleUserBindingSource
+            // 
+            this.fKAuthUserRoleUserBindingSource.DataMember = "FK_AuthUserRole_User";
+            this.fKAuthUserRoleUserBindingSource.DataSource = this.fKUserPolicyBindingSource;
+            // 
+            // fKUserPolicyBindingSource
+            // 
+            this.fKUserPolicyBindingSource.DataMember = "FK_User_Policy";
+            this.fKUserPolicyBindingSource.DataSource = this.policyBindingSource;
+            // 
+            // policyBindingSource
+            // 
+            this.policyBindingSource.DataMember = "Policy";
+            this.policyBindingSource.DataSource = this.rbacDataSet;
+            // 
+            // rbacDataSet
+            // 
+            this.rbacDataSet.DataSetName = "rbacDataSet";
+            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btn_rmAssignment_Save
             // 
@@ -123,16 +143,6 @@
             this.cb_Policy.ValueMember = "Id";
             this.cb_Policy.SelectedIndexChanged += new System.EventHandler(this.cb_Policy_SelectedIndexChanged);
             // 
-            // policyBindingSource
-            // 
-            this.policyBindingSource.DataMember = "Policy";
-            this.policyBindingSource.DataSource = this.rbacDataSet;
-            // 
-            // rbacDataSet
-            // 
-            this.rbacDataSet.DataSetName = "rbacDataSet";
-            this.rbacDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // l_Policy
             // 
             this.l_Policy.AutoSize = true;
@@ -162,19 +172,9 @@
             // 
             this.policyTableAdapter.ClearBeforeFill = true;
             // 
-            // fKUserPolicyBindingSource
-            // 
-            this.fKUserPolicyBindingSource.DataMember = "FK_User_Policy";
-            this.fKUserPolicyBindingSource.DataSource = this.policyBindingSource;
-            // 
             // userTableAdapter
             // 
             this.userTableAdapter.ClearBeforeFill = true;
-            // 
-            // fKAuthUserRoleUserBindingSource
-            // 
-            this.fKAuthUserRoleUserBindingSource.DataMember = "FK_AuthUserRole_User";
-            this.fKAuthUserRoleUserBindingSource.DataSource = this.fKUserPolicyBindingSource;
             // 
             // authUserRoleTableAdapter
             // 
@@ -182,21 +182,28 @@
             // 
             // Form_rmAssignment
             // 
+            this.AcceptButton = this.btn_rmAssignment_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 128);
             this.Controls.Add(this.cb_Policy);
             this.Controls.Add(this.l_Policy);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmAssignment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmAssignment";
             this.Load += new System.EventHandler(this.Form_rmAssignment_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmAssignment_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.fKAuthUserRoleUserBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKUserPolicyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKAuthUserRoleUserBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

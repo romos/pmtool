@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace pmt
 {
-    public partial class Form_rmUser : Form
+    public partial class Form_drawURP : Form
     {
         private MainForm mainForm;
 
-        public Form_rmUser()
+        public Form_drawURP()
         {
             InitializeComponent();
         }
-        public Form_rmUser(MainForm mf)
+        public Form_drawURP(MainForm mf)
         {
             InitializeComponent();
             mainForm = mf;
@@ -30,20 +30,11 @@ namespace pmt
             tb_Password.Text = ((DataRowView)cb_Name.SelectedItem)["Password"].ToString();
         }
 
-        private void btn_rmUser_Save_Click(object sender, EventArgs e)
+        private void btn_drawURP_Save_Click(object sender, EventArgs e)
         {
             Program.ExitCode status;
 
-            if (MessageBox.Show(this,
-                            "Удалить пользователя?",
-                            "Warning",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning) == DialogResult.No)
-            {
-                return;
-            }
-
-            //удалить пользователя после подтверждения:
+            //Получить пользователя:
             User u = new User
             {
                 Id = Convert.ToInt32(cb_Name.SelectedValue),
@@ -51,31 +42,32 @@ namespace pmt
                 Password = tb_Password.Text,
                 Policy_Id = Convert.ToInt32(cb_Policy.SelectedValue)
             };
+            
+            // Отрисовка диаграммы:
+            if (mainForm.axDrawingControl.Document.Application.ActivePage.Shapes.Count == 0)
+                status = Visualizer.VisualizeURP(mainForm.axDrawingControl.Document.Application.ActivePage,
+                                                mainForm.db,
+                                                u);
+            else
+                status = Visualizer.VisualizeURP(mainForm.axDrawingControl.Document.Pages.Add(),
+                                                mainForm.db,
+                                                u);
 
-            status = RBACManager.RmUser(u, mainForm.db);
-
-            if (status == Program.ExitCode.Success)
-            {
-                MessageBox.Show(this,
-                            "Пользователь удален!",
-                            "Success",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                this.Close();
-                return;
-            }
             if (status == Program.ExitCode.Error)
             {
                 MessageBox.Show(this,
-                            "Error while submitting deletion to the DataBase",
+                            "Error while drawing URP relation!",
                             "Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                 return;
             }
+
+            this.Close();
+            return;
         }
 
-        private void Form_rmUser_Load(object sender, EventArgs e)
+        private void Form_drawURP_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "rbacDataSet.User". При необходимости она может быть перемещена или удалена.
             this.userTableAdapter.Fill(this.rbacDataSet.User);
@@ -83,7 +75,7 @@ namespace pmt
             this.policyTableAdapter.Fill(this.rbacDataSet.Policy);
         }
 
-        private void Form_rmUser_KeyDown(object sender, KeyEventArgs e)
+        private void Form_drawURP_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {

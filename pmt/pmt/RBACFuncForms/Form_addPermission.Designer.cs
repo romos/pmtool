@@ -174,6 +174,7 @@
             // 
             // Form_addPermission
             // 
+            this.AcceptButton = this.btn_addPermission_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 121);
@@ -186,9 +187,15 @@
             this.Controls.Add(this.l_Object);
             this.Controls.Add(this.tb_Name);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_addPermission";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_addPermission";
             this.Load += new System.EventHandler(this.Form_addPermission_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_addPermission_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.objectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actionBindingSource)).EndInit();

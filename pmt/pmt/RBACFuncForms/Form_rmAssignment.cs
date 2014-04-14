@@ -120,5 +120,13 @@ namespace pmt
             cb_Role.ValueMember = "rid";
             cb_Role.DisplayMember = "rname";
         }
+
+        private void Form_rmAssignment_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

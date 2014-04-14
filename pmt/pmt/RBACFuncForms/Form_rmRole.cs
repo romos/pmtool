@@ -83,5 +83,13 @@ namespace pmt
             this.policyTableAdapter.Fill(this.rbacDataSet.Policy);
         }
 
+        private void Form_rmRole_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
     }
 }

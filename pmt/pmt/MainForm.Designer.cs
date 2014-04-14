@@ -60,7 +60,10 @@
             this.tableAdapterManager1 = new pmt.rbacDataSetTableAdapters.TableAdapterManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_DrawURP = new System.Windows.Forms.Button();
+            this.btn_DeletePage = new System.Windows.Forms.Button();
+            this.btn_ClearPage = new System.Windows.Forms.Button();
+            this.btn_DrawUserTable = new System.Windows.Forms.Button();
             this.btn_rmRolePerm = new System.Windows.Forms.Button();
             this.btn_addRolePerm = new System.Windows.Forms.Button();
             this.btn_rmPermission = new System.Windows.Forms.Button();
@@ -88,8 +91,6 @@
             this.axDrawingControl1 = new AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl();
             this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
@@ -195,12 +196,14 @@
             // 
             // btn_Submit
             // 
+            this.btn_Submit.Enabled = false;
             this.btn_Submit.Location = new System.Drawing.Point(284, 59);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(142, 25);
             this.btn_Submit.TabIndex = 11;
             this.btn_Submit.TabStop = false;
             this.btn_Submit.Text = "SubmitChanges";
+            this.toolTip1.SetToolTip(this.btn_Submit, "Применить изменения (temporary disabled)");
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
@@ -257,6 +260,7 @@
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Enabled = false;
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
@@ -278,6 +282,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
@@ -388,9 +393,10 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btn_DrawURP);
+            this.groupBox2.Controls.Add(this.btn_DeletePage);
+            this.groupBox2.Controls.Add(this.btn_ClearPage);
+            this.groupBox2.Controls.Add(this.btn_DrawUserTable);
             this.groupBox2.Controls.Add(this.btn_rmRolePerm);
             this.groupBox2.Controls.Add(this.btn_addRolePerm);
             this.groupBox2.Controls.Add(this.btn_rmPermission);
@@ -421,161 +427,214 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Functionality";
             // 
-            // button1
+            // btn_DrawURP
             // 
-            this.button1.Location = new System.Drawing.Point(6, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 19);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Draw User Table";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_DrawURP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_DrawURP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_DrawURP.Location = new System.Drawing.Point(6, 392);
+            this.btn_DrawURP.Name = "btn_DrawURP";
+            this.btn_DrawURP.Size = new System.Drawing.Size(198, 36);
+            this.btn_DrawURP.TabIndex = 26;
+            this.btn_DrawURP.Text = "Draw User-Role-Permission";
+            this.btn_DrawURP.UseVisualStyleBackColor = false;
+            this.btn_DrawURP.Click += new System.EventHandler(this.btn_DrawURP_Click);
+            // 
+            // btn_DeletePage
+            // 
+            this.btn_DeletePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_DeletePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_DeletePage.Location = new System.Drawing.Point(108, 434);
+            this.btn_DeletePage.Name = "btn_DeletePage";
+            this.btn_DeletePage.Size = new System.Drawing.Size(96, 36);
+            this.btn_DeletePage.TabIndex = 28;
+            this.btn_DeletePage.Text = "DeletePage";
+            this.btn_DeletePage.UseVisualStyleBackColor = false;
+            this.btn_DeletePage.Click += new System.EventHandler(this.btn_DeletePage_Click);
+            // 
+            // btn_ClearPage
+            // 
+            this.btn_ClearPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_ClearPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_ClearPage.Location = new System.Drawing.Point(6, 434);
+            this.btn_ClearPage.Name = "btn_ClearPage";
+            this.btn_ClearPage.Size = new System.Drawing.Size(96, 36);
+            this.btn_ClearPage.TabIndex = 27;
+            this.btn_ClearPage.Text = "ClearPage";
+            this.btn_ClearPage.UseVisualStyleBackColor = false;
+            this.btn_ClearPage.Click += new System.EventHandler(this.btn_ClearPage_Click);
+            // 
+            // btn_DrawUserTable
+            // 
+            this.btn_DrawUserTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_DrawUserTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_DrawUserTable.Location = new System.Drawing.Point(6, 355);
+            this.btn_DrawUserTable.Name = "btn_DrawUserTable";
+            this.btn_DrawUserTable.Size = new System.Drawing.Size(198, 36);
+            this.btn_DrawUserTable.TabIndex = 25;
+            this.btn_DrawUserTable.Text = "Draw User Table";
+            this.btn_DrawUserTable.UseVisualStyleBackColor = false;
+            this.btn_DrawUserTable.Click += new System.EventHandler(this.btn_DrawUserTable_Click);
             // 
             // btn_rmRolePerm
             // 
+            this.btn_rmRolePerm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmRolePerm.Location = new System.Drawing.Point(108, 308);
             this.btn_rmRolePerm.Name = "btn_rmRolePerm";
             this.btn_rmRolePerm.Size = new System.Drawing.Size(96, 36);
             this.btn_rmRolePerm.TabIndex = 24;
             this.btn_rmRolePerm.Text = "Remove Role-Permission";
-            this.btn_rmRolePerm.UseVisualStyleBackColor = true;
+            this.btn_rmRolePerm.UseVisualStyleBackColor = false;
             this.btn_rmRolePerm.Click += new System.EventHandler(this.btn_rmRolePerm_Click);
             // 
             // btn_addRolePerm
             // 
+            this.btn_addRolePerm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addRolePerm.Location = new System.Drawing.Point(6, 309);
             this.btn_addRolePerm.Name = "btn_addRolePerm";
             this.btn_addRolePerm.Size = new System.Drawing.Size(96, 36);
             this.btn_addRolePerm.TabIndex = 23;
             this.btn_addRolePerm.Text = "Add Role-Permission";
-            this.btn_addRolePerm.UseVisualStyleBackColor = true;
+            this.btn_addRolePerm.UseVisualStyleBackColor = false;
             this.btn_addRolePerm.Click += new System.EventHandler(this.btn_addRolePerm_Click);
             // 
             // btn_rmPermission
             // 
+            this.btn_rmPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmPermission.Location = new System.Drawing.Point(108, 266);
             this.btn_rmPermission.Name = "btn_rmPermission";
             this.btn_rmPermission.Size = new System.Drawing.Size(96, 36);
             this.btn_rmPermission.TabIndex = 22;
             this.btn_rmPermission.Text = "Remove Permission";
-            this.btn_rmPermission.UseVisualStyleBackColor = true;
+            this.btn_rmPermission.UseVisualStyleBackColor = false;
             this.btn_rmPermission.Click += new System.EventHandler(this.btn_rmPermission_Click);
             // 
             // btn_addPermission
             // 
+            this.btn_addPermission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addPermission.Location = new System.Drawing.Point(6, 267);
             this.btn_addPermission.Name = "btn_addPermission";
             this.btn_addPermission.Size = new System.Drawing.Size(96, 36);
             this.btn_addPermission.TabIndex = 21;
             this.btn_addPermission.Text = "Add Permission";
-            this.btn_addPermission.UseVisualStyleBackColor = true;
+            this.btn_addPermission.UseVisualStyleBackColor = false;
             this.btn_addPermission.Click += new System.EventHandler(this.btn_addPermission_Click);
             // 
             // btn_rmObject
             // 
+            this.btn_rmObject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmObject.Location = new System.Drawing.Point(108, 224);
             this.btn_rmObject.Name = "btn_rmObject";
             this.btn_rmObject.Size = new System.Drawing.Size(96, 36);
             this.btn_rmObject.TabIndex = 20;
             this.btn_rmObject.Text = "Remove Object";
-            this.btn_rmObject.UseVisualStyleBackColor = true;
+            this.btn_rmObject.UseVisualStyleBackColor = false;
             this.btn_rmObject.Click += new System.EventHandler(this.btn_rmObject_Click);
             // 
             // btn_rmAction
             // 
+            this.btn_rmAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmAction.Location = new System.Drawing.Point(108, 182);
             this.btn_rmAction.Name = "btn_rmAction";
             this.btn_rmAction.Size = new System.Drawing.Size(96, 36);
             this.btn_rmAction.TabIndex = 18;
             this.btn_rmAction.Text = "Remove Action";
-            this.btn_rmAction.UseVisualStyleBackColor = true;
+            this.btn_rmAction.UseVisualStyleBackColor = false;
             this.btn_rmAction.Click += new System.EventHandler(this.btn_rmAction_Click);
             // 
             // btn_addObject
             // 
+            this.btn_addObject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addObject.Location = new System.Drawing.Point(6, 225);
             this.btn_addObject.Name = "btn_addObject";
             this.btn_addObject.Size = new System.Drawing.Size(96, 36);
             this.btn_addObject.TabIndex = 19;
             this.btn_addObject.Text = "Add Object";
-            this.btn_addObject.UseVisualStyleBackColor = true;
+            this.btn_addObject.UseVisualStyleBackColor = false;
             this.btn_addObject.Click += new System.EventHandler(this.btn_addObject_Click);
             // 
             // btn_addAction
             // 
+            this.btn_addAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addAction.Location = new System.Drawing.Point(6, 183);
             this.btn_addAction.Name = "btn_addAction";
             this.btn_addAction.Size = new System.Drawing.Size(96, 36);
             this.btn_addAction.TabIndex = 17;
             this.btn_addAction.Text = "Add Action";
-            this.btn_addAction.UseVisualStyleBackColor = true;
+            this.btn_addAction.UseVisualStyleBackColor = false;
             this.btn_addAction.Click += new System.EventHandler(this.btn_addAction_Click);
             // 
             // btn_addPolicy
             // 
+            this.btn_addPolicy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addPolicy.Location = new System.Drawing.Point(6, 143);
             this.btn_addPolicy.Name = "btn_addPolicy";
             this.btn_addPolicy.Size = new System.Drawing.Size(96, 36);
             this.btn_addPolicy.TabIndex = 15;
             this.btn_addPolicy.Text = "Add Policy";
-            this.btn_addPolicy.UseVisualStyleBackColor = true;
+            this.btn_addPolicy.UseVisualStyleBackColor = false;
             this.btn_addPolicy.Click += new System.EventHandler(this.btn_addPolicy_Click);
             // 
             // btn_addUser
             // 
+            this.btn_addUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addUser.Location = new System.Drawing.Point(6, 17);
             this.btn_addUser.Name = "btn_addUser";
             this.btn_addUser.Size = new System.Drawing.Size(96, 36);
             this.btn_addUser.TabIndex = 0;
             this.btn_addUser.Text = "Add User";
-            this.btn_addUser.UseVisualStyleBackColor = true;
+            this.btn_addUser.UseVisualStyleBackColor = false;
             this.btn_addUser.Click += new System.EventHandler(this.btn_addUser_Click);
             // 
             // btn_rmRole
             // 
+            this.btn_rmRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmRole.Location = new System.Drawing.Point(108, 58);
             this.btn_rmRole.Name = "btn_rmRole";
             this.btn_rmRole.Size = new System.Drawing.Size(96, 36);
             this.btn_rmRole.TabIndex = 3;
             this.btn_rmRole.Text = "Remove Role";
-            this.btn_rmRole.UseVisualStyleBackColor = true;
+            this.btn_rmRole.UseVisualStyleBackColor = false;
             this.btn_rmRole.Click += new System.EventHandler(this.btn_rmRole_Click);
             // 
             // btn_rmAssignment
             // 
+            this.btn_rmAssignment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmAssignment.Location = new System.Drawing.Point(108, 100);
             this.btn_rmAssignment.Name = "btn_rmAssignment";
             this.btn_rmAssignment.Size = new System.Drawing.Size(96, 36);
             this.btn_rmAssignment.TabIndex = 5;
             this.btn_rmAssignment.Text = "Remove Assignment";
-            this.btn_rmAssignment.UseVisualStyleBackColor = true;
+            this.btn_rmAssignment.UseVisualStyleBackColor = false;
             this.btn_rmAssignment.Click += new System.EventHandler(this.btn_rmAssignment_Click);
             // 
             // btn_addRole
             // 
+            this.btn_addRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addRole.Location = new System.Drawing.Point(6, 59);
             this.btn_addRole.Name = "btn_addRole";
             this.btn_addRole.Size = new System.Drawing.Size(96, 36);
             this.btn_addRole.TabIndex = 2;
             this.btn_addRole.Text = "Add Role";
-            this.btn_addRole.UseVisualStyleBackColor = true;
+            this.btn_addRole.UseVisualStyleBackColor = false;
             this.btn_addRole.Click += new System.EventHandler(this.btn_addRole_Click);
             // 
             // btn_rmPolicy
             // 
+            this.btn_rmPolicy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmPolicy.Location = new System.Drawing.Point(108, 142);
             this.btn_rmPolicy.Name = "btn_rmPolicy";
             this.btn_rmPolicy.Size = new System.Drawing.Size(96, 36);
             this.btn_rmPolicy.TabIndex = 16;
             this.btn_rmPolicy.Text = "Remove Policy";
             this.toolTip1.SetToolTip(this.btn_rmPolicy, "TODO:\r\nЗапилить каскадное удаление по всем Юзерам, Ролям, Пермишнам");
-            this.btn_rmPolicy.UseVisualStyleBackColor = true;
+            this.btn_rmPolicy.UseVisualStyleBackColor = false;
             this.btn_rmPolicy.Click += new System.EventHandler(this.btn_rmPolicy_Click);
             // 
             // btn_setCardinality
             // 
+            this.btn_setCardinality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_setCardinality.Enabled = false;
-            this.btn_setCardinality.Location = new System.Drawing.Point(6, 548);
+            this.btn_setCardinality.Location = new System.Drawing.Point(6, 551);
             this.btn_setCardinality.Name = "btn_setCardinality";
             this.btn_setCardinality.Size = new System.Drawing.Size(198, 21);
             this.btn_setCardinality.TabIndex = 12;
@@ -584,82 +643,90 @@
             // 
             // btn_rmDSOD
             // 
+            this.btn_rmDSOD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_rmDSOD.Enabled = false;
-            this.btn_rmDSOD.Location = new System.Drawing.Point(6, 528);
+            this.btn_rmDSOD.Location = new System.Drawing.Point(108, 530);
             this.btn_rmDSOD.Name = "btn_rmDSOD";
-            this.btn_rmDSOD.Size = new System.Drawing.Size(198, 21);
+            this.btn_rmDSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_rmDSOD.TabIndex = 11;
             this.btn_rmDSOD.Text = "rmDSOD";
             this.btn_rmDSOD.UseVisualStyleBackColor = true;
             // 
             // btn_addDSOD
             // 
+            this.btn_addDSOD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_addDSOD.Enabled = false;
-            this.btn_addDSOD.Location = new System.Drawing.Point(6, 508);
+            this.btn_addDSOD.Location = new System.Drawing.Point(6, 530);
             this.btn_addDSOD.Name = "btn_addDSOD";
-            this.btn_addDSOD.Size = new System.Drawing.Size(198, 21);
+            this.btn_addDSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_addDSOD.TabIndex = 10;
             this.btn_addDSOD.Text = "addDSOD";
             this.btn_addDSOD.UseVisualStyleBackColor = true;
             // 
             // btn_rmSSOD
             // 
+            this.btn_rmSSOD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_rmSSOD.Enabled = false;
-            this.btn_rmSSOD.Location = new System.Drawing.Point(6, 488);
+            this.btn_rmSSOD.Location = new System.Drawing.Point(108, 509);
             this.btn_rmSSOD.Name = "btn_rmSSOD";
-            this.btn_rmSSOD.Size = new System.Drawing.Size(198, 21);
+            this.btn_rmSSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_rmSSOD.TabIndex = 9;
             this.btn_rmSSOD.Text = "rmSSOD";
             this.btn_rmSSOD.UseVisualStyleBackColor = true;
             // 
             // btn_addSSOD
             // 
+            this.btn_addSSOD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_addSSOD.Enabled = false;
-            this.btn_addSSOD.Location = new System.Drawing.Point(6, 467);
+            this.btn_addSSOD.Location = new System.Drawing.Point(6, 509);
             this.btn_addSSOD.Name = "btn_addSSOD";
-            this.btn_addSSOD.Size = new System.Drawing.Size(198, 21);
+            this.btn_addSSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_addSSOD.TabIndex = 8;
             this.btn_addSSOD.Text = "addSSOD";
             this.btn_addSSOD.UseVisualStyleBackColor = true;
             // 
             // btn_rmInheritance
             // 
+            this.btn_rmInheritance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_rmInheritance.Enabled = false;
-            this.btn_rmInheritance.Location = new System.Drawing.Point(6, 447);
+            this.btn_rmInheritance.Location = new System.Drawing.Point(108, 488);
             this.btn_rmInheritance.Name = "btn_rmInheritance";
-            this.btn_rmInheritance.Size = new System.Drawing.Size(198, 21);
+            this.btn_rmInheritance.Size = new System.Drawing.Size(96, 21);
             this.btn_rmInheritance.TabIndex = 7;
             this.btn_rmInheritance.Text = "rmInheritance";
             this.btn_rmInheritance.UseVisualStyleBackColor = true;
             // 
             // btn_addInheritance
             // 
+            this.btn_addInheritance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_addInheritance.Enabled = false;
-            this.btn_addInheritance.Location = new System.Drawing.Point(6, 427);
+            this.btn_addInheritance.Location = new System.Drawing.Point(6, 488);
             this.btn_addInheritance.Name = "btn_addInheritance";
-            this.btn_addInheritance.Size = new System.Drawing.Size(198, 21);
+            this.btn_addInheritance.Size = new System.Drawing.Size(96, 21);
             this.btn_addInheritance.TabIndex = 6;
             this.btn_addInheritance.Text = "addInheritance";
             this.btn_addInheritance.UseVisualStyleBackColor = true;
             // 
             // btn_addAssignment
             // 
+            this.btn_addAssignment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btn_addAssignment.Location = new System.Drawing.Point(6, 101);
             this.btn_addAssignment.Name = "btn_addAssignment";
             this.btn_addAssignment.Size = new System.Drawing.Size(96, 36);
             this.btn_addAssignment.TabIndex = 4;
             this.btn_addAssignment.Text = "Add Assignment";
-            this.btn_addAssignment.UseVisualStyleBackColor = true;
+            this.btn_addAssignment.UseVisualStyleBackColor = false;
             this.btn_addAssignment.Click += new System.EventHandler(this.btn_addAssignment_Click);
             // 
             // btn_rmUser
             // 
+            this.btn_rmUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btn_rmUser.Location = new System.Drawing.Point(108, 16);
             this.btn_rmUser.Name = "btn_rmUser";
             this.btn_rmUser.Size = new System.Drawing.Size(96, 36);
             this.btn_rmUser.TabIndex = 1;
             this.btn_rmUser.Text = "Remove User";
-            this.btn_rmUser.UseVisualStyleBackColor = true;
+            this.btn_rmUser.UseVisualStyleBackColor = false;
             this.btn_rmUser.Click += new System.EventHandler(this.btn_rmUser_Click);
             // 
             // groupBox3
@@ -689,26 +756,6 @@
             this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
             this.rbacDataSetBindingSource.Position = 0;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 377);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(198, 20);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "ClearPage";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 397);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(198, 20);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "DeletePage";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,8 +766,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1213, 655);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -800,9 +849,10 @@
         private System.Windows.Forms.Button btn_rmRolePerm;
         private System.Windows.Forms.Button btn_addRolePerm;
         private AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl axDrawingControl1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_DrawUserTable;
+        private System.Windows.Forms.Button btn_DeletePage;
+        private System.Windows.Forms.Button btn_ClearPage;
+        private System.Windows.Forms.Button btn_DrawURP;
 
 
 

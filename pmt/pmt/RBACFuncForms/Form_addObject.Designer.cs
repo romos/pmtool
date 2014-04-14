@@ -62,15 +62,22 @@
             // 
             // Form_addObject
             // 
+            this.AcceptButton = this.btn_addObject_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 74);
             this.Controls.Add(this.btn_addObject_Save);
             this.Controls.Add(this.tb_Name);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_addObject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_addObject";
             this.Load += new System.EventHandler(this.Form_addObject_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_addObject_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

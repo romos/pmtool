@@ -148,6 +148,7 @@
             // 
             // Form_rmRole
             // 
+            this.AcceptButton = this.btn_rmRole_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 100);
@@ -158,9 +159,15 @@
             this.Controls.Add(this.tb_Cardinality);
             this.Controls.Add(this.l_Cardinality);
             this.Controls.Add(this.l_Name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_rmRole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_rmRole";
             this.Load += new System.EventHandler(this.Form_rmRole_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_rmRole_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.fKRolePolicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.policyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).EndInit();
