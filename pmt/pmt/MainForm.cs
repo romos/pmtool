@@ -115,8 +115,8 @@ namespace pmt
                     break;
                 case "RoleHierarchy":
                     bindingSource_Tables.DataSource = db.RoleHierarchy.GetNewBindingList();
-                    //dataGV_Tables.Columns["Role"].Visible = false;
-                    //dataGV_Tables.Columns["Role1"].Visible = false;
+                    dataGV_Tables.Columns["Role"].Visible = false;
+                    dataGV_Tables.Columns["Role1"].Visible = false;
                     break;
                 case "RolePermission":
                     bindingSource_Tables.DataSource = db.RolePermission.GetNewBindingList();

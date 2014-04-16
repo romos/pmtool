@@ -174,7 +174,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RoleHierarchy_ChildRole" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RoleHierarchy_JuniorRole" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>172</X>
@@ -190,7 +190,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RoleHierarchy_ParentRole" ZOrder="7" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RoleHierarchy_SeniorRole" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>164</X>
@@ -206,7 +206,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RolePermission_Permission" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RolePermission_Permission" ZOrder="8" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>576</X>
@@ -222,7 +222,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_RolePermission_Role" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:FK_RolePermission_Role" ZOrder="7" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>207</X>
@@ -238,7 +238,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Session_User" ZOrder="4" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Session_User" ZOrder="6" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>689</X>
@@ -250,7 +250,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_StaticSOD_ExclusiveRole" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK_StaticSOD_ExclusiveRole" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>156</X>
@@ -266,7 +266,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_StaticSOD_Role" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_StaticSOD_Role" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>148</X>
@@ -282,7 +282,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_User_Policy" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_User_Policy" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>472</X>

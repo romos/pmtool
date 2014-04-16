@@ -74,9 +74,9 @@ namespace pmt {
         
         private global::System.Data.DataRelation relationFK_Role_Policy;
         
-        private global::System.Data.DataRelation relationFK_RoleHierarchy_ChildRole;
+        private global::System.Data.DataRelation relationFK_RoleHierarchy_JuniorRole;
         
-        private global::System.Data.DataRelation relationFK_RoleHierarchy_ParentRole;
+        private global::System.Data.DataRelation relationFK_RoleHierarchy_SeniorRole;
         
         private global::System.Data.DataRelation relationFK_RolePermission_Permission;
         
@@ -555,8 +555,8 @@ namespace pmt {
             this.relationFK_PermissionPerObject_Object = this.Relations["FK_PermissionPerObject_Object"];
             this.relationFK_PermissionPerObject_Permission = this.Relations["FK_PermissionPerObject_Permission"];
             this.relationFK_Role_Policy = this.Relations["FK_Role_Policy"];
-            this.relationFK_RoleHierarchy_ChildRole = this.Relations["FK_RoleHierarchy_ChildRole"];
-            this.relationFK_RoleHierarchy_ParentRole = this.Relations["FK_RoleHierarchy_ParentRole"];
+            this.relationFK_RoleHierarchy_JuniorRole = this.Relations["FK_RoleHierarchy_JuniorRole"];
+            this.relationFK_RoleHierarchy_SeniorRole = this.Relations["FK_RoleHierarchy_SeniorRole"];
             this.relationFK_RolePermission_Permission = this.Relations["FK_RolePermission_Permission"];
             this.relationFK_RolePermission_Role = this.Relations["FK_RolePermission_Role"];
             this.relationFK_Session_User = this.Relations["FK_Session_User"];
@@ -645,14 +645,14 @@ namespace pmt {
                         this.tablePolicy.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRole.Policy_IdColumn}, false);
             this.Relations.Add(this.relationFK_Role_Policy);
-            this.relationFK_RoleHierarchy_ChildRole = new global::System.Data.DataRelation("FK_RoleHierarchy_ChildRole", new global::System.Data.DataColumn[] {
+            this.relationFK_RoleHierarchy_JuniorRole = new global::System.Data.DataRelation("FK_RoleHierarchy_JuniorRole", new global::System.Data.DataColumn[] {
                         this.tableRole.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRoleHierarchy.JuniorRole_IdColumn}, false);
-            this.Relations.Add(this.relationFK_RoleHierarchy_ChildRole);
-            this.relationFK_RoleHierarchy_ParentRole = new global::System.Data.DataRelation("FK_RoleHierarchy_ParentRole", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_RoleHierarchy_JuniorRole);
+            this.relationFK_RoleHierarchy_SeniorRole = new global::System.Data.DataRelation("FK_RoleHierarchy_SeniorRole", new global::System.Data.DataColumn[] {
                         this.tableRole.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRoleHierarchy.SeniorRole_IdColumn}, false);
-            this.Relations.Add(this.relationFK_RoleHierarchy_ParentRole);
+            this.Relations.Add(this.relationFK_RoleHierarchy_SeniorRole);
             this.relationFK_RolePermission_Permission = new global::System.Data.DataRelation("FK_RolePermission_Permission", new global::System.Data.DataColumn[] {
                         this.tablePermission.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableRolePermission.Permission_IdColumn}, false);
@@ -3537,16 +3537,16 @@ namespace pmt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RoleHierarchyRow AddRoleHierarchyRow(RoleRow parentRoleRowByFK_RoleHierarchy_ParentRole, RoleRow parentRoleRowByFK_RoleHierarchy_ChildRole) {
+            public RoleHierarchyRow AddRoleHierarchyRow(RoleRow parentRoleRowByFK_RoleHierarchy_SeniorRole, RoleRow parentRoleRowByFK_RoleHierarchy_JuniorRole) {
                 RoleHierarchyRow rowRoleHierarchyRow = ((RoleHierarchyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentRoleRowByFK_RoleHierarchy_ParentRole != null)) {
-                    columnValuesArray[0] = parentRoleRowByFK_RoleHierarchy_ParentRole[0];
+                if ((parentRoleRowByFK_RoleHierarchy_SeniorRole != null)) {
+                    columnValuesArray[0] = parentRoleRowByFK_RoleHierarchy_SeniorRole[0];
                 }
-                if ((parentRoleRowByFK_RoleHierarchy_ChildRole != null)) {
-                    columnValuesArray[1] = parentRoleRowByFK_RoleHierarchy_ChildRole[0];
+                if ((parentRoleRowByFK_RoleHierarchy_JuniorRole != null)) {
+                    columnValuesArray[1] = parentRoleRowByFK_RoleHierarchy_JuniorRole[0];
                 }
                 rowRoleHierarchyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRoleHierarchyRow);
@@ -5553,23 +5553,23 @@ namespace pmt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RoleHierarchyRow[] GetRoleHierarchyRowsByFK_RoleHierarchy_ChildRole() {
-                if ((this.Table.ChildRelations["FK_RoleHierarchy_ChildRole"] == null)) {
+            public RoleHierarchyRow[] GetRoleHierarchyRowsByFK_RoleHierarchy_JuniorRole() {
+                if ((this.Table.ChildRelations["FK_RoleHierarchy_JuniorRole"] == null)) {
                     return new RoleHierarchyRow[0];
                 }
                 else {
-                    return ((RoleHierarchyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RoleHierarchy_ChildRole"])));
+                    return ((RoleHierarchyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RoleHierarchy_JuniorRole"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RoleHierarchyRow[] GetRoleHierarchyRowsByFK_RoleHierarchy_ParentRole() {
-                if ((this.Table.ChildRelations["FK_RoleHierarchy_ParentRole"] == null)) {
+            public RoleHierarchyRow[] GetRoleHierarchyRowsByFK_RoleHierarchy_SeniorRole() {
+                if ((this.Table.ChildRelations["FK_RoleHierarchy_SeniorRole"] == null)) {
                     return new RoleHierarchyRow[0];
                 }
                 else {
-                    return ((RoleHierarchyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RoleHierarchy_ParentRole"])));
+                    return ((RoleHierarchyRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RoleHierarchy_SeniorRole"])));
                 }
             }
             
@@ -5647,10 +5647,10 @@ namespace pmt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RoleRow RoleRowByFK_RoleHierarchy_ChildRole {
                 get {
-                    return ((RoleRow)(this.GetParentRow(this.Table.ParentRelations["FK_RoleHierarchy_ChildRole"])));
+                    return ((RoleRow)(this.GetParentRow(this.Table.ParentRelations["FK_RoleHierarchy_JuniorRole"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RoleHierarchy_ChildRole"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_RoleHierarchy_JuniorRole"]);
                 }
             }
             
@@ -5658,10 +5658,10 @@ namespace pmt {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RoleRow RoleRowByFK_RoleHierarchy_ParentRole {
                 get {
-                    return ((RoleRow)(this.GetParentRow(this.Table.ParentRelations["FK_RoleHierarchy_ParentRole"])));
+                    return ((RoleRow)(this.GetParentRow(this.Table.ParentRelations["FK_RoleHierarchy_SeniorRole"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_RoleHierarchy_ParentRole"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_RoleHierarchy_SeniorRole"]);
                 }
             }
         }

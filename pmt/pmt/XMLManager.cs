@@ -292,6 +292,8 @@ namespace pmt
         private static void XMLWriteRH(Role role, XmlWriter xmlWriter)
         {
             // Create an entity only if a role has RH
+            // Here Role1 <-> SeniorRole
+            //      Role  <-> JuniorRole
             if (role.RoleHierarchy1.Count != 0)
             {
                 xmlWriter.WriteStartElement("SeniorRole");
@@ -299,8 +301,6 @@ namespace pmt
                 foreach (RoleHierarchy rh in role.RoleHierarchy1)
                 {
                     xmlWriter.WriteStartElement("JuniorRole");
-                    System.Diagnostics.Debug.WriteLine(role.Name + "=" + rh.Role.Name + ":" + rh.Role.Id);
-                    System.Diagnostics.Debug.WriteLine(role.Name + "->" + rh.Role1.Name + ":" + rh.Role1.Id);
                     xmlWriter.WriteAttributeString("name", rh.Role.Name);
                     xmlWriter.WriteEndElement();
                 }
