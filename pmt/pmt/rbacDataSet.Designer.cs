@@ -647,11 +647,11 @@ namespace pmt {
             this.Relations.Add(this.relationFK_Role_Policy);
             this.relationFK_RoleHierarchy_ChildRole = new global::System.Data.DataRelation("FK_RoleHierarchy_ChildRole", new global::System.Data.DataColumn[] {
                         this.tableRole.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRoleHierarchy.ChildRole_IdColumn}, false);
+                        this.tableRoleHierarchy.JuniorRole_IdColumn}, false);
             this.Relations.Add(this.relationFK_RoleHierarchy_ChildRole);
             this.relationFK_RoleHierarchy_ParentRole = new global::System.Data.DataRelation("FK_RoleHierarchy_ParentRole", new global::System.Data.DataColumn[] {
                         this.tableRole.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableRoleHierarchy.ParentRole_IdColumn}, false);
+                        this.tableRoleHierarchy.SeniorRole_IdColumn}, false);
             this.Relations.Add(this.relationFK_RoleHierarchy_ParentRole);
             this.relationFK_RolePermission_Permission = new global::System.Data.DataRelation("FK_RolePermission_Permission", new global::System.Data.DataColumn[] {
                         this.tablePermission.IdColumn}, new global::System.Data.DataColumn[] {
@@ -3447,9 +3447,9 @@ namespace pmt {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RoleHierarchyDataTable : global::System.Data.TypedTableBase<RoleHierarchyRow> {
             
-            private global::System.Data.DataColumn columnParentRole_Id;
+            private global::System.Data.DataColumn columnSeniorRole_Id;
             
-            private global::System.Data.DataColumn columnChildRole_Id;
+            private global::System.Data.DataColumn columnJuniorRole_Id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3486,17 +3486,17 @@ namespace pmt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ParentRole_IdColumn {
+            public global::System.Data.DataColumn SeniorRole_IdColumn {
                 get {
-                    return this.columnParentRole_Id;
+                    return this.columnSeniorRole_Id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChildRole_IdColumn {
+            public global::System.Data.DataColumn JuniorRole_IdColumn {
                 get {
-                    return this.columnChildRole_Id;
+                    return this.columnJuniorRole_Id;
                 }
             }
             
@@ -3555,10 +3555,10 @@ namespace pmt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RoleHierarchyRow FindByParentRole_IdChildRole_Id(int ParentRole_Id, int ChildRole_Id) {
+            public RoleHierarchyRow FindBySeniorRole_IdJuniorRole_Id(int SeniorRole_Id, int JuniorRole_Id) {
                 return ((RoleHierarchyRow)(this.Rows.Find(new object[] {
-                            ParentRole_Id,
-                            ChildRole_Id})));
+                            SeniorRole_Id,
+                            JuniorRole_Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3578,22 +3578,22 @@ namespace pmt {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnParentRole_Id = base.Columns["ParentRole_Id"];
-                this.columnChildRole_Id = base.Columns["ChildRole_Id"];
+                this.columnSeniorRole_Id = base.Columns["SeniorRole_Id"];
+                this.columnJuniorRole_Id = base.Columns["JuniorRole_Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnParentRole_Id = new global::System.Data.DataColumn("ParentRole_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnParentRole_Id);
-                this.columnChildRole_Id = new global::System.Data.DataColumn("ChildRole_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChildRole_Id);
+                this.columnSeniorRole_Id = new global::System.Data.DataColumn("SeniorRole_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSeniorRole_Id);
+                this.columnJuniorRole_Id = new global::System.Data.DataColumn("JuniorRole_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJuniorRole_Id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnParentRole_Id,
-                                this.columnChildRole_Id}, true));
-                this.columnParentRole_Id.AllowDBNull = false;
-                this.columnChildRole_Id.AllowDBNull = false;
+                                this.columnSeniorRole_Id,
+                                this.columnJuniorRole_Id}, true));
+                this.columnSeniorRole_Id.AllowDBNull = false;
+                this.columnJuniorRole_Id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5623,23 +5623,23 @@ namespace pmt {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ParentRole_Id {
+            public int SeniorRole_Id {
                 get {
-                    return ((int)(this[this.tableRoleHierarchy.ParentRole_IdColumn]));
+                    return ((int)(this[this.tableRoleHierarchy.SeniorRole_IdColumn]));
                 }
                 set {
-                    this[this.tableRoleHierarchy.ParentRole_IdColumn] = value;
+                    this[this.tableRoleHierarchy.SeniorRole_IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ChildRole_Id {
+            public int JuniorRole_Id {
                 get {
-                    return ((int)(this[this.tableRoleHierarchy.ChildRole_IdColumn]));
+                    return ((int)(this[this.tableRoleHierarchy.JuniorRole_IdColumn]));
                 }
                 set {
-                    this[this.tableRoleHierarchy.ChildRole_IdColumn] = value;
+                    this[this.tableRoleHierarchy.JuniorRole_IdColumn] = value;
                 }
             }
             
@@ -9382,8 +9382,8 @@ SELECT Id, Name, Cardinality, Policy_Id FROM Role WHERE (Id = @Id)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "RoleHierarchy";
-            tableMapping.ColumnMappings.Add("ParentRole_Id", "ParentRole_Id");
-            tableMapping.ColumnMappings.Add("ChildRole_Id", "ChildRole_Id");
+            tableMapping.ColumnMappings.Add("ParentRole_Id", "SeniorRole_Id");
+            tableMapping.ColumnMappings.Add("ChildRole_Id", "JuniorRole_Id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -9550,14 +9550,6 @@ SELECT ParentRole_Id, ChildRole_Id FROM RoleHierarchy WHERE (ChildRole_Id = @Chi
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Original_ParentRole_Id, int Original_ChildRole_Id) {
-            return this.Update(Original_ParentRole_Id, Original_ChildRole_Id, Original_ParentRole_Id, Original_ChildRole_Id);
         }
     }
     

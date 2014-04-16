@@ -196,6 +196,7 @@
     <Compile Include="RBACFuncForms\Form_rmObject.Designer.cs">
       <DependentUpon>Form_rmObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="XMLManager.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>

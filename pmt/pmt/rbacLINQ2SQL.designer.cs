@@ -1989,7 +1989,7 @@ namespace pmt
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy", Storage="_RoleHierarchy", ThisKey="Id", OtherKey="ChildRole_Id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy", Storage="_RoleHierarchy", ThisKey="Id", OtherKey="JuniorRole_Id")]
 		public EntitySet<RoleHierarchy> RoleHierarchy
 		{
 			get
@@ -2002,7 +2002,7 @@ namespace pmt
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy1", Storage="_RoleHierarchy1", ThisKey="Id", OtherKey="ParentRole_Id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy1", Storage="_RoleHierarchy1", ThisKey="Id", OtherKey="SeniorRole_Id")]
 		public EntitySet<RoleHierarchy> RoleHierarchy1
 		{
 			get
@@ -2223,9 +2223,9 @@ namespace pmt
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ParentRole_Id;
+		private int _SeniorRole_Id;
 		
-		private int _ChildRole_Id;
+		private int _JuniorRole_Id;
 		
 		private EntityRef<Role> _Role;
 		
@@ -2235,10 +2235,10 @@ namespace pmt
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnParentRole_IdChanging(int value);
-    partial void OnParentRole_IdChanged();
-    partial void OnChildRole_IdChanging(int value);
-    partial void OnChildRole_IdChanged();
+    partial void OnSeniorRole_IdChanging(int value);
+    partial void OnSeniorRole_IdChanged();
+    partial void OnJuniorRole_IdChanging(int value);
+    partial void OnJuniorRole_IdChanged();
     #endregion
 		
 		public RoleHierarchy()
@@ -2248,55 +2248,55 @@ namespace pmt
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentRole_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ParentRole_Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeniorRole_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SeniorRole_Id
 		{
 			get
 			{
-				return this._ParentRole_Id;
+				return this._SeniorRole_Id;
 			}
 			set
 			{
-				if ((this._ParentRole_Id != value))
+				if ((this._SeniorRole_Id != value))
 				{
 					if (this._Role1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnParentRole_IdChanging(value);
+					this.OnSeniorRole_IdChanging(value);
 					this.SendPropertyChanging();
-					this._ParentRole_Id = value;
-					this.SendPropertyChanged("ParentRole_Id");
-					this.OnParentRole_IdChanged();
+					this._SeniorRole_Id = value;
+					this.SendPropertyChanged("SeniorRole_Id");
+					this.OnSeniorRole_IdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChildRole_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ChildRole_Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JuniorRole_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int JuniorRole_Id
 		{
 			get
 			{
-				return this._ChildRole_Id;
+				return this._JuniorRole_Id;
 			}
 			set
 			{
-				if ((this._ChildRole_Id != value))
+				if ((this._JuniorRole_Id != value))
 				{
 					if (this._Role.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnChildRole_IdChanging(value);
+					this.OnJuniorRole_IdChanging(value);
 					this.SendPropertyChanging();
-					this._ChildRole_Id = value;
-					this.SendPropertyChanged("ChildRole_Id");
-					this.OnChildRole_IdChanged();
+					this._JuniorRole_Id = value;
+					this.SendPropertyChanged("JuniorRole_Id");
+					this.OnJuniorRole_IdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy", Storage="_Role", ThisKey="ChildRole_Id", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy", Storage="_Role", ThisKey="JuniorRole_Id", OtherKey="Id", IsForeignKey=true)]
 		public Role Role
 		{
 			get
@@ -2319,18 +2319,18 @@ namespace pmt
 					if ((value != null))
 					{
 						value.RoleHierarchy.Add(this);
-						this._ChildRole_Id = value.Id;
+						this._JuniorRole_Id = value.Id;
 					}
 					else
 					{
-						this._ChildRole_Id = default(int);
+						this._JuniorRole_Id = default(int);
 					}
 					this.SendPropertyChanged("Role");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy1", Storage="_Role1", ThisKey="ParentRole_Id", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_RoleHierarchy1", Storage="_Role1", ThisKey="SeniorRole_Id", OtherKey="Id", IsForeignKey=true)]
 		public Role Role1
 		{
 			get
@@ -2353,11 +2353,11 @@ namespace pmt
 					if ((value != null))
 					{
 						value.RoleHierarchy1.Add(this);
-						this._ParentRole_Id = value.Id;
+						this._SeniorRole_Id = value.Id;
 					}
 					else
 					{
-						this._ParentRole_Id = default(int);
+						this._SeniorRole_Id = default(int);
 					}
 					this.SendPropertyChanged("Role1");
 				}

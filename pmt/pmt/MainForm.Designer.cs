@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMenuItem_NewPolicy = new System.Windows.Forms.ToolStripMenuItem();
             this.rBACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mACToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,6 +94,8 @@
             this.axDrawingControl1 = new AxMicrosoft.Office.Interop.VisOcx.AxDrawingControl();
             this.rbacDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rbacDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV_Tables)).BeginInit();
@@ -108,6 +113,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Menu;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolsToolStripMenuItem,
             this.TSMenuItem_NewPolicy,
             this.TSMenuItem_about});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -116,6 +122,29 @@
             this.menuStrip1.Size = new System.Drawing.Size(1197, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
+            this.importToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.exportToolStripMenuItem.Text = "Export to XML";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.importToolStripMenuItem.Text = "Import from XML";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // TSMenuItem_NewPolicy
             // 
@@ -196,7 +225,6 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Enabled = false;
             this.btn_Submit.Location = new System.Drawing.Point(284, 59);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(142, 25);
@@ -756,6 +784,17 @@
             this.rbacDataSetBindingSource.DataSource = this.rbacDataSet;
             this.rbacDataSetBindingSource.Position = 0;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "xml";
+            this.saveFileDialog1.FileName = "exportRBAC.xml";
+            this.saveFileDialog1.Filter = "XML-files|*.xml|All files|*.*";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "xml";
+            this.openFileDialog1.Filter = "XML-files|*.xml|All files|*.*";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -853,6 +892,11 @@
         private System.Windows.Forms.Button btn_DeletePage;
         private System.Windows.Forms.Button btn_ClearPage;
         private System.Windows.Forms.Button btn_DrawURP;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
 
 
 

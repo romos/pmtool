@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MCD_PMTOOL_RBAC_DATABASE>
+	<POLICIES>
+		<Policy
+			name="policy_1">
+			<USERS>
+				<User
+					name="name1"
+					password="pwd1">
+					<AuthRoles>
+						<Role
+							name="2" />
+						<Role
+							name="3" />
+						<Role
+							name="4" />
+						<Role
+							name="r2" />
+						<Role
+							name="r4" />
+					</AuthRoles>
+				</User>
+				<User
+					name="4"
+					password="4">
+					<AuthRoles>
+						<Role
+							name="r3" />
+					</AuthRoles>
+				</User>
+				<User
+					name="5"
+					password="5">
+					<AuthRoles />
+				</User>
+				<User
+					name="7"
+					password="7">
+					<AuthRoles />
+				</User>
+				<User
+					name="8"
+					password="8">
+					<AuthRoles />
+				</User>
+				<User
+					name="abra"
+					password="kadabra">
+					<AuthRoles />
+				</User>
+			</USERS>
+			<ROLES>
+				<Role
+					name="2"
+					cardinality="2">
+					<Permissions>
+						<Permission
+							name="perm4" />
+						<Permission
+							name="perm6" />
+					</Permissions>
+				</Role>
+				<Role
+					name="3"
+					cardinality="4">
+					<Permissions>
+						<Permission
+							name="perm4" />
+					</Permissions>
+				</Role>
+				<Role
+					name="4"
+					cardinality="4">
+					<Permissions />
+				</Role>
+				<Role
+					name="r2"
+					cardinality="0">
+					<Permissions />
+				</Role>
+				<Role
+					name="r3"
+					cardinality="-1">
+					<Permissions />
+				</Role>
+				<Role
+					name="r4"
+					cardinality="1">
+					<Permissions />
+				</Role>
+			</ROLES>
+			<PERMISSIONS>
+				<Permission
+					name="perm4">
+					<PermissionsPerObject>
+						<PpO
+							action="read"
+							object="file1" />
+						<PpO
+							action="write"
+							object="file1" />
+					</PermissionsPerObject>
+				</Permission>
+				<Permission
+					name="perm5">
+					<PermissionsPerObject>
+						<PpO
+							action="read"
+							object="file1" />
+						<PpO
+							action="read"
+							object="file2" />
+						<PpO
+							action="execute"
+							object="file2" />
+					</PermissionsPerObject>
+				</Permission>
+				<Permission
+					name="perm6">
+					<PermissionsPerObject>
+						<PpO
+							action="write"
+							object="file2" />
+					</PermissionsPerObject>
+				</Permission>
+				<Permission
+					name="perm7">
+					<PermissionsPerObject />
+				</Permission>
+			</PERMISSIONS>
+			<SSOD>
+				<Role
+					name="2">
+					<Exclusive_Role
+						name="3" />
+					<Exclusive_Role
+						name="4" />
+				</Role>
+				<Role
+					name="3">
+					<Exclusive_Role
+						name="2" />
+					<Exclusive_Role
+						name="r2" />
+				</Role>
+				<Role
+					name="4">
+					<Exclusive_Role
+						name="2" />
+				</Role>
+				<Role
+					name="r2">
+					<Exclusive_Role
+						name="3" />
+				</Role>
+			</SSOD>
+			<DSOD>
+				<Role
+					name="2">
+					<Exclusive_Role
+						name="3" />
+					<Exclusive_Role
+						name="4" />
+				</Role>
+				<Role
+					name="3">
+					<Exclusive_Role
+						name="2" />
+					<Exclusive_Role
+						name="r2" />
+				</Role>
+				<Role
+					name="4">
+					<Exclusive_Role
+						name="2" />
+				</Role>
+				<Role
+					name="r2">
+					<Exclusive_Role
+						name="3" />
+				</Role>
+			</DSOD>
+			<RoleHierarchy>
+				<SeniorRole
+					name="r2">
+					<JuniorRole
+						name="r3" />
+					<JuniorRole
+						name="r4" />
+				</SeniorRole>
+			</RoleHierarchy>
+		</Policy>
+		<Policy
+			name="policy_2">
+			<USERS>
+				<User
+					name="6"
+					password="6">
+					<AuthRoles />
+				</User>
+				<User
+					name="2"
+					password="2">
+					<AuthRoles>
+						<Role
+							name="2" />
+					</AuthRoles>
+				</User>
+				<User
+					name="9"
+					password="9">
+					<AuthRoles />
+				</User>
+			</USERS>
+			<ROLES>
+				<Role
+					name="2"
+					cardinality="1">
+					<Permissions />
+				</Role>
+				<Role
+					name="3"
+					cardinality="3">
+					<Permissions />
+				</Role>
+			</ROLES>
+			<PERMISSIONS />
+			<SSOD />
+			<DSOD />
+			<RoleHierarchy />
+		</Policy>
+	</POLICIES>
+	<ACTIONS>
+		<Action
+			name="read" />
+		<Action
+			name="write" />
+		<Action
+			name="execute" />
+		<Action
+			name="copy" />
+	</ACTIONS>
+	<OBJECTS>
+		<Object
+			name="file1" />
+		<Object
+			name="file2" />
+	</OBJECTS>
+</MCD_PMTOOL_RBAC_DATABASE>

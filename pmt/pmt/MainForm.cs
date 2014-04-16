@@ -48,17 +48,14 @@ namespace pmt
         private void MainForm_Load(object sender, EventArgs e)
         {
         }
-        //
+        
         //AboutBox About Program
         //
         private void TSMenuItem_about_Click(object sender, EventArgs e)
         {
             new AboutPmtool().ShowDialog();
         }
-
-
-        //=====================================================
-        //
+        
         // Renew dataGV_Tables bindings for correct visualizing
         //
         private void RenewDataGV_Tables(string table_name)
@@ -118,8 +115,8 @@ namespace pmt
                     break;
                 case "RoleHierarchy":
                     bindingSource_Tables.DataSource = db.RoleHierarchy.GetNewBindingList();
-                    dataGV_Tables.Columns["Role"].Visible = false;
-                    dataGV_Tables.Columns["Role1"].Visible = false;
+                    //dataGV_Tables.Columns["Role"].Visible = false;
+                    //dataGV_Tables.Columns["Role1"].Visible = false;
                     break;
                 case "RolePermission":
                     bindingSource_Tables.DataSource = db.RolePermission.GetNewBindingList();
@@ -144,7 +141,6 @@ namespace pmt
                     break;
             }
         }
-        //
         // dataGridView representation test for different tables
         //
         private void cb_Tables_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,7 +152,6 @@ namespace pmt
             
             RenewDataGV_Tables(table);
         }  
-        //
         // Submit changes to dataGridView
         //
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -190,8 +185,6 @@ namespace pmt
         }
 
 
-        //=====================================================
-        //
         // Basic functionality for RBAC0:
         //
         private void btn_addUser_Click(object sender, EventArgs e)
@@ -355,6 +348,44 @@ namespace pmt
         private void btn_DeletePage_Click(object sender, EventArgs e)
         {
             Visualizer.DeletePage(axDrawingControl1.Document.Application.ActivePage);
+        }
+
+
+        // XML export/import
+        //
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+            string fname = saveFileDialog1.FileName;
+            MessageBox.Show(fname);
+
+            Program.ExitCode status = XMLManager.ExportToXML(this.db, fname);
+            if (status != Program.ExitCode.Success)
+            {
+                MessageBox.Show("Export was not successful!");
+            }
+            else
+            {
+                MessageBox.Show(String.Format("DataBase was successfully exported to \n{0}!",fname));
+            }
+        }
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+            string fname = openFileDialog1.FileName;
+            MessageBox.Show(fname);
+
+            Program.ExitCode status = XMLManager.ImportFromXML(this.db,fname);
+            if (status != Program.ExitCode.Success)
+            {
+                MessageBox.Show("Import was not successful!");
+            }
+            else
+            {
+                MessageBox.Show(String.Format("DataBase was successfully imported from \n{0}!", fname));
+            }
         }
     }
 }
