@@ -14,6 +14,7 @@ namespace pmt
             Error = 1,
             ElementExists = 2,
             ElementDoesNotExists = 3,
+            TransactAbort = 5,
             //Ppo_exists = 100, //can be used for AddPermission Functionality
             //HasAssigned = 4
         };

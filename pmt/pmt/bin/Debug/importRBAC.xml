@@ -228,6 +228,136 @@
 			<DSOD />
 			<RoleHierarchy />
 		</Policy>
+		<Policy
+			name="XMLpolicy1">
+			<USERS>
+				<User
+					name="XMLuser1"
+					password="XMLpwd1">
+					<AuthRoles>
+						<Role
+							name="XMLrole1" />
+						<Role
+							name="XMLrole2" />
+					</AuthRoles>
+				</User>
+				<User
+					name="XMLuser2"
+					password="XMLpwd2">
+					<AuthRoles>
+						<Role
+							name="XMLrole2" />
+					</AuthRoles>
+				</User>
+				<User
+					name="XMLuser3"
+					password="XMLpwd3">
+					<AuthRoles />
+				</User>
+			</USERS>
+			<ROLES>
+				<Role
+					name="XMLrole1"
+					cardinality="1">
+					<Permissions>
+						<Permission
+							name="XMLperm1" />
+						<Permission
+							name="XMLperm2" />
+					</Permissions>
+				</Role>
+				<Role
+					name="XMLrole2"
+					cardinality="-1">
+					<Permissions>
+						<Permission
+							name="XMLperm2" />
+					</Permissions>
+				</Role>
+				<Role
+					name="XMLrole3"
+					cardinality="3">
+					<Permissions />
+				</Role>
+			</ROLES>
+			<PERMISSIONS>
+				<Permission
+					name="XMLperm1">
+					<PermissionsPerObject>
+						<PpO
+							action="read"
+							object="file1" />
+						<PpO
+							action="write"
+							object="file1" />
+					</PermissionsPerObject>
+				</Permission>
+				<Permission
+					name="XMLperm2">
+					<PermissionsPerObject>
+						<PpO
+							action="read"
+							object="XMLobject1" />
+						<PpO
+							action="write"
+							object="XMLobject1" />
+						<PpO
+							action="XMLaction1"
+							object="XMLobject2" />
+					</PermissionsPerObject>
+				</Permission>
+			</PERMISSIONS>
+			<SSOD>
+				<Role
+					name="XMLrole1">
+					<Exclusive_Role
+						name="XMLrole3" />
+				</Role>
+				<Role
+					name="XMLrole2">
+					<Exclusive_Role
+						name="XMLrole3" />
+				</Role>
+				<Role
+					name="XMLrole3">
+					<Exclusive_Role
+						name="XMLrole1" />
+					<Exclusive_Role
+						name="XMLrole2" />
+				</Role>
+			</SSOD>
+			<DSOD>
+				<Role
+					name="XMLrole1">
+					<Exclusive_Role
+						name="XMLrole3" />
+				</Role>
+				<Role
+					name="XMLrole2">
+					<Exclusive_Role
+						name="XMLrole3" />
+				</Role>
+				<Role
+					name="XMLrole3">
+					<Exclusive_Role
+						name="XMLrole1" />
+					<Exclusive_Role
+						name="XMLrole2" />
+				</Role>
+			</DSOD>
+			<RoleHierarchy>
+				<SeniorRole
+					name="XMLrole1">
+					<JuniorRole
+						name="XMLrole2" />
+				</SeniorRole>
+				<SeniorRole
+					name="XMLrole2">
+					<JuniorRole
+						name="XMLrole3" />
+				</SeniorRole>
+			</RoleHierarchy>
+		</Policy>
 	</POLICIES>
 	<ACTIONS>
 		<Action
@@ -238,11 +368,19 @@
 			name="execute" />
 		<Action
 			name="copy" />
+		<Action
+			name="XMLaction1" />
+		<Action
+			name="XMLaction2" />
 	</ACTIONS>
 	<OBJECTS>
 		<Object
 			name="file1" />
 		<Object
 			name="file2" />
+		<Object
+			name="XMLobject1" />
+		<Object
+			name="XMLobject2" />
 	</OBJECTS>
 </MCD_PMTOOL_RBAC_DATABASE>

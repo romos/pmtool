@@ -334,11 +334,15 @@ namespace pmt
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
             }
+
+            cb_Tables.Text = "User";
+            RenewDataGV_Tables("User");
         }
         private void btn_DrawURP_Click(object sender, EventArgs e)
         {
             new Form_drawURP(this).ShowDialog();
             cb_Tables.Text = "RolePermission";
+            RenewDataGV_Tables("RolePermission");
         }
 
         private void btn_ClearPage_Click(object sender, EventArgs e)
@@ -358,7 +362,6 @@ namespace pmt
             if (saveFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             string fname = saveFileDialog1.FileName;
-            MessageBox.Show(fname);
 
             Program.ExitCode status = XMLManager.ExportToXML(this.db, fname);
             if (status != Program.ExitCode.Success)
@@ -367,7 +370,7 @@ namespace pmt
             }
             else
             {
-                MessageBox.Show(String.Format("DataBase was successfully exported to \n{0}!",fname));
+                MessageBox.Show(String.Format("DataBase was successfully exported to \n\n{0}!",fname));
             }
         }
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -375,7 +378,6 @@ namespace pmt
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
                 return;
             string fname = openFileDialog1.FileName;
-            MessageBox.Show(fname);
 
             Program.ExitCode status = XMLManager.ImportFromXML(this.db,fname);
             if (status != Program.ExitCode.Success)
@@ -384,8 +386,12 @@ namespace pmt
             }
             else
             {
-                MessageBox.Show(String.Format("DataBase was successfully imported from \n{0}!", fname));
+                MessageBox.Show(String.Format("DataBase was successfully imported from \n\n{0}!", fname));
             }
+
+            db = new rbacLINQ2SQLDataContext();
+            cb_Tables.Text = "Policy";
+            RenewDataGV_Tables("Policy");
         }
     }
 }
