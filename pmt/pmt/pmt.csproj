@@ -267,6 +267,7 @@
     <EmbeddedResource Include="RBACFuncForms\Form_rmObject.resx">
       <DependentUpon>Form_rmObject.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="rbacDataSet.xsc">
       <DependentUpon>rbacDataSet.xsd</DependentUpon>
     </None>

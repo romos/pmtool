@@ -225,6 +225,7 @@
             // 
             // btn_Submit
             // 
+            this.btn_Submit.Enabled = false;
             this.btn_Submit.Location = new System.Drawing.Point(284, 59);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(142, 25);
@@ -250,6 +251,7 @@
             this.dataGV_Tables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV_Tables.Location = new System.Drawing.Point(4, 87);
             this.dataGV_Tables.Name = "dataGV_Tables";
+            this.dataGV_Tables.ReadOnly = true;
             this.dataGV_Tables.Size = new System.Drawing.Size(422, 485);
             this.dataGV_Tables.TabIndex = 5;
             this.dataGV_Tables.TabStop = false;
@@ -310,6 +312,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
@@ -666,6 +669,7 @@
             this.btn_setCardinality.Size = new System.Drawing.Size(198, 21);
             this.btn_setCardinality.TabIndex = 12;
             this.btn_setCardinality.Text = "setCardinality";
+            this.toolTip1.SetToolTip(this.btn_setCardinality, "Temporary disabled");
             this.btn_setCardinality.UseVisualStyleBackColor = true;
             // 
             // btn_rmDSOD
@@ -677,6 +681,7 @@
             this.btn_rmDSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_rmDSOD.TabIndex = 11;
             this.btn_rmDSOD.Text = "rmDSOD";
+            this.toolTip1.SetToolTip(this.btn_rmDSOD, "Temporary disabled");
             this.btn_rmDSOD.UseVisualStyleBackColor = true;
             // 
             // btn_addDSOD
@@ -688,6 +693,7 @@
             this.btn_addDSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_addDSOD.TabIndex = 10;
             this.btn_addDSOD.Text = "addDSOD";
+            this.toolTip1.SetToolTip(this.btn_addDSOD, "Temporary disabled");
             this.btn_addDSOD.UseVisualStyleBackColor = true;
             // 
             // btn_rmSSOD
@@ -699,6 +705,7 @@
             this.btn_rmSSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_rmSSOD.TabIndex = 9;
             this.btn_rmSSOD.Text = "rmSSOD";
+            this.toolTip1.SetToolTip(this.btn_rmSSOD, "Temporary disabled");
             this.btn_rmSSOD.UseVisualStyleBackColor = true;
             // 
             // btn_addSSOD
@@ -710,6 +717,7 @@
             this.btn_addSSOD.Size = new System.Drawing.Size(96, 21);
             this.btn_addSSOD.TabIndex = 8;
             this.btn_addSSOD.Text = "addSSOD";
+            this.toolTip1.SetToolTip(this.btn_addSSOD, "Temporary disabled");
             this.btn_addSSOD.UseVisualStyleBackColor = true;
             // 
             // btn_rmInheritance
@@ -721,6 +729,7 @@
             this.btn_rmInheritance.Size = new System.Drawing.Size(96, 21);
             this.btn_rmInheritance.TabIndex = 7;
             this.btn_rmInheritance.Text = "rmInheritance";
+            this.toolTip1.SetToolTip(this.btn_rmInheritance, "Temporary disabled");
             this.btn_rmInheritance.UseVisualStyleBackColor = true;
             // 
             // btn_addInheritance
@@ -732,6 +741,7 @@
             this.btn_addInheritance.Size = new System.Drawing.Size(96, 21);
             this.btn_addInheritance.TabIndex = 6;
             this.btn_addInheritance.Text = "addInheritance";
+            this.toolTip1.SetToolTip(this.btn_addInheritance, "Temporary disabled");
             this.btn_addInheritance.UseVisualStyleBackColor = true;
             // 
             // btn_addAssignment
