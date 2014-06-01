@@ -889,7 +889,7 @@ namespace pmt
                     JuniorRole_Id = roleJ.First().Id,
                 };
 
-                // Check if DSOD exists:
+                // Check if RH exists:
                 var query = from t in db.RoleHierarchy
                             where  t.SeniorRole_Id == rh.SeniorRole_Id 
                                 && t.JuniorRole_Id == rh.JuniorRole_Id
